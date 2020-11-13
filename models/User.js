@@ -16,8 +16,8 @@ class User extends Model {
 
 // initialize the model's data and configuration
 User.init(
-// first argument: defines table columns and configuration
-{
+    // first argument: defines table columns and configuration
+    {
         // define columns with Sequelize DataTypes to define the data type
         // define an id column 
         id: {
