@@ -50,7 +50,7 @@ User.init(
             validate: {
                 len: [4]
             }
-        }
+        } 
     },
     // second argument: configures certain options for the table.
     {
