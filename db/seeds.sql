@@ -13,6 +13,6 @@ VALUES
 INSERT INTO profile (height_ft, height_in, weight, fitness_level,
 goal_consistency, goal_getinshape, goal_health, goal_strength, goal_weightloss, user_id)
 VALUES
-    (5, 3, 125, 'beginner', true, true, true, true, false, 1),
-    (5, 3, 125, 'beginner', true, true, true, true, false, 2),
+    (5, 10, 150, 'advanced', true, true, true, true, false, 1),
+    (5, 5, 125, 'intermediate', true, true, true, true, false, 2),
     (5, 3, 125, 'beginner', true, true, true, true, false, 3)
