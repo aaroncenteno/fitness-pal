@@ -1,0 +1,84 @@
+* {
+    box-sizing: border-box;
+}
+
+/* Color Palette */
+:root {
+    --gray: #464949;
+    --neon-blue: #36bdcf;
+    --neon-pink: #ff62d0;
+    --neon-green: #c7f856;
+    --black: #000000;
+    --white: #ffffff;
+}
+
+/* Main Layout Styling */
+header {
+    border-bottom: 2px solid black;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 1%;
+    background-color: var(--gray);
+}
+
+.options {
+    font-size: 18px;
+    padding-top: 10px;
+    display: flex;
+}
+
+.head-title {
+    margin-right: 20px;
+    padding: 10px;
+    background: rgba(0, 0, 0, .7);
+    align-items: center;
+    border-radius: 15px;
+    font-size: 55px;
+    width: 100%;
+    box-shadow: 10px 5px 15px var(--neon-blue);
+    text-decoration: none;
+    color: var(--neon-blue);
+}
+
+.nav-link {
+    margin-right: 20px;
+    padding: 5px;
+    background-color: var(--black);
+    align-items: center;
+    border-radius: 15px;
+    text-decoration: none;
+    color: var(--neon-blue);
+    font-weight: bold;
+    box-shadow: 2px 2px 10px var(--neon-blue);
+}
+
+main {
+    flex: 1;
+    padding: 2% 4%;
+}
+
+.wrapper {
+    width: 100%;
+    min-height: 100%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+}
+
+
+.nav-link:hover,
+.head-title:hover {
+    color: var(--neon-pink);
+    box-shadow: 2px 2px 10px var(--neon-pink);
+    transition: .5s;
+}
+
+.nav-link:active,
+.head-title:active {
+    color: var(--neon-blue);
+    box-shadow: 2px 2px 10px var(--neon-blue);
+    transition: .3s;
+}
+
+/* Sign-Up Styling */
