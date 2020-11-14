@@ -4,7 +4,7 @@
 
 /* Color Palette */
 :root {
-    --gray: #464949;
+    --gray: #adadad;
     --neon-blue: #36bdcf;
     --neon-pink: #ff62d0;
     --neon-green: #c7f856;
@@ -19,7 +19,8 @@ header {
     justify-content: space-between;
     align-items: center;
     padding: 0 1%;
-    background-color: var(--gray);
+    background: var(--gray);
+    background: linear-gradient(90deg, var(--neon-blue) 0%, var(--gray) 50%, var(--black) 100%);
 }
 
 .options {
@@ -36,7 +37,7 @@ header {
     border-radius: 15px;
     font-size: 55px;
     width: 100%;
-    box-shadow: 10px 5px 15px var(--neon-blue);
+    box-shadow: 10px 5px 10px var(--gray);
     text-decoration: none;
     color: var(--neon-blue);
 }
