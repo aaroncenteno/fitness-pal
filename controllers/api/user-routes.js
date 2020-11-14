@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { User, Buddy } = require('../../models');
+const { User, Buddy, Profile } = require('../../models');
 
 const withAuth = require('../../utils/auth');
 
@@ -17,7 +17,43 @@ router.get('/', (req, res) => {
         ;
 });
 
-// get one user and their buddies
+// get all profiles
+router.get('/profile', (req, res) => {
+    Profile.findAll({
+    })
+        .then(dbUserData => res.json(dbUserData))
+        .catch(err => {
+            console.log(err);
+            res.status(500).json(err);
+        })
+        ;
+});
+
+// get single profile
+router.get('/profile/:id', (req, res) => {
+    Profile.findOne({
+        where: {
+            id: req.params.id
+        }
+    })
+        .then(dbUserData => {
+            // if the search brings back nothing
+            if (!dbUserData) {
+                // send a 404 status to indicate everything is ok but no data found
+                res.status(404).json({ message: 'No profile found with this id' });
+                return;
+            }
+            // otherwise, send back the data
+            res.json(dbUserData);
+        })
+        .catch(err => {
+            console.log(err);
+            res.status(500).json(err);
+        })
+        ;
+})
+
+// get one user, their profile, and their buddies
 router.get('/:id', (req, res) => {
     User.findOne({
         where: {
@@ -32,6 +68,11 @@ router.get('/:id', (req, res) => {
                 attributes: ['id', 'username'],
                 through: Buddy,
                 as: 'buddies'
+            },
+            {
+                model: Profile,
+                attributes: ['id', 'height_ft', 'height_in', 'weight', 'fitness_level',
+                    'goal_consistency', 'goal_getinshape', 'goal_health', 'goal_strength', 'goal_weightloss', 'user_id']
             }
         ]
     })
