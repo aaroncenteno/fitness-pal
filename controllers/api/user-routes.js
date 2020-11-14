@@ -78,5 +78,44 @@ router.post('/', (req, res) => {
         ;
 });
 
+// log-in with user-input data
+router.post('/login', (req, res) => {
+    // expects {username: '', password: ''}
+    // query for a single user
+    User.findOne({
+        // query by username entered and assign to req.body.username
+        where: {
+            email: req.body.email
+        }
+    }).then(dbUserData => {
+        // if username is not found
+        if (!dbUserData) {
+            res.status(400).json({ message: 'No user with that username!' });
+            return;
+        }
+
+        // if username is found, verify the user's identity by matching the password
+        const validPassword = dbUserData.checkPassword(req.body.password);
+
+        // if password does not match, send back error message and exit 
+        if (!validPassword) {
+            res.status(400).json({ message: 'Incorrect password!' });
+            return;
+        }
+
+        // initiate the creation of the session before we send the response back
+        req.session.save(() => {
+            // declare session variables
+            // give server access to user's user_id, username, and a boolean of whether user is logged in
+            req.session.user_id = dbUserData.id;
+            req.session.username = dbUserData.username;
+            req.session.loggedIn = true;
+
+            // if there is a match, send message of log in
+            res.json({ user: dbUserData, message: 'You are now logged in!' });
+        });
+    });
+});
+
 
 module.exports = router;
