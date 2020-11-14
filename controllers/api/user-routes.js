@@ -117,5 +117,17 @@ router.post('/login', (req, res) => {
     });
 });
 
+// log out route
+router.post('/logout', (req, res) => {
+    if (req.session.loggedIn) {
+        req.session.destroy(() => {
+            // send back 204 status after the session has successfully been destroyed
+            res.status(204).end();
+        });
+    }
+    else {
+        res.status(404).end();
+    }
+});
 
 module.exports = router;
