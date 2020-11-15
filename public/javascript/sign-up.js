@@ -6,7 +6,7 @@ async function signupFormHandler(event) {
     const password = document.querySelector('#password-signup').value.trim();
     const takenUsername = document.querySelector('#taken-email');
     const takenUsername = document.querySelector('#taken-username');
-    
+
     if (email && username && password) {
         const response = await fetch('/api/users', {
             method: 'post',
@@ -17,14 +17,14 @@ async function signupFormHandler(event) {
             }),
             headers: { 'Content-Type': 'application/json' }
         });
-            // get all users and compare username email
-            const getUsers = await fetch('/api/users').then(
-            function(response) {
-                response.json().then(function(data) {
+        // get all users and compare username email
+        const getUsers = await fetch('/api/users').then(
+            function (response) {
+                response.json().then(function (data) {
                     let ifTakenUsername = false;
-                    let ifTakenEmail = false; 
+                    let ifTakenEmail = false;
                     for (let i = 0; i < data.length; i++) {
-                        if(username === data[i].username) {
+                        if (username === data[i].username) {
                             takenUsername.classList.remove('hide');
                             return ifTakenUsername = true;
                         } else if (email === data[i].email) {
@@ -34,9 +34,9 @@ async function signupFormHandler(event) {
                     }
                 })
             });
-        }  
-        if(response.ok) {
-            document.location.replace('/userinfo'); 
+    }
+    if (response.ok) {
+        document.location.replace('/userinfo');
     }
 }
 
