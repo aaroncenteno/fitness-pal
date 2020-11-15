@@ -242,11 +242,12 @@ router.post('/profile', withAuth, (req, res) => {
             height_in: req.body.height_in,
             weight: req.body.weight,
             fitness_level: req.body.fitness_level,
-            goal_consistency: req.body.goal_consistency,
-            goal_getinshape: req.body.goal_getinshape,
-            goal_health: req.body.goal_health,
-            goal_strength: req.body.goal_strength,
-            goal_weightloss: req.body.goal_weightloss,
+            goal: req.body.goal,
+            // goal_consistency: req.body.goal_consistency,
+            // goal_getinshape: req.body.goal_getinshape,
+            // goal_health: req.body.goal_health,
+            // goal_strength: req.body.goal_strength,
+            // goal_weightloss: req.body.goal_weightloss,
             user_id: req.body.user_id
             // user_id: req.session.user_id
         })
@@ -267,11 +268,12 @@ router.put('/profile/:id', withAuth, (req, res) => {
             height_in: req.body.height_in,
             weight: req.body.weight,
             fitness_level: req.body.fitness_level,
-            goal_consistency: req.body.goal_consistency,
-            goal_getinshape: req.body.goal_getinshape,
-            goal_health: req.body.goal_health,
-            goal_strength: req.body.goal_strength,
-            goal_weightloss: req.body.goal_weightloss
+            goal: req.body.goal,
+            // goal_consistency: req.body.goal_consistency,
+            // goal_getinshape: req.body.goal_getinshape,
+            // goal_health: req.body.goal_health,
+            // goal_strength: req.body.goal_strength,
+            // goal_weightloss: req.body.goal_weightloss
         },
         {
             where: {
