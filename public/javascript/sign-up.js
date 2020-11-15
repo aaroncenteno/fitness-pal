@@ -4,7 +4,7 @@ async function signupFormHandler(event) {
     const email = document.querySelector('#email-signup').value.trim();
     const username = document.querySelector('#username-signup').value.trim();
     const password = document.querySelector('#password-signup').value.trim();
-    const takenUsername = document.querySelector('#taken-email');
+    const takenEmail = document.querySelector('#taken-email');
     const takenUsername = document.querySelector('#taken-username');
 
     if (email && username && password) {
@@ -16,7 +16,12 @@ async function signupFormHandler(event) {
                 password
             }),
             headers: { 'Content-Type': 'application/json' }
+            
         });
+
+        if (response.ok) {
+            document.location.replace('/userinfo');
+        }
         // get all users and compare username email
         const getUsers = await fetch('/api/users').then(
             function (response) {
@@ -34,9 +39,6 @@ async function signupFormHandler(event) {
                     }
                 })
             });
-    }
-    if (response.ok) {
-        document.location.replace('/userinfo');
     }
 }
 
