@@ -142,3 +142,8 @@ main {
 .dropdown-check-list.visible .items {
     display: block;
 }
+
+.submit-btn {
+    width: fit-content;
+    height: 30px;
+}
