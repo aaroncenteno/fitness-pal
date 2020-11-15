@@ -20,7 +20,7 @@ async function signupFormHandler(event) {
         });
 
         if (response.ok) {
-            document.location.replace('/userinfo');
+            document.location.replace('/profile');
         }
         // get all users and compare username email
         const getUsers = await fetch('/api/users').then(
