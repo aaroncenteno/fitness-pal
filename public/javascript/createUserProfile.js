@@ -4,19 +4,21 @@ async function createProfileFormHandler(event) {
     const heightFeet = document.querySelector("#height-feet").value.trim();
     const heightInches = document.querySelector("#height-inches").value.trim();
     const height = heightFeet + "'" + heightInches + '"';
+    const weight = document.querySelector("#weight").value.trim();
     const fitnessLevel = document.querySelector("input[name='level']:checked").value;
-    const goals = Array
+    const goal = Array
         .from(document.querySelectorAll('input[type="checkbox"]'))
         .filter((checkbox) => checkbox.checked)
         .map((checkbox) => checkbox.value);
 
-    if (height && fitnessLevel && goals) {
+    if (height && weight && fitnessLevel && goal) {
         const response = await fetch('/api/profile/:id', {
             method: 'POST',
             body: JSON.stringify({
                 height,
+                weight,
                 fitnessLevel,
-                goals
+                goal
             }),
             headers: {
                 'Content-Type': 'application/json'
