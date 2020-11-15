@@ -31,7 +31,7 @@ Exercise.init(
             allowNull: false
         },
         fitness_level: {
-            type: DataTypes.INTEGER,
+            type: DataTypes.STRING,
             allowNull: false
         },
         instructions: {
