@@ -94,9 +94,10 @@ router.post('/login', (req, res) => {
     User.findOne({
         // query by username entered and assign to req.body.username
         where: {
-            email: req.body.email
+            username: req.body.username
         }
     }).then(dbUserData => {
+        console.log(dbUserData);
         // if username is not found
         if (!dbUserData) {
             res.status(400).json({ message: 'No user with that username!' });
