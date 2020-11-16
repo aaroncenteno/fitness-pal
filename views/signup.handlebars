@@ -1,30 +1,28 @@
 <div class="signup-wrapper">
-
-<div class="signup-innerWrapper">
-<form class="signup-form">
-    <div>
-        <p class="hide" id="taken-email">That e-mail already has an account! Try Logging in.</p>
-        <label for="email-signup" class="email-label">E-Mail:</label>
-        <input type="text" id="email-signup" />
+    <div class="signup-innerWrapper">
+        <form class="signup-form">
+            <div>
+                <p class="hide" id="taken-email">That e-mail already has an account! Try Logging in.</p>
+                <label for="email-signup" class="email-label">E-Mail:</label>
+                <input type="text" id="email-signup" />
+            </div>
+            <div>
+                <p class="hide" id="taken-username">That username is already taken! Try again.</p>
+                <label for="username-signup" class="username-label">Username:</label>
+                <input type="text" id="username-signup" />
+            </div>
+            <div>
+                <label for="password-signup" class="password-label">Password:</label>
+                <input type="password" id="password-signup" class="password-input"/>
+            </div>
+            <div>
+                <button type="submit" class="signup-btn"><i class="fas fa-user-plus"></i> Sign Up</button>
+            </div>
+            <div>
+                <a href="/login" class="login-link">Login Instead</a>
+            </div>
+        </form>
     </div>
-    <div>
-        <p class="hide" id="taken-username">That username is already taken! Try again.</p>
-        <label for="username-signup" class="username-label">Username:</label>
-        <input type="text" id="username-signup" />
-    </div>
-    <div>
-        <label for="password-signup" class="password-label">Password:</label>
-        <input type="password" id="password-signup" class="password-input"/>
-    </div>
-    <div>
-        <button type="submit" class="signup-btn"><i class="fas fa-user-plus"></i> Sign Up</button>
-    </div>
-    <div>
-        <a href="/login" class="login-link">Login Instead</a>
-    </div>
-</form>
 </div>
-</div>
-
 
 <script src="/javascript/sign-up.js"></script>
