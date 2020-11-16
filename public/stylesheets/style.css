@@ -59,6 +59,16 @@ header {
     box-shadow: 2px 2px 10px var(--neon-blue);
 }
 
+.btn-no-style {
+    border: none;
+    cursor: pointer;
+    text-decoration: none;
+    font-size: 100%;
+    font-family: 'Trample Over Beauty',sans-serif;
+    font-weight: bold;
+    transition: color .1s;
+}
+
 .wrapper {
     width: 100%;
     min-height: 100%;

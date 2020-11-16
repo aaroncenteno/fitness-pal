@@ -2,7 +2,9 @@ const router = require('express').Router();
 
 // route to dashboard
 router.get('/', (req, res) => {
-    res.render('dashboard');
+    res.render('dashboard', {
+        loggedIn: req.session.loggedIn 
+    });
 });
 
 // display edit-profile form

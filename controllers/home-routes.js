@@ -2,7 +2,9 @@ const router = require('express').Router();
 
 // route to home
 router.get('/', (req, res) => {
-    res.render('homepage');
+    res.render('homepage', {
+        loggedIn: req.session.loggedIn 
+    });
 });
 
 // route to display log-in
