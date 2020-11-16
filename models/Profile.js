@@ -39,26 +39,30 @@ Profile.init(
             type: DataTypes.STRING,
             allowNull: true
         },
-        goal_consistency: {
-            type: DataTypes.BOOLEAN,
-            allowNull: false
-        },
-        goal_getinshape: {
-            type: DataTypes.BOOLEAN,
-            allowNull: false
-        },
-        goal_health: {
-            type: DataTypes.BOOLEAN,
-            allowNull: false
-        },
-        goal_strength: {
-            type: DataTypes.BOOLEAN,
-            allowNull: false
-        },
-        goal_weightloss: {
-            type: DataTypes.BOOLEAN,
-            allowNull: false
-        },
+        // goal: {
+        //     type: DataTypes.STRING,
+        //     allowNull: true
+        // },
+        // goal_consistency: {
+        //     type: DataTypes.BOOLEAN,
+        //     allowNull: false
+        // },
+        // goal_getinshape: {
+        //     type: DataTypes.BOOLEAN,
+        //     allowNull: false
+        // },
+        // goal_health: {
+        //     type: DataTypes.BOOLEAN,
+        //     allowNull: false
+        // },
+        // goal_strength: {
+        //     type: DataTypes.BOOLEAN,
+        //     allowNull: false
+        // },
+        // goal_weightloss: {
+        //     type: DataTypes.BOOLEAN,
+        //     allowNull: false
+        // },
         user_id: {
             type: DataTypes.INTEGER,
             allowNull: false,
@@ -80,7 +84,6 @@ Profile.init(
         // make it so our model name stays lowercase in the database
         modelName: 'profile'
     }
-
 )
 
 // export the newly created model so we can use it in other parts of the app

@@ -12,6 +12,10 @@
     --white: #ffffff;
 }
 
+body {
+    font-family: 'Trample Over Beauty', sans-serif;
+}
+
 /* Main Layout Styling */
 header {
     border-bottom: 2px solid black;
@@ -40,6 +44,7 @@ header {
     box-shadow: 10px 5px 10px var(--gray);
     text-decoration: none;
     color: var(--neon-blue);
+    font-family: 'Trample Over Beauty', sans-serif;
 }
 
 .nav-link {
@@ -67,7 +72,6 @@ main {
     flex-direction: column;
 }
 
-
 .nav-link:hover,
 .head-title:hover {
     color: var(--neon-pink);
@@ -83,6 +87,121 @@ main {
 }
 
 /* Sign-Up Styling */
+.signup-wrapper {
+    background: var(--gray);
+    background: linear-gradient(150deg, var(--neon-blue) 0%, var(--gray) 50%, var(--neon-green) 100%);
+    height: 100vh;
+}
+
+.signup-innerWrapper {
+    padding-top: 100px;
+}
+
+.signup-form {
+    margin: 0 auto;
+    width: fit-content;
+    padding: 40px;
+    border-radius: 15px;
+    border: 5px inset var(--neon-blue);
+    background: rgba(0, 0, 0, .4);
+    box-shadow: 10px 10px 40px var(--neon-blue);
+}
+
+.hide {
+    display: none !important;
+}
+
+#email-signup,
+#username-signup,
+.password-input {
+    background: var(--black);
+    font-family: Arial, Helvetica, sans-serif;
+    padding: .5%;
+    border-radius: 5px;
+    border: 1px solid var(--neon-blue);
+    color: var(--white);
+    font-size: 20px;
+    width: 300px;
+    margin-bottom: 15px;
+}
+
+#email-signup:focus,
+#username-signup:focus,
+.password-input:focus {
+    outline: none;
+    border: 1px solid var(--neon-pink);
+} 
+
+.email-label,
+.username-label,
+.password-label,
+#taken-username,
+#taken-email {
+    display: block;
+    font-size: 1.5em;
+    color: var(--neon-blue);
+    padding: 5px 10px 5px 10px;
+    border-radius: 15px;
+    border: 1px solid var(--neon-blue);
+    width: fit-content;
+    margin: 0 auto;
+    margin-bottom: 10px;
+    background: var(--black);
+}
+
+#taken-username,
+#taken-email {
+    width: 300px;
+}
+
+.password-input {
+    color: var(--white);
+}
+
+.signup-btn {
+    background-color: var(--neon-blue);
+    border: 0;
+    padding: 1%;
+    color: var(--black);
+    font-weight: bold;
+    font-size: 20px;
+    transition: background-color .1s;
+    cursor: pointer;
+    border-radius: 5px;
+    margin: 0 0 40px 100px;
+    font-family: 'Trample Over Beauty', sans-serif;
+}
+
+.signup-btn:hover {
+    background-color: var(--neon-green);
+    transition: .3s;
+}
+
+.signup-btn:active {
+    outline: none;
+    background-color: var(--neon-blue);
+}
+
+.login-link {
+    text-decoration: none;
+    padding: 10px;
+    border-radius: 15px;
+    border: 1px solid var(--neon-blue);
+    background-color: var(--black);
+    color: var(--neon-blue);
+    font-weight: bold;
+    transition: color .1s;
+    margin: 0 0 0 90px;
+}
+
+.login-link:hover {
+    color: var(--neon-green);
+    border: 1px solid var(--neon-green);
+}
+
+.login-link:active {
+    color: var(--neon-blue);
+}
 
 /* Create User Profile Styling */
 .user-info-form {

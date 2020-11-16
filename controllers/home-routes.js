@@ -17,12 +17,12 @@ router.get('/login', (req, res) => {
 
 // route to display sign-up
 router.get('/signup', (req, res) => {
-    // check for a session and redirect to the log-in if one exists
-    if (req.session.loggedIn) {
-        res.redirect('/login');
-        return;
-    }
     res.render('signup');
+});
+
+// route to display create-profile page
+router.get('/profile', (req, res) => {
+    res.render('create-user-profile');
 });
 
 module.exports = router;
