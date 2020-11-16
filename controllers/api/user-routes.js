@@ -39,8 +39,8 @@ router.get('/:id', (req, res) => {
             },
             {
                 model: Profile,
-                attributes: ['id', 'height_ft', 'height_in', 'weight', 'fitness_level',
-                    'goal', 'user_id']
+                // attributes: ['id', 'height_ft', 'height_in', 'weight', 'fitness_level', 'goal', 'user_id']
+                attributes: ['id', 'height_ft', 'height_in', 'weight', 'fitness_level', 'user_id']
             }
         ]
     })
@@ -100,7 +100,7 @@ router.post('/login', (req, res) => {
         console.log(dbUserData);
         // if username is not found
         if (!dbUserData) {
-            res.status(400).json({ message: 'No user with that username!' });
+            res.status(400).json({ message: 'No user with that email!' });
             return;
         }
 
@@ -243,7 +243,7 @@ router.post('/profile', withAuth, (req, res) => {
             height_in: req.body.height_in,
             weight: req.body.weight,
             fitness_level: req.body.fitness_level,
-            goal: req.body.goal,
+            // goal: req.body.goal,
             // goal_consistency: req.body.goal_consistency,
             // goal_getinshape: req.body.goal_getinshape,
             // goal_health: req.body.goal_health,
@@ -269,7 +269,7 @@ router.put('/profile/:id', withAuth, (req, res) => {
             height_in: req.body.height_in,
             weight: req.body.weight,
             fitness_level: req.body.fitness_level,
-            goal: req.body.goal
+            // goal: req.body.goal
             // goal_consistency: req.body.goal_consistency,
             // goal_getinshape: req.body.goal_getinshape,
             // goal_health: req.body.goal_health,

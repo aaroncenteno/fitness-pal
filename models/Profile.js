@@ -39,10 +39,10 @@ Profile.init(
             type: DataTypes.STRING,
             allowNull: true
         },
-        goal: {
-            type: DataTypes.STRING,
-            allowNull: true
-        },
+        // goal: {
+        //     type: DataTypes.STRING,
+        //     allowNull: true
+        // },
         // goal_consistency: {
         //     type: DataTypes.BOOLEAN,
         //     allowNull: false
