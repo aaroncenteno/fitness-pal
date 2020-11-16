@@ -249,8 +249,8 @@ router.post('/profile', withAuth, (req, res) => {
             // goal_health: req.body.goal_health,
             // goal_strength: req.body.goal_strength,
             // goal_weightloss: req.body.goal_weightloss,
-            user_id: req.body.user_id
-            // user_id: req.session.user_id
+            // user_id: req.body.user_id
+            user_id: req.session.user_id
         })
         .then(dbProfileData => res.json(dbProfileData))
         .catch(err => {

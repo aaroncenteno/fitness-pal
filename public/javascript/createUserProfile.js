@@ -10,8 +10,8 @@ async function createProfileFormHandler(event) {
         .filter((checkbox) => checkbox.checked)
         .map((checkbox) => checkbox.value);
 
-    if (height_ft && height_in && weight && fitnes_level && goal) {
-        const response = await fetch('/api/profile/:id', {
+    if (height_ft && height_in && weight && fitness_level && goal) {
+        const response = await fetch('/api/users/profile', {
             method: 'POST',
             body: JSON.stringify({
                 height_ft,

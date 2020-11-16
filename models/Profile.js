@@ -41,7 +41,7 @@ Profile.init(
         },
         goal: {
             type: DataTypes.STRING,
-            allowNull: false
+            allowNull: true
         },
         // goal_consistency: {
         //     type: DataTypes.BOOLEAN,
