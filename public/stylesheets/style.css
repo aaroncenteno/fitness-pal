@@ -67,7 +67,6 @@ header {
     flex-direction: column;
 }
 
-
 .nav-link:hover,
 .head-title:hover {
     color: var(--neon-pink);
@@ -200,8 +199,6 @@ header {
 .login-link:active {
     color: var(--neon-blue);
 }
-
-
 
 /* Create User Profile Styling */
 .user-info-form {
