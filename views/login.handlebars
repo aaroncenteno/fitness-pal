@@ -1,15 +1,22 @@
-<form class="login-form">
-  <div>
-    <label for="username-login" class="title">Username:</label>
-    <input type="text" id="username-login" />
+<div class="login-wrapper">
+  <div class="login-innerWrapper">
+    <form class="login-form">
+        <div>
+            <p class="hide" id="not-found">That username does not exist! Try again or join.</p>
+            <label for="username-login" class="username-label">Username:</label>
+            <input type="text" id="username-login" />
+        </div>
+        <div>
+            <label for="password-login" class="password-label">Password:</label>
+            <input type="password" id="password-login" />
+        </div>
+        <div>
+            <button type="submit" class="login-btn">Login</button>
+        </div>
+        <div>
+            <a href="/signup" class="signup-link"><i class="fas fa-user-plus"></i> Sign Up Instead</a>
+        </div>
+    </form>
   </div>
-  <div>
-    <label for="password-login" class="title">Password:</label>
-    <input type="password" id="password-login" />
-  </div>
-  <div>
-    <button type="submit" class="login">Login</button>
-  </div>
-</form>
-
-<script src="/javascript/login.js"></script>
+</div>
+<script src="/javascript/login.js"></script> 
