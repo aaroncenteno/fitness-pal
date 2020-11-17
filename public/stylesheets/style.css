@@ -69,6 +69,10 @@ header {
     transition: color .1s;
 }
 
+.btn-no-style:focus {
+    outline: none;
+}
+
 .wrapper {
     width: 100%;
     min-height: 100%;
