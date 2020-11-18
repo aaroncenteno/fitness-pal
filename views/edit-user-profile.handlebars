@@ -10,19 +10,19 @@
             <div id="level-list" class="dropdown-check-list" tabindex="100">
                 <span class="anchor">Has your fitness level changed?</span>
                 <ul class="items">
-                    <li><input id="beginner-level" name="level" type="radio" value="Beginner"/><label for="beginner-level">Beginner</label></li>
-                    <li><input id="intermediate-level" name="level" type="radio" value="Intermediate"/><label for="intermediate-level">Intermediate</label></li>
-                    <li><input id="advanced-level" name="level" type="radio" value="Advanced"/><label for="advanced-level">Advanced</label></li>
+                    <li><input id="beginner-level" name="level" type="radio" value="Beginner" checked={{profile.beginner}}/><label for="beginner-level">Beginner</label></li>
+                    <li><input id="intermediate-level" name="level" type="radio" value="Intermediate" checked={{profile.intermediate}}/><label for="intermediate-level">Intermediate</label></li>
+                    <li><input id="advanced-level" name="level" type="radio" value="Advanced" checked={{profile.advanced}}/><label for="advanced-level" >Advanced</label></li>
                 </ul>
             </div>
             <div id="goal-list" class="dropdown-check-list" tabindex="100">
                 <span class="anchor">Have your goals changed?</span>
                 <ul class="items">
-                    <li><input id="lose-weight" name="goals" type="checkbox" value="Lose Weight"/><label for="lose-weight">Lose Weight</label></li>
-                    <li><input id="improve-strength" name="goals" type="checkbox" value="Improve Strength"/><label for="improve-strength">Improve Strength</label></li>
-                    <li><input id="consistency" name="goals" type="checkbox" value="Consistency"/><label for="consistency">Consistency</label></li>
-                    <li><input id="get-in-shape" name="goals" type="checkbox" value="Get In Shape"/><label for="get-in-shape">Get In Shape</label></li>
-                    <li><input id="feel-healthier" name="goals" type="checkbox" value="Feel Healthier"/><label for="feel-healthier">Feel Healthier</label></li>
+                    <li><input id="lose-weight" name="goals" type="checkbox" value="Lose Weight" {{profile.loseWeight}}/><label for="lose-weight">Lose Weight</label></li>
+                    <li><input id="improve-strength" name="goals" type="checkbox" value="Improve Strength" {{profile.improveStrength}}/><label for="improve-strength">Improve Strength</label></li>
+                    <li><input id="consistency" name="goals" type="checkbox" value="Consistency" {{profile.consistency}}/><label for="consistency">Consistency</label></li>
+                    <li><input id="get-in-shape" name="goals" type="checkbox" value="Get In Shape" {{profile.getInShape}}/><label for="get-in-shape">Get In Shape</label></li>
+                    <li><input id="feel-healthier" name="goals" type="checkbox" value="Feel Healthier" {{profile.feelHealthier}}/><label for="feel-healthier">Feel Healthier</label></li>
                 </ul>
             </div>
             <button type="submit" class="update-btn">Update Profile!</button>
