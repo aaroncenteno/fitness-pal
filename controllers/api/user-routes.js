@@ -31,10 +31,16 @@ router.get('/:id', (req, res) => {
         attributes: { exclude: ['password'] },
         include: [
             // include Buddy model 
+            // {
+            //     model: User,
+            //     attributes: ['id', 'username'],
+            //     through: Buddy,
+            //     as: 'buddies'
+            // },
             {
-                model: User,
-                attributes: ['id', 'username'],
-                through: Buddy,
+                model: Buddy,
+                attributes: ['id', 'user_id', 'buddy_id'],
+                through: 'UserBuddy',
                 as: 'buddies'
             },
             {
@@ -164,8 +170,7 @@ router.get('/:id/buddy', (req, res) => {
                 model: User,
                 attributes: ['username']
             }
-        ]
-        
+        ]       
     })
     .then(dbPostData => {
         if (!dbPostData) {
