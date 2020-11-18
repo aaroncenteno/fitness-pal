@@ -31,16 +31,10 @@ router.get('/:id', (req, res) => {
         attributes: { exclude: ['password'] },
         include: [
             // include Buddy model 
-            // {
-            //     model: User,
-            //     attributes: ['id', 'username'],
-            //     through: Buddy,
-            //     as: 'buddies'
-            // },
             {
-                model: Buddy,
-                attributes: ['id', 'user_id', 'buddy_id'],
-                through: 'UserBuddy',
+                model: User,
+                attributes: ['id', 'username'],
+                through: Buddy,
                 as: 'buddies'
             },
             {
@@ -164,20 +158,14 @@ router.get('/:id/buddy', (req, res) => {
     Buddy.findOne({
         where: {
             user_id: req.params.id
-        },
-        include: [
-            {
-                model: User,
-                attributes: ['username']
-            }
-        ]       
+        }
     })
-    .then(dbPostData => {
-        if (!dbPostData) {
-            res.status(404).json({ message: 'No post found with this id' });
+    .then(dbBuddyData => {
+        if (!dbBuddyData) {
+            res.status(404).json({ message: 'No buddy list found with this id' });
             return;
         }
-        res.json(dbPostData);
+        res.json(dbBuddyData);
     })
     .catch(err => {
         console.log(err);
@@ -187,20 +175,21 @@ router.get('/:id/buddy', (req, res) => {
 
 // add a buddy to a user's buddy list
 // this doesn't work yet
-// router.post('/:id/buddy', withAuth, (req, res) => {
-//     Buddy.create(
-//         {
-//             buddy_id: req.body.buddy_id,
-//             user_id: req.params.id
-//             // user_id: req.session.user_id
-//         }
-//     )
-//     .then(dbUserData => res.json(dbUserData))
-//     .catch(err => {
-//         console.log(err);
-//         res.status(500).json(err);
-//     });
-// });
+router.post('/buddy/:id', withAuth, (req, res) => {
+    console.log(req.body);
+    Buddy.create(
+        {
+            buddy_id: req.body.user_id,
+            user_id: req.params.id
+            // user_id: req.session.user_id
+        }
+    )
+    .then(dbBuddyData => res.json(dbBuddyData))
+    .catch(err => {
+        console.log(err);
+        res.status(500).json(err);
+    });
+});
 
 // delete a user
 router.delete('/:id', withAuth, (req, res) => {
