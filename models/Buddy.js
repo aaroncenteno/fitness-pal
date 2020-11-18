@@ -13,6 +13,22 @@ Buddy.init(
             allowNull: false,
             primaryKey: true,
             autoIncrement: true
+        },
+        user_id: {
+            type: DataTypes.INTEGER,
+            allowNull: false,
+            references: {
+                model: 'user',
+                key: 'id'
+            }
+        },
+        buddy_id: {
+            type: DataTypes.INTEGER,
+            allowNull: false,
+            references: {
+                model: 'user',
+                key: 'id'
+            }
         }
     },
     {

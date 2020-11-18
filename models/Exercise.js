@@ -17,6 +17,10 @@ Exercise.init(
             primaryKey: true,
             autoIncrement: true
         },
+        // user_created: {
+        //     type: DataTypes.BOOLEAN,
+        //     allowNull: false
+        // },
         // define a username column
         exercise_name: {
             type: DataTypes.STRING,
