@@ -14,6 +14,7 @@
 
 body {
     font-family: 'Trample Over Beauty', sans-serif;
+    
 }
 
 /* Main Layout Styling */
@@ -419,13 +420,15 @@ footer {
 
 /* Create/Edit Profile Styling */
 
-.edit-profile-jumbotron {
+.edit-profile-jumbotron,
+.create-profile-jumbotron {
     background-size: cover;
     background-image:linear-gradient(150deg, rgba(54, 189, 207, .4) 0%, rgba(173, 173, 173, .6) 50%, rgba(199, 248, 86, .4) 100%), url("../imgs/gym.jpg") ;
     height: 100vh;
 }
 
-.edit-profile-wrapper {
+.edit-profile-wrapper,
+.create-profile-wrapper {
     padding-top: 100px;
 }
 
@@ -441,13 +444,13 @@ footer {
 }
 
 .update-btn,
-.cancel-btn {
+.cancel-btn,
+.create-profile-btn {
     border: 2px var(--neon-blue) solid;
     border-radius: 15px;
     cursor: pointer;
     font-size: 34px;
     font-family: 'Trample Over Beauty',sans-serif;
-    font-weight: bold;
     transition: .4s;
     color: var(--neon-blue);
     background-color: black;
@@ -455,21 +458,24 @@ footer {
     margin-bottom: 20px;
     text-decoration: none;
     padding: 5px;
+    -webkit-text-stroke-width: 2px;
+    -webkit-text-stroke-color: black;
 }
 
 .update-btn:hover,
-.cancel-btn:hover {
+.cancel-btn:hover,
+.create-profile-btn:hover {
     border: 2px var(--neon-green) solid;
     border-radius: 15px;
     color: var(--neon-green);
 }
 
 .update-btn:focus,
-.cancel-btn:focus {
+.cancel-btn:focus,
+.create-profile-btn:focus {
     outline: none;
 }
 
 .cancel-btn {
-    font-family: sans-serif;
     margin: 0 auto;
 }
