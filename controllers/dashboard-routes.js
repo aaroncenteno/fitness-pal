@@ -11,7 +11,9 @@ router.get('/', (req, res) => {
 router.get('/profile', (req, res) => {
     // check for a session and redirect to the homepage if one exists
     if (req.session.loggedIn) {
-        res.render('edit-user-profile');
+        res.render('edit-user-profile', {
+            loggedIn: req.session.loggedIn
+        });
         return;
     }
     res.render('login');

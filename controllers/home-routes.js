@@ -24,7 +24,9 @@ router.get('/signup', (req, res) => {
 
 // route to display create-profile page
 router.get('/profile', (req, res) => {
-    res.render('create-user-profile');
+    res.render('create-user-profile', {
+        loggedIn: req.session.loggedIn
+    });
 });
 
 module.exports = router;
