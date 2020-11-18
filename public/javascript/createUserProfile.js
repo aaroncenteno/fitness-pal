@@ -5,13 +5,17 @@ async function createProfileFormHandler(event) {
     const height_in = document.querySelector("#height-inches").value.trim();
     const weight = document.querySelector("#weight").value.trim();
     const fitness_level = document.querySelector("input[name='level']:checked").value;
-    // const goal = Array
-    //     .from(document.querySelectorAll('input[type="checkbox"]'))
-    //     .filter((checkbox) => checkbox.checked)
-    //     .map((checkbox) => checkbox.value);
+    const goal_array = Array
+        .from(document.querySelectorAll('input[type="checkbox"]'))
+        .filter((checkbox) => checkbox.checked)
+        .map((checkbox) => checkbox.value);
+    const goal = goal_array.join(",")
 
-    // if (height_ft && height_in && weight && fitness_level && goal) {
-    if (height_ft && height_in && weight && fitness_level) {
+
+    if (height_ft && height_in && weight && fitness_level && goal) {
+    // if (height_ft && height_in && weight && fitness_level) {
+        console.log(goal);
+        console.log(fitness_level);
             const response = await fetch('/api/users/profile', {
             method: 'POST',
             body: JSON.stringify({
@@ -19,18 +23,18 @@ async function createProfileFormHandler(event) {
                 height_in,
                 weight,
                 fitness_level,
-                // goal
+                goal
             }),
             headers: {
                 'Content-Type': 'application/json'
             }
         });
 
-        if (response.ok) {
-            document.location.replace('/dashboard')
-        } else {
-            console.log(response.statusText);
-        }
+        // if (response.ok) {
+        //     document.location.replace('/dashboard')
+        // } else {
+        //     console.log(response.statusText);
+        // }
     }
 }
 
