@@ -348,15 +348,22 @@ footer {
 
 /* Create User Profile Styling */
 .user-info-form {
-    width: 100%;
+    font-size: 24px;
     text-align: -webkit-center;
     display: grid;
+    margin: 0 auto;
+    padding-top: 500px;
+    width: fit-content;
+    padding: 40px;
+    border-radius: 15px;
+    border: 5px inset var(--neon-blue);
+    background: rgba(0, 0, 0, .4);
+    box-shadow: 10px 10px 40px var(--neon-blue);
+    color: var(--neon-green);
+    -webkit-text-stroke-width: 2px;
+    -webkit-text-stroke-color: black;
 }
 
-.dropdown-check-list{
-    width: 40%;
-    position: relative; left: 450px ;
-}
 .dropdown-check-list:focus{
     outline:0;
 }
@@ -408,4 +415,61 @@ footer {
 .submit-btn {
     width: fit-content;
     height: 30px;
+}
+
+/* Create/Edit Profile Styling */
+
+.edit-profile-jumbotron {
+    background-size: cover;
+    background-image:linear-gradient(150deg, rgba(54, 189, 207, .4) 0%, rgba(173, 173, 173, .6) 50%, rgba(199, 248, 86, .4) 100%), url("../imgs/gym.jpg") ;
+    height: 100vh;
+}
+
+.edit-profile-wrapper {
+    padding-top: 100px;
+}
+
+.height-feet,
+.height-inches,
+.weight-input {
+    width: 3em;
+}
+
+#goal-list,
+#level-list {
+    padding-bottom: 40px;
+}
+
+.update-btn,
+.cancel-btn {
+    border: 2px var(--neon-blue) solid;
+    border-radius: 15px;
+    cursor: pointer;
+    font-size: 34px;
+    font-family: 'Trample Over Beauty',sans-serif;
+    font-weight: bold;
+    transition: .4s;
+    color: var(--neon-blue);
+    background-color: black;
+    width: fit-content;
+    margin-bottom: 20px;
+    text-decoration: none;
+    padding: 5px;
+}
+
+.update-btn:hover,
+.cancel-btn:hover {
+    border: 2px var(--neon-green) solid;
+    border-radius: 15px;
+    color: var(--neon-green);
+}
+
+.update-btn:focus,
+.cancel-btn:focus {
+    outline: none;
+}
+
+.cancel-btn {
+    font-family: sans-serif;
+    margin: 0 auto;
 }
