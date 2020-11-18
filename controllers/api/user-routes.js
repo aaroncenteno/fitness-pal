@@ -153,6 +153,44 @@ router.put('/:id', withAuth, (req, res) => {
         ;
 });
 
+// get a user's buddy list
+router.get('/:id/buddy', (req, res) => {
+    Buddy.findOne({
+        where: {
+            user_id: req.params.id
+        }
+    })
+    .then(dbBuddyData => {
+        if (!dbBuddyData) {
+            res.status(404).json({ message: 'No buddy list found with this id' });
+            return;
+        }
+        res.json(dbBuddyData);
+    })
+    .catch(err => {
+        console.log(err);
+        res.status(500).json(err);
+    });
+})
+
+// add a buddy to a user's buddy list
+// this doesn't work yet
+router.post('/buddy/:id', withAuth, (req, res) => {
+    console.log(req.body);
+    Buddy.create(
+        {
+            buddy_id: req.body.user_id,
+            user_id: req.params.id
+            // user_id: req.session.user_id
+        }
+    )
+    .then(dbBuddyData => res.json(dbBuddyData))
+    .catch(err => {
+        console.log(err);
+        res.status(500).json(err);
+    });
+});
+
 // delete a user
 router.delete('/:id', withAuth, (req, res) => {
     User.destroy({

@@ -6,7 +6,8 @@ const Exercise = require('./Exercise');
 // a user can have many buddies
 User.belongsToMany(User, {
     through: Buddy,
-    as: 'buddies'
+    as: 'buddies',
+    // foreignKey: 'user_id'
 })
 
 // a user can only have one profile
