@@ -59,6 +59,11 @@ header {
     box-shadow: 2px 2px 10px var(--neon-blue);
 }
 
+main {
+    flex: 1;
+    padding: 2% 4%;
+}
+
 .wrapper {
     width: 100%;
     min-height: 100%;
@@ -66,7 +71,6 @@ header {
     display: flex;
     flex-direction: column;
 }
-
 
 .nav-link:hover,
 .head-title:hover {
@@ -198,8 +202,6 @@ header {
 .login-link:active {
     color: var(--neon-blue);
 }
-
-
 
 /* Create User Profile Styling */
 .user-info-form {

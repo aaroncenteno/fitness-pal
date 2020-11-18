@@ -41,6 +41,7 @@ router.get('/:id', (req, res) => {
                 model: Profile,
                 // attributes: ['id', 'height_ft', 'height_in', 'weight', 'fitness_level', 'goal', 'user_id']
                 attributes: ['id', 'height_ft', 'height_in', 'weight', 'fitness_level', 'user_id']
+
             }
         ]
     })
