@@ -186,8 +186,8 @@ router.post('/buddy', withAuth, (req, res) => {
     Buddy.create(
         {
             buddy_id: req.body.buddy_id,
-            user_id: req.body.user_id
-            // user_id: req.session.user_id
+            // user_id: req.body.user_id
+            user_id: req.session.user_id
         }
     )
     .then(dbBuddyData => res.json(dbBuddyData))

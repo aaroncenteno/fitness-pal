@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { Profile, User } = require('../models')
+const { Profile, User, Personal_Exercise, Workout } = require('../models')
 
 // route to dashboard
 router.get('/', (req, res) => {
@@ -8,7 +8,7 @@ router.get('/', (req, res) => {
     });
 });
 
-// display edit-profile form
+// display edit-profile form and data
 router.get('/profile/:id', (req, res) => {
     Profile.findOne({
         where: {
@@ -66,6 +66,71 @@ router.get('/profile/:id', (req, res) => {
     //     return;
     // }
     // res.render('login');
+});
+
+// display personal exercise form and data for edit
+router.get('/edit-personal/:id', withAuth, (req, res) => {
+
+    Personal_Exercise.findOne({
+        where: {
+            id: req.params.id
+        },
+        attributes: [
+            'exercise_name',
+            'gym_no_gym',
+            'upper_lower',
+            'fitness_level',
+            'instructions'
+        ]
+    })
+        .then(dbExerciseData => {
+            if (!dbExerciseData) {
+                res.status(404).json({ message: 'No personal exercise found with this id' });
+                return;
+            }
+
+            // serialize the data
+            const post = dbExerciseData.get({ plain: true });
+
+            // pass data to template
+            // pass a session variable to the template
+            res.render('edit-exercise', { personal_exercise, loggedIn: true });
+        })
+        .catch(err => {
+            console.log(err);
+            res.status(500).json(err);
+        });
+});
+
+// display workout form and data for edit
+router.get('/edit-workout/:id', withAuth, (req, res) => {
+
+    Workout.findOne({
+        where: {
+            id: req.params.id
+        },
+        attributes: [
+            'exercise_list',
+            'personal_list'
+        ]
+    })
+        .then(dbExerciseData => {
+            if (!dbExerciseData) {
+                res.status(404).json({ message: 'No workout found with this id' });
+                return;
+            }
+
+            // serialize the data
+            const post = dbExerciseData.get({ plain: true });
+
+            // pass data to template
+            // pass a session variable to the template
+            res.render('edit-workout', { workout, loggedIn: true });
+        })
+        .catch(err => {
+            console.log(err);
+            res.status(500).json(err);
+        });
 });
 
 module.exports = router;

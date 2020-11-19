@@ -82,8 +82,8 @@ router.post('/personal', (req, res) => {
             upper_lower: req.body.upper_lower,
             fitness_level: req.body.fitness_level,
             instructions: req.body.instructions,
-            user_id: req.body.user_id
-            // user_id: req.session.user_id
+            // user_id: req.body.user_id
+            user_id: req.session.user_id
         }
     )
         .then(dbExerciseData => res.json(dbExerciseData))
@@ -177,8 +177,8 @@ router.post('/workout', (req, res) => {
         {
             exercise_list: req.body.exercise_list,
             personal_list: req.body.personal_list,
-            user_id: req.body.user_id
-            // user_id: req.session.user_id
+            // user_id: req.body.user_id
+            user_id: req.session.user_id
         }
     )
         .then(dbExerciseData => res.json(dbExerciseData))
