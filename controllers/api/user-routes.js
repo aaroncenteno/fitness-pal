@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { User, Buddy, Profile } = require('../../models');
+const { User, Buddy, Profile, Personal_Exercise, Workout } = require('../../models');
 
 const withAuth = require('../../utils/auth');
 
@@ -42,6 +42,14 @@ router.get('/:id', (req, res) => {
                 attributes: ['id', 'height_ft', 'height_in', 'weight', 'fitness_level', 'goal', 'user_id']
                 // attributes: ['id', 'height_ft', 'height_in', 'weight', 'fitness_level', 'user_id']
 
+            },
+            {
+                model: Personal_Exercise,
+                attributes: ['id', 'exercise_name', 'gym_no_gym', 'upper_lower', 'fitness_level', 'instructions']
+            },
+            {
+                model: Workout,
+                attributes: ['id', 'exercise_list', 'personal_list']
             }
         ]
     })
