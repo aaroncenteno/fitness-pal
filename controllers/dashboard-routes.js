@@ -69,7 +69,7 @@ router.get('/profile/:id', (req, res) => {
 });
 
 // display personal exercise form and data for edit
-router.get('/edit-personal/:id', withAuth, (req, res) => {
+router.get('/edit-personal/:id', (req, res) => {
 
     Personal_Exercise.findOne({
         where: {
@@ -90,7 +90,7 @@ router.get('/edit-personal/:id', withAuth, (req, res) => {
             }
 
             // serialize the data
-            const post = dbExerciseData.get({ plain: true });
+            const personal_exercise = dbExerciseData.get({ plain: true });
 
             // pass data to template
             // pass a session variable to the template
@@ -103,7 +103,7 @@ router.get('/edit-personal/:id', withAuth, (req, res) => {
 });
 
 // display workout form and data for edit
-router.get('/edit-workout/:id', withAuth, (req, res) => {
+router.get('/edit-workout/:id', (req, res) => {
 
     Workout.findOne({
         where: {
@@ -121,7 +121,7 @@ router.get('/edit-workout/:id', withAuth, (req, res) => {
             }
 
             // serialize the data
-            const post = dbExerciseData.get({ plain: true });
+            const workout = dbExerciseData.get({ plain: true });
 
             // pass data to template
             // pass a session variable to the template
