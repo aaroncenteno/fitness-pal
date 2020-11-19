@@ -553,7 +553,12 @@ footer {
     border: 5px inset var(--neon-green);
     background: rgba(0, 0, 0, .8);
     box-shadow: 10px 10px 40px var(--neon-green);
-    padding: 20px;
+    padding: 0px 20px 20px 20px;  
+}
+
+.username {
+    padding-left: 20px;
+    font-size: 30px;
 }
 
 .edit-profile-link {
@@ -584,7 +589,7 @@ footer {
 }
 
 .buddy-header {
-    margin-left: 30px;
+    margin-left: 15px;
     text-decoration: underline var(--neon-blue) ;
 }
 
@@ -598,7 +603,6 @@ footer {
     padding-bottom: 20px;
     display: block;
     width: auto;
-    /* margin-right: 30px; */
 }
 
 .buddy-list button {
