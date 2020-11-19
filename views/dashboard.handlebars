@@ -1,7 +1,7 @@
 <div class="dashboard-jumbotron">
     <div class="dashboard-wrapper">
         <div class="asides">
-            <aside class="user-infor">
+            <aside class="user-info">
                 <h2 class="username">
                     {{username}}
                 </h2>
@@ -15,18 +15,45 @@
                 <div class="date-joined">
                     <span>Joined: {{format_date joinDate}}</span>
                 </div>
-                <a href="/dashboard/profile/{{user_id}}">Edit Profile</a>
+                <div class="edit-profile-link">
+                    <a href="/dashboard/profile/{{user_id}}">Edit Profile</a>
+                </div>
             </aside>
 
             <aside class="buddies">
                 <h2 class="buddy-header">Buddy List</h2>
                 <ul class="buddy-list">
-                    <li>Jane <button id="remove-buddy" type="submit"><i class="fas fa-user-times"></i></button></li>
-                    <li>Madison <button id="remove-buddy" type="submit"><i class="fas fa-user-times"></i></li>
-                    <li>Shipria <button id="remove-buddy" type="submit"><i class="fas fa-user-times"></i></li>
-                    <li>Leticia <button id="remove-buddy" type="submit"><i class="fas fa-user-times"></i></li>
-                    <li>Andreq <button id="remove-buddy" type="submit"><i class="fas fa-user-times"></i></li>
-                    <li>Jayson <button id="remove-buddy" type="submit"><i class="fas fa-user-times"></i></li>
+                    <li>Jane 
+                        <div class="buttons">
+                            <button id="remove-buddy" type="submit"><i class="fas fa-user-times"></i></button>
+                        </div>
+                    </li>
+                    <li>Madison 
+                        <div class="buttons">
+                            <button id="remove-buddy" type="submit"><i class="fas fa-user-times"></i></button>
+                        </div>
+                    </li>
+                    <li>Aaron 
+                        <div class="buttons">
+                            <button id="remove-buddy" type="submit"><i class="fas fa-user-times"></i></button>
+                        </div>
+                    </li>
+                    <li>Andrew 
+                        <div class="buttons">
+                            <button id="remove-buddy" type="submit"><i class="fas fa-user-times"></i></button>
+                        </div>
+                    </li>
+                    <li>Leticia 
+                        <div class="buttons">
+                            <button id="remove-buddy" type="submit"><i class="fas fa-user-times"></i></button>
+                        </div>
+                    </li>
+                    <li>Shipra 
+                        <div class="buttons">
+                            <button id="remove-buddy" type="submit"><i class="fas fa-user-times"></i></button>
+                        </div>
+                    </li>  
+           
                 </ul>
             </aside>
         </div>

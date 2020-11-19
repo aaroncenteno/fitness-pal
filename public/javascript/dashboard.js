@@ -9,13 +9,13 @@ var chart = new Chart(ctx, {
         datasets: [
             {
             label: 'My First dataset',
-            backgroundColor: 'rgb(0, 0, 0, .8)',
-            borderColor: 'rgba(54, 189, 207, 1)',
+            backgroundColor: 'rgba(255, 255, 255, .8)',
+            borderColor: 'rgba(255, 255, 255, .8)',
             data: [0, 10, 5, 2, 20, 30, 45]
             },
             {
                 label: 'My Second dataset',
-                backgroundColor: 'rgb(0, 0, 0, .8)',
+                backgroundColor: 'rgb(255, 255, 255, .8)',
                 borderColor: 'rgba(54, 189, 207, 1)',
                 data: [1, 5, 30, 20, 10, 25, 45]  
             }
