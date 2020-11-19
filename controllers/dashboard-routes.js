@@ -8,12 +8,41 @@ router.get('/', (req, res) => {
             where: {
                 user_id: req.session.user_id
             },
-            
+            attributes: { exclude: ['password'] },
+            include: [
+                // include Buddy model 
+                {
+                    model: User,
+                    attributes: ['id', 'username'],
+                    through: Buddy,
+                    as: 'buddies'
+                },
+                {
+                    model: Profile,
+                    attributes: ['id', 'height_ft', 'height_in', 'weight', 'fitness_level', 'goal', 'user_id']
+                    // attributes: ['id', 'height_ft', 'height_in', 'weight', 'fitness_level', 'user_id']
+
+                },
+                {
+                    model: Personal_Exercise,
+                    attributes: ['id', 'exercise_name', 'gym_no_gym', 'upper_lower', 'fitness_level', 'instructions']
+                },
+                {
+                    model: Workout,
+                    attributes: ['id', 'exercise_list', 'personal_list']
+                }
+            ]
         }
     )
-    res.render('dashboard', {
-        loggedIn: req.session.loggedIn
-    });
+        .then(dbUserData => {
+            res.render('dashboard', {
+                loggedIn: req.session.loggedIn
+            });
+        })
+        .catch(err => {
+            console.log(err);
+            res.status(500).json(err);
+        });
 });
 
 // display edit-profile form and data
