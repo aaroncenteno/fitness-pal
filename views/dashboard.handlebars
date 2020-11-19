@@ -1,23 +1,68 @@
 <div class="dashboard-jumbotron">
     <div class="dashboard-wrapper">
-        <aside class="user-infor">
-            <h2 class="username">
-                acenteno
-            </h2>
-            <div class="goals">
-                <ul class="goals-list">
-                    <li>Lose Weight</li>
-                    <li>Consistency</li>
+        <div class="asides">
+            <aside class="user-infor">
+                <h2 class="username">
+                    {{username}}
+                </h2>
+                <div class="goals">
+                    <ul class="goals-list">
+                        <li>Lose Weight</li>
+                        <li>Consistency</li>
+                    </ul>
+                </div>
+                <div class="date-joined">
+                    <span>Joined: Oct. 13th, 2020</span>
+                </div>
+                <a href="/dashboard/profile/{{user_id}}">Edit Profile</a>
+            </aside>
+
+            <aside class="buddies">
+                <h2 class="buddy-header">Buddy List</h2>
+                <ul class="buddy-list">
+                    <li>Jane <button id="remove-buddy" type="submit"><i class="fas fa-user-times"></i></button></li>
+                    <li>Madison <button id="remove-buddy" type="submit"><i class="fas fa-user-times"></i></li>
+                    <li>Shipria <button id="remove-buddy" type="submit"><i class="fas fa-user-times"></i></li>
+                    <li>Leticia <button id="remove-buddy" type="submit"><i class="fas fa-user-times"></i></li>
+                    <li>Andreq <button id="remove-buddy" type="submit"><i class="fas fa-user-times"></i></li>
+                    <li>Jayson <button id="remove-buddy" type="submit"><i class="fas fa-user-times"></i></li>
                 </ul>
-            </div>
-            <div class="date-joined">
-                <span>Joined: Oct. 13th, 2020</span>
-            </div>
-            <a href="/dashboard/profile">Edit Profile</a>
-        </aside>
+            </aside>
+        </div>
 
-        <aside class="buddy-list">
+        <div class="suggested-exercise">
+            <h1>Try This Exercise!</h1>
+            <p>
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. 
+                Nobis molestias officia reprehenderit consequatur voluptatum 
+                exercitationem, architecto, adipisci ex debitis consectetur 
+                tenetur impedit nulla hic distinctio corrupti expedita sed 
+                eveniet sunt?
+            </p>
+        </div>
 
-        </aside>
-    </div>
+        <div id="chart-container" class="stats-chart">
+            <canvas id="myChart">
+                
+            </canvas>
+        </div>
+
+        {{!-- {{#if workouts.length }} --}}
+        <section class="completed-workouts">
+            <div class="completed-title">
+                <p>Your Completed Workouts</p>
+            </div>
+            <ol>
+                {{!-- {{#each workoouts as |workout|}} --}}
+                <li class="completed-workout">
+                    {{!-- {{> workout-info workout}} --}}
+                </li>
+                {{!-- {{/each}} --}}
+            </ol>
+        </section>
+        {{!-- {{/if}} --}}
+    </div>  
 </div>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+<script src="/javascript/dashboard.js"></script>

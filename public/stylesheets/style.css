@@ -492,3 +492,38 @@ footer {
 
 
 /* Dashboard Styling */
+.dashboard-wrapper {
+    height: fit-content;
+    width: 99vw;
+    display: inline-block;
+}
+
+.asides {
+    margin-top: 80px;
+    width: fit-content;
+    float: left;
+    display: block;
+}
+
+.buddies {
+    margin-top: 80px;
+}
+
+.stats-chart {
+    height: 400px;
+    width: 500px;
+    float: right;
+    margin-right: 350px;
+    margin-top: 80px;
+}
+
+.suggested-exercise {
+    margin-top: 80px;
+    float: right;
+    width: 400px;
+}
+
+.completed-workouts {
+    display: inline-block;
+    margin-left: 400px;
+}

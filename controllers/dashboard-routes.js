@@ -1,11 +1,15 @@
 const router = require('express').Router();
-const {Profile, User} = require('../models')
+const {Profile, User, Exercise, Buddy} = require('../models')
 
 // route to dashboard
 router.get('/', (req, res) => {
+    const user_id = req.session.user_id
+    const username = req.session.username
     res.render('dashboard', {
-        loggedIn: req.session.loggedIn 
-    });
+        loggedIn: true,
+        user_id,
+        username
+    })
 });
 
 // display edit-profile form
