@@ -3,6 +3,14 @@ const {Profile, User} = require('../models')
 
 // route to dashboard
 router.get('/', (req, res) => {
+    User.findOne(
+        {
+            where: {
+                user_id: req.session.user_id
+            },
+            
+        }
+    )
     res.render('dashboard', {
         loggedIn: req.session.loggedIn 
     });
