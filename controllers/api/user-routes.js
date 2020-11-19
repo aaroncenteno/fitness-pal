@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { User, Buddy, Profile } = require('../../models');
+const { User, Buddy, Profile, Personal_Exercise, Workout } = require('../../models');
 
 const withAuth = require('../../utils/auth');
 
@@ -42,6 +42,14 @@ router.get('/:id', (req, res) => {
                 attributes: ['id', 'height_ft', 'height_in', 'weight', 'fitness_level', 'goal', 'user_id']
                 // attributes: ['id', 'height_ft', 'height_in', 'weight', 'fitness_level', 'user_id']
 
+            },
+            {
+                model: Personal_Exercise,
+                attributes: ['id', 'exercise_name', 'gym_no_gym', 'upper_lower', 'fitness_level', 'instructions']
+            },
+            {
+                model: Workout,
+                attributes: ['id', 'exercise_list', 'personal_list']
             }
         ]
     })
@@ -174,14 +182,12 @@ router.get('/:id/buddy', (req, res) => {
 })
 
 // add a buddy to a user's buddy list
-// this doesn't work yet
-router.post('/buddy/:id', withAuth, (req, res) => {
-    console.log(req.body);
+router.post('/buddy', withAuth, (req, res) => {
     Buddy.create(
         {
-            buddy_id: req.body.user_id,
-            user_id: req.params.id
-            // user_id: req.session.user_id
+            buddy_id: req.body.buddy_id,
+            // user_id: req.body.user_id
+            user_id: req.session.user_id
         }
     )
     .then(dbBuddyData => res.json(dbBuddyData))
