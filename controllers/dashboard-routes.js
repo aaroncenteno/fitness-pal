@@ -6,7 +6,9 @@ router.get('/', (req, res) => {
     const user_id = req.session.user_id
     const username = req.session.username
     res.render('dashboard', {
-        loggedIn: req.session.loggedIn
+        loggedIn: req.session.loggedIn,
+        user_id,
+        username
     });
 });
 
