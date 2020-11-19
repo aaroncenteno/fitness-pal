@@ -7,12 +7,13 @@
                 </h2>
                 <div class="goals">
                     <ul class="goals-list">
-                        <li>Lose Weight</li>
-                        <li>Consistency</li>
+                        {{#each goals as |goal|}}
+                        <li>{{goal}}</li>
+                        {{/each}}
                     </ul>
                 </div>
                 <div class="date-joined">
-                    <span>Joined: Oct. 13th, 2020</span>
+                    <span>Joined: {{format_date joinDate}}</span>
                 </div>
                 <a href="/dashboard/profile/{{user_id}}">Edit Profile</a>
             </aside>
