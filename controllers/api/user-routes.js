@@ -182,13 +182,11 @@ router.get('/:id/buddy', (req, res) => {
 })
 
 // add a buddy to a user's buddy list
-// this doesn't work yet
-router.post('/buddy/:id', withAuth, (req, res) => {
-    console.log(req.body);
+router.post('/buddy', withAuth, (req, res) => {
     Buddy.create(
         {
-            buddy_id: req.body.user_id,
-            user_id: req.params.id
+            buddy_id: req.body.buddy_id,
+            user_id: req.body.user_id
             // user_id: req.session.user_id
         }
     )
