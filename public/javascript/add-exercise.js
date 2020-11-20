@@ -9,7 +9,7 @@ async function createExercise(event) {
     const reps = document.querySelector("reps-number").value.trim();
 
     if (gym && noGym && upperBody && lowerBody && sets && reps) {
-        const response = await fetch('/api/create-exercise/'), {
+        const response = await fetch('/api/create-exercise/', {
             method: 'POST',
             body: JSON.stringify({
                 gym,
@@ -25,3 +25,19 @@ async function createExercise(event) {
         });
     }
 }
+
+jQuery(function ($) {
+    var checklist = $('.dropdown-check-list');
+    checklist.on('click', 'span.anchor', function(event){
+        var element = $(this).parent();
+        
+        if (element.hasClass('visible'))
+        {
+            element.removeClass('visible');
+        } else {
+            element.addClass('visible');
+        }
+    });
+});
+
+document.querySelector('create-exercise-form').addEventListener('submit', createProfileFormHandler);
