@@ -22,10 +22,11 @@ router.get('/', (req, res) => {
 })
 
 // get gym exercises only
-router.get('/:gym', (req, res) => {
+router.get('/gym_no_gym='+':gym?:no_gym?', (req, res) => {
     Exercise.findAll({
         where: {
-            gym_no_gym: req.params.gym
+            gym_no_gym: req.params.gym,
+            gym_no_gym: req.params.no_gym
         }
     })
         .then(dbExerciseData => {
