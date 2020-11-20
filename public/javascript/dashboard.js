@@ -1,7 +1,6 @@
 // Add Buddy 
 async function addBuddyHandler(event) {
     const name = document.querySelector("#add-buddy-input").value.trim()
-    console.log('clicked')
 
     if(name) {
         const response = await fetch ('/api/users/buddy/' + name, {
