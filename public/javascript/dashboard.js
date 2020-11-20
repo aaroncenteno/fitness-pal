@@ -31,7 +31,7 @@ var chart = new Chart(ctx, {
                 },
                 ticks: {
                     fontColor: 'white',
-                    fontFamily: 'Trample Over Beauty',
+                    fontFamily: 'Russo One',
                     fontSize: 16,
                 }
             }],
@@ -42,7 +42,7 @@ var chart = new Chart(ctx, {
                 },
                 ticks: {
                     fontColor: 'white',
-                    fontFamily: 'Trample Over Beauty',
+                    fontFamily: 'Russo one',
                     fontSize: 16,
                 }
             }],
@@ -51,7 +51,7 @@ var chart = new Chart(ctx, {
             labels: {
                 fontColor: 'white',
                 fontSize: 16,
-                fontFamily: 'Trample Over Beauty',
+                fontFamily: 'Russo One',
             }
         }
     }

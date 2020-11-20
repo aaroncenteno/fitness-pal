@@ -8,12 +8,14 @@
     --neon-blue: #36bdcf /* rgba(54, 189, 207, 1)*/;
     --neon-pink: #ff62d0; /*rgba(255, 98, 208, 1)*/
     --neon-green: #c7f856; /*rgba(199, 248, 86, 1)*/
+    --neon-red: #fd465f;/*rgb(253, 70, 95)*/
     --black: #000000; /*rgba(0, 0, 0, 1)*/
     --white: #ffffff; /* rgba(255, 255, 255, 1) */
 }
 
 body {
-    font-family: 'Trample Over Beauty', sans-serif;
+    font-family: 'Russo One', sans-serif, cursive;
+    font-weight: bold;
     
 }
 
@@ -28,8 +30,17 @@ header {
     background: linear-gradient(90deg, var(--neon-blue) 0%, var(--gray) 50%, var(--black) 100%);
 }
 
+.modal {
+}
+
+.modal-header {
+    background: var(--gray);
+    background: linear-gradient(90deg, var(--neon-blue) 0%, var(--gray) 50%, var(--black) 100%);
+    font-size: 28px;
+}
+
 .options {
-    font-size: 18px;
+    font-size: 20px;
     padding-top: 10px;
     display: flex;
 }
@@ -45,7 +56,7 @@ header {
     box-shadow: 10px 5px 10px var(--gray);
     text-decoration: none;
     color: var(--neon-blue);
-    font-family: 'Trample Over Beauty', sans-serif;
+    font-family: 'Russo One', sans-serif;
 }
 
 .nav-link {
@@ -65,7 +76,7 @@ header {
     cursor: pointer;
     text-decoration: none;
     font-size: 100%;
-    font-family: 'Trample Over Beauty',sans-serif;
+    font-family: 'Russo One',sans-serif, cursive;
     font-weight: bold;
     transition: color .1s;
 }
@@ -87,6 +98,7 @@ header {
     color: var(--neon-pink);
     box-shadow: 2px 2px 10px var(--neon-pink);
     transition: .5s;
+    text-decoration: none;
 }
 
 .nav-link:active,
@@ -101,7 +113,7 @@ footer {
     background: var(--gray);
     background: linear-gradient(90deg, var(--neon-blue) 0%, var(--gray) 50%, var(--black) 100%); 
     padding-left: 40vw;
-    font-size: 4em;
+    font-size: 58px;
 }
 
 /* Home page styling */
@@ -144,10 +156,8 @@ footer {
 }
 
 .fitness-pal-description {
-    font-size: 26px;
-    color: var(--neon-blue);
-    -webkit-text-stroke-width: 2px;
-    -webkit-text-stroke-color: black;
+    font-size: 22px;
+    color: var(--white);
 }
 
 .flex-row {
@@ -159,8 +169,6 @@ footer {
 .section-title {
     font-size: 26px;
     color: var(--neon-green);
-    -webkit-text-stroke-width: 2px;
-    -webkit-text-stroke-color: black;
     padding-bottom: 20px;
     text-align: center;
     margin: auto;
@@ -175,7 +183,7 @@ footer {
 }
 
 .workout-grid-wrapper {
-    font-size: 22px;
+    font-size: 18px;
     display: flex;
     padding: 20px 20px;
     align-items: center;
@@ -189,8 +197,6 @@ footer {
     grid-template-rows: 30vh;
     grid-template-columns: 20vw 20vw 20vw;
     color: var(--neon-green);
-    -webkit-text-stroke-width: 2px;
-    -webkit-text-stroke-color: black;
     height: fit-content;
     grid-gap: 80px;
 
@@ -241,7 +247,7 @@ footer {
 .password-input,
 #password-login,
 #username-login {
-    background: var(--black);
+    background-color: var(--black);
     font-family: Arial, Helvetica, sans-serif;
     padding: .5%;
     border-radius: 5px;
@@ -298,7 +304,7 @@ footer {
     cursor: pointer;
     border-radius: 5px;
     margin: 0 0 40px 100px;
-    font-family: 'Trample Over Beauty', sans-serif;
+    font-family: 'Russo One', sans-serif, cursive;
 }
 
 .login-btn {
@@ -362,8 +368,6 @@ footer {
     background: rgba(0, 0, 0, .4);
     box-shadow: 10px 10px 40px var(--neon-blue);
     color: var(--neon-green);
-    -webkit-text-stroke-width: 2px;
-    -webkit-text-stroke-color: black;
 }
 
 .dropdown-check-list:focus{
@@ -443,6 +447,8 @@ footer {
 .height-inches,
 .weight-input {
     width: 3em;
+    background-color: var(--black);
+    color: white;
 }
 
 #goal-list,
@@ -458,7 +464,7 @@ footer {
     border-radius: 15px;
     cursor: pointer;
     font-size: 34px;
-    font-family: 'Trample Over Beauty',sans-serif;
+    font-family: 'Russo One',sans-serif, cursive;
     transition: .4s;
     color: var(--neon-blue);
     background-color: black;
@@ -466,8 +472,6 @@ footer {
     margin-bottom: 20px;
     text-decoration: none;
     padding: 5px;
-    -webkit-text-stroke-width: 2px;
-    -webkit-text-stroke-color: black;
 }
 
 .update-btn:hover,
@@ -514,7 +518,7 @@ footer {
     height: 500px;
     width: 850px;
     float: right;
-    margin-right: 150px;
+    margin-right: 125px;
     margin-top: 80px;
     border-radius: 15px;
     border: 5px inset var(--neon-green);
@@ -525,8 +529,6 @@ footer {
 
 .suggested-exercise {
     color: var(--neon-blue);
-    -webkit-text-stroke-width: 2px;
-    -webkit-text-stroke-color: black;
     margin-right: 50px;
     margin-top: 80px;
     float: right;
@@ -546,19 +548,28 @@ footer {
 .user-info,
 .buddies {
     color: var(--neon-blue);
-    -webkit-text-stroke-width: 2px;
-    -webkit-text-stroke-color: black;
     margin-left: 50px;
     border-radius: 15px;
     border: 5px inset var(--neon-green);
     background: rgba(0, 0, 0, .8);
     box-shadow: 10px 10px 40px var(--neon-green);
-    padding: 0px 20px 20px 20px;  
+}
+
+.user-info {
+    padding: 0px 80px 30px; 
+}
+
+.buddies {
+    padding: 0px 20px 20px 20px; 
 }
 
 .username {
     padding-left: 20px;
     font-size: 30px;
+}
+
+.goals-list {
+    padding-left: 20px;
 }
 
 .edit-profile-link {
@@ -568,8 +579,6 @@ footer {
 .edit-profile-link a {
     text-decoration: none;
     color: var(--black);
-    -webkit-text-stroke-width: 1px;
-    -webkit-text-stroke-color: var(--neon-blue);
     background-color: var(--neon-blue);
     padding: 10px;
     border: 2px solid black;
@@ -588,8 +597,47 @@ footer {
     overflow-y: scroll;
 }
 
+.add-buddy {
+    color: var(--neon-blue);
+    background-color: black;
+    border: 2px solid var(--neon-blue);
+    border-radius: 15px;
+    padding: 5px 20px 5px 20px;
+    cursor: pointer;
+    text-decoration: none;
+    font-family: 'Russo One',sans-serif, cursive;
+    transition: .4s;
+}
+
+.add-buddy:hover {
+    border: 2px solid var(--neon-green);
+    -webkit-text-stroke-color: var(--neon-green);
+    color: var(--neon-green);
+}
+
+.add-buddy-input {
+    margin-bottom: 20px;
+    background-color: black;
+    outline: var(--neon-blue);
+    color: white;
+    margin-right: 10px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: lighter;
+    border-radius: 5px;
+    border: 1px solid var(--neon-blue);
+    font-size: 18px;
+    margin-bottom: 15px;
+}
+
+.add-buddy-input:focus {
+    outline: none;
+    background-color: black;
+    outline: var(--neon-blue);
+    caret-color: var(--neon-blue);
+}
+
 .buddy-header {
-    margin-left: 15px;
+    margin-left: 80px;
     text-decoration: underline var(--neon-blue) ;
 }
 
@@ -600,7 +648,7 @@ footer {
 }
 
 .buddy-list li {
-    padding-bottom: 20px;
+    padding: 10px 0 10px 0;
     display: block;
     width: auto;
 }
@@ -613,4 +661,24 @@ footer {
 
 #remove-buddy {
     float: right;
+    font-size: 16px;
+    color: var(--neon-blue);
+    background-color: black;
+    border: 2px solid var(--neon-blue);
+    border-radius: 15px;
+    padding: 5px;
+    cursor: pointer;
+    text-decoration: none;
+    font-family: 'Russo One',sans-serif, cursive;
+    transition: .4s;
+}
+
+#remove-buddy:hover {
+    color: var(--neon-red);
+    border: 2px solid var(--neon-red);
+}
+
+#remove-buddy:focus,
+.add-buddy:focus {
+    outline: none;
 }
