@@ -7,26 +7,23 @@ const { route } = require('./user-routes');
 // ----- EXERCISE ROUTES START -----
 // ----------------------------------------------------------------------------------------------------
 
-// get all exercises
+// get exercises
 router.get('/', (req, res) => {
+
+    const whereCondition = {};
+
+    if (req.query.gym_no_gym) {
+        whereCondition.gym_no_gym = req.query.gym_no_gym;
+    }
+    if (req.query.upper_lower) {
+        whereCondition.upper_lower = req.query.upper_lower;
+    }
+    if (req.query.fitness_level) {
+        whereCondition.fitness_level = req.query.fitness_level;
+    }
+
     Exercise.findAll({
-
-    })
-        .then(dbExerciseData => res.json(dbExerciseData))
-        .catch(err => {
-            console.log(err);
-            res.status(500).json(err);
-        })
-        ;
-
-})
-
-// get gym exercises only
-router.get('/:gym', (req, res) => {
-    Exercise.findAll({
-        where: {
-            gym_no_gym: req.params.gym
-        }
+        where: whereCondition
     })
         .then(dbExerciseData => {
             // if the search brings back nothing
