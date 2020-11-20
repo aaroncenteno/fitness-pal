@@ -22,10 +22,10 @@ router.get('/', (req, res) => {
 });
 
 // get one user, their profile, and their buddies
-router.get('/:id', (req, res) => {
+router.get('/:usersearch', (req, res) => {
     User.findOne({
         where: {
-            id: req.params.id
+            username: req.params.usersearch
         },
         // exclude password column for security
         attributes: { exclude: ['password'] },
@@ -185,7 +185,7 @@ router.get('/:id/buddy', (req, res) => {
 router.post('/buddy', withAuth, (req, res) => {
     Buddy.create(
         {
-            buddy_id: req.body.buddy_id,
+            buddy_name: req.body.buddy_name,
             // user_id: req.body.user_id
             user_id: req.session.user_id
         }
