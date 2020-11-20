@@ -1,42 +1,90 @@
 const router = require('express').Router();
-const { Profile, User, Personal_Exercise, Workout } = require('../models')
+const { Profile, User, Personal_Exercise, Workout, Buddy } = require('../models')
 
 // route to dashboard
 router.get('/', (req, res) => {
-    User.findOne(
-        {
+    // User.findOne(
+    //     {   
+    //         where: {
+    //             id: req.session.id,
+    //         },
+    //         attributes: { exclude: ['password'] },
+    //         include: [
+    //             // include Buddy model 
+    //             {
+    //                 model: User,
+    //                 attributes: ['id', 'username'],
+    //                 through: Buddy,
+    //                 as: 'buddies'
+    //             },
+    //             {
+    //                 model: Profile,
+    //                 attributes: ['id', 'height_ft', 'height_in', 'weight', 'fitness_level', 'goal', 'user_id'],
+    //                 // attributes: ['id', 'height_ft', 'height_in', 'weight', 'fitness_level', 'user_id']
+
+    //             },
+    //             {
+    //                 model: Personal_Exercise,
+    //                 attributes: ['id', 'exercise_name', 'gym_no_gym', 'upper_lower', 'fitness_level', 'instructions']
+    //             },
+    //             {
+    //                 model: Workout,
+    //                 attributes: ['id', 'exercise_list', 'personal_list']
+    //             }
+    //         ]
+    //     }
+    // )
+    //     .then(dbUserData => {
+    //         const username = req.session.username;
+    //         const user_id = req.session.user_id;  
+                    
+    //         res.render('dashboard', {
+    //             loggedIn: true,
+    //             username,
+    //             user_id,
+    //             user
+    //         });
+    //     })
+        Profile.findOne({
             where: {
                 user_id: req.session.user_id
             },
-            attributes: { exclude: ['password'] },
+            attributes: ['id', 'height_ft', 'height_in', 'weight', 'fitness_level', 'goal', 'user_id'],
             include: [
-                // include Buddy model 
                 {
                     model: User,
-                    attributes: ['id', 'username'],
-                    through: Buddy,
-                    as: 'buddies'
-                },
-                {
-                    model: Profile,
-                    attributes: ['id', 'height_ft', 'height_in', 'weight', 'fitness_level', 'goal', 'user_id']
-                    // attributes: ['id', 'height_ft', 'height_in', 'weight', 'fitness_level', 'user_id']
-
-                },
-                {
-                    model: Personal_Exercise,
-                    attributes: ['id', 'exercise_name', 'gym_no_gym', 'upper_lower', 'fitness_level', 'instructions']
-                },
-                {
-                    model: Workout,
-                    attributes: ['id', 'exercise_list', 'personal_list']
-                }
+                    attributes: ['id', 'username', 'createdAt'],
+                    include: [
+                        {
+                            model: User,
+                            attributes: ['id', 'username'],
+                            through: Buddy,
+                            as: 'buddies'
+                        },
+                        {
+                            model: Personal_Exercise,
+                            attributes: ['id', 'exercise_name', 'gym_no_gym', 'upper_lower', 'fitness_level', 'instructions']
+                        },
+                        {
+                            model: Workout,
+                            attributes: ['id', 'exercise_list', 'personal_list']
+                        }
+                    ]
+                }  
             ]
-        }
-    )
-        .then(dbUserData => {
+        })
+        .then(dbProfileData => {
+            const username = req.session.username;
+            const user_id = dbProfileData.id; 
+            const joinDate = dbProfileData.user.createdAt;
+            const goals = dbProfileData.goal.split(",");
+                    
             res.render('dashboard', {
-                loggedIn: req.session.loggedIn
+                loggedIn: true,
+                username,
+                user_id,
+                joinDate,
+                goals
             });
         })
         .catch(err => {

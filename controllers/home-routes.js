@@ -19,6 +19,10 @@ router.get('/login', (req, res) => {
 
 // route to display sign-up
 router.get('/signup', (req, res) => {
+    if (req.session.loggedIn) {
+        res.redirect('/');
+        return;
+    }
     res.render('signup');
 });
 
