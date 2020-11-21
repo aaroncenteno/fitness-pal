@@ -193,16 +193,31 @@ router.get('/edit-personal/:id', (req, res) => {
 // display daily workout
 router.get('/workout', (req, res) => {
     if (req.session.loggedIn) {
-        res.render('dailyworkout');
+        res.render('dailyworkout', {
+            loggedIn: req.session.loggedIn
+        });
         return;
     }
     res.redirect('/');
 });
 
-// display daily workout
+// display exercise search
 router.get('/exercise-search', (req, res) => {
     if (req.session.loggedIn) {
-        res.render('exercise-search');
+        res.render('exercise-search', {
+            loggedIn: req.session.loggedIn
+        });
+        return;
+    }
+    res.redirect('/');
+});
+
+// display personal exercises page
+router.get('/personal-exercise', (req, res) => {
+    if (req.session.loggedIn) {
+        res.render('personal-exercise', {
+            loggedIn: req.session.loggedIn
+        });
         return;
     }
     res.redirect('/');

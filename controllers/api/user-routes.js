@@ -170,7 +170,7 @@ router.get('/:id/buddy', (req, res) => {
         where: {
             user_id: req.params.id
         }
-        
+
     })
     .then(dbBuddyData => {
         if (!dbBuddyData) {
@@ -206,6 +206,26 @@ router.post('/buddy', withAuth, (req, res) => {
         console.log(err);
         res.status(500).json(err);
     });
+});
+
+// delete a buddy
+router.delete('/:id', withAuth, (req, res) => {
+    Buddy.destroy({
+        where: {
+            id: req.params.id
+        }
+    })
+        .then(dbBuddyData => {
+            if (!dbBuddyData) {
+                res.status(404).json({ message: 'No buddy found with this id' });
+                return;
+            }
+            res.json(dbBuddyData);
+        })
+        .catch(err => {
+            console.log(err);
+            res.status(500).json(err);
+        });
 });
 
 // delete a user
