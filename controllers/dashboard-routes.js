@@ -37,7 +37,7 @@ router.get('/', (req, res) => {
     //     .then(dbUserData => {
     //         const username = req.session.username;
     //         const user_id = req.session.user_id;  
-                    
+
     //         res.render('dashboard', {
     //             loggedIn: true,
     //             username,
@@ -45,40 +45,43 @@ router.get('/', (req, res) => {
     //             user
     //         });
     //     })
-        Profile.findOne({
-            where: {
-                user_id: req.session.user_id
-            },
-            attributes: ['id', 'height_ft', 'height_in', 'weight', 'fitness_level', 'goal', 'user_id'],
-            include: [
-                {
-                    model: User,
-                    attributes: ['id', 'username', 'createdAt'],
-                    include: [
-                        {
-                            model: User,
-                            attributes: ['id', 'username'],
-                            through: Buddy,
-                            as: 'buddies'
-                        },
-                        {
-                            model: Personal_Exercise,
-                            attributes: ['id', 'exercise_name', 'gym_no_gym', 'upper_lower', 'fitness_level', 'instructions']
-                        },
-                        {
-                            model: Workout,
-                            attributes: ['id', 'exercise_list', 'personal_list']
-                        }
-                    ]
-                }  
-            ]
-        })
+    Profile.findOne({
+        where: {
+            user_id: req.session.user_id
+        },
+        attributes: ['id', 'height_ft', 'height_in', 'weight', 'fitness_level', 'goal', 'user_id'],
+        include: [
+            {
+                model: User,
+                attributes: ['id', 'username', 'createdAt'],
+                include: [
+                    {
+                        model: User,
+                        attributes: [
+                            ['id', 'buddy_id'],
+                            ['username', 'buddy_name']
+                        ],
+                        through: Buddy,
+                        as: 'buddies'
+                    },
+                    {
+                        model: Personal_Exercise,
+                        attributes: ['id', 'exercise_name', 'gym_no_gym', 'upper_lower', 'fitness_level', 'instructions']
+                    },
+                    {
+                        model: Workout,
+                        attributes: ['id', 'exercise_list', 'personal_list']
+                    }
+                ]
+            }
+        ]
+    })
         .then(dbProfileData => {
             const username = req.session.username;
-            const user_id = dbProfileData.id; 
+            const user_id = dbProfileData.id;
             const joinDate = dbProfileData.user.createdAt;
             const goals = dbProfileData.goal.split(",");
-                    
+
             res.render('dashboard', {
                 loggedIn: true,
                 username,
@@ -186,6 +189,25 @@ router.get('/edit-personal/:id', (req, res) => {
             res.status(500).json(err);
         });
 });
+
+// display daily workout
+router.get('/workout', (req, res) => {
+    if (req.session.loggedIn) {
+        res.render('dailyworkout');
+        return;
+    }
+    res.redirect('/');
+});
+
+// display daily workout
+router.get('/exercise-search', (req, res) => {
+    if (req.session.loggedIn) {
+        res.render('exercise-search');
+        return;
+    }
+    res.redirect('/');
+});
+
 
 // display workout form and data for edit
 router.get('/edit-workout/:id', (req, res) => {

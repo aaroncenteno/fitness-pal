@@ -170,6 +170,7 @@ router.get('/:id/buddy', (req, res) => {
         where: {
             user_id: req.params.id
         }
+        
     })
     .then(dbBuddyData => {
         if (!dbBuddyData) {
