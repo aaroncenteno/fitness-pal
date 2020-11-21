@@ -21,6 +21,32 @@ async function addBuddyHandler(event) {
     }
 }
 
+// Sample Exercise
+async function sampleExercise() {
+    const exerciseEl = document.querySelector('.suggested-exercise');
+
+    $.ajax('/api/exercises/dashboard', {
+        type: 'GET'
+    }).then(
+       function () {
+           
+       }
+    )
+    // await fetch('/api/exercises/dashboard', {
+    //     method: 'GET'
+    // })
+    // .then( response => {
+    //     response.json()
+    // }
+    // )
+    // .then(results => {
+    //     JSON.stringify(results)
+    //     exerciseEl.appendChild(results)
+    // })
+}
+
+sampleExercise()
+
 // Create a new chart
 let ctx = document.getElementById('myChart').getContext('2d');
 let chart = new Chart(ctx, {
