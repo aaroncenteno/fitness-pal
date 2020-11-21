@@ -33,7 +33,10 @@ router.get('/:usersearch', (req, res) => {
             // include Buddy model 
             {
                 model: User,
-                attributes: ['id', 'username'],
+                attributes: [
+                    ['id', 'buddy_id'],
+                    ['username', 'buddy_name']
+                ],
                 through: Buddy,
                 as: 'buddies'
             },
@@ -183,11 +186,18 @@ router.get('/:id/buddy', (req, res) => {
 
 // add a buddy to a user's buddy list
 router.post('/buddy', withAuth, (req, res) => {
+
+    User.findOne({
+        where: {
+            buddy_name: req.body.buddy_name
+        }
+    })
+
     Buddy.create(
         {
-            buddy_name: req.body.buddy_name,
-            // user_id: req.body.user_id
-            user_id: req.session.user_id
+            buddy_id: req.body.buddy_id,
+            user_id: req.body.user_id
+            // user_id: req.session.user_id
         }
     )
     .then(dbBuddyData => res.json(dbBuddyData))

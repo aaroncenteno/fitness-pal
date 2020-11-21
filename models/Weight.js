@@ -1,12 +1,10 @@
-// the Buddy model is for the through table required to link a User to another User as a Buddy
-
 // import Model class and DataTypes object from Sequelize to create our models from 
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
 
-class Buddy extends Model { }
+class Weight extends Model { }
 
-Buddy.init(
+Weight.init(
     {
         id: {
             type: DataTypes.INTEGER,
@@ -14,16 +12,15 @@ Buddy.init(
             primaryKey: true,
             autoIncrement: true
         },
-        user_id: {
+        weight: {
             type: DataTypes.INTEGER,
-            allowNull: false,
-            references: {
-                model: 'user',
-                key: 'id'
+            allowNull: true,
+            validate: {
+                isNumeric: true
             }
         },
-        buddy_id: {
-            type: DataTypes.STRING,
+        user_id: {
+            type: DataTypes.INTEGER,
             allowNull: false,
             references: {
                 model: 'user',
@@ -41,10 +38,9 @@ Buddy.init(
         // use underscores instead of camel-casing (i.e. `comment_text` and not `commentText`)
         underscored: true,
         // make it so our model name stays lowercase in the database
-        modelName: 'buddy'
+        modelName: 'profile'
     }
-
 )
 
 // export the newly created model so we can use it in other parts of the app
-module.exports = Buddy;
+module.exports = Profile;
