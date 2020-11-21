@@ -84,7 +84,7 @@ router.get('/', (req, res) => {
                 username,
                 user_id,
                 joinDate,
-                goals
+                goals,
             });
         })
         .catch(err => {

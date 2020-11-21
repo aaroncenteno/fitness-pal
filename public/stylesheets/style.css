@@ -515,8 +515,8 @@ footer {
 }
 
 .stats-chart {
-    height: 500px;
-    width: 850px;
+    height: 60vh;
+    width: 45vw;
     float: right;
     margin-right: 125px;
     margin-top: 80px;
@@ -684,4 +684,9 @@ footer {
 .add-buddy-btn:focus,
 .add-weight:focus {
     outline: none;
+}
+
+.found-user {
+    font-size: 40px;
+    padding-left: 20px;
 }

@@ -1,25 +1,48 @@
-// Add Buddy 
-async function addBuddyHandler(event) {
-    const name = document.querySelector("#add-buddy-input").value.trim()
+// Search Database for Buddy 
+async function searchBuddyHandler(event) {
+    const username = document.querySelector("#add-buddy-input").value.trim();
+    const foundUser = document.querySelector(".found-user")
 
-    if(name) {
-        const response = await fetch ('/api/users/buddy/' + name, {
-            method: 'POST',
-            body: JSON.stringify({
-                name
-            }),
+
+    if(username) {
+        const response = await fetch ('/api/users/' + username, {
+            method: 'GET',
             headers: {
                 'Content-Type': 'application/json'
             }
-        });
-
-        if(response.ok) {
-            document.location.reload();
-        } else {
-            $("#buddy-fail").modal('toggle')
+        })
+        .then(response => {
+            return response.json();
+        })
+        console.log(response.id, response.username)
+        foundUser.innerHTML = response.username + ' User ID: ' + response.id;
+        
+        if(username == response.username) {
+            $("#add-buddy-modal").modal('toggle')
+            } else {
+            $("#search-fail-modal").modal('toggle')
         }
     }
 }
+
+async function addBuddyHandler(event) {
+    const addToBuddyList = document.querySelector("#add-to-buddy-list");
+    const foundUser = document.querySelector(".found-user");
+    const userId = foundUser.innerHTML.split(": ")[1];
+
+    const response = await fetch('/api/users/buddy' + userId, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        }
+    })
+    if(response.ok) {
+        console.log('Buddy Added!')
+    }
+    console.log(userId);
+}
+
+
 
 // Sample Exercise
 async function sampleExercise() {
@@ -107,4 +130,5 @@ let chart = new Chart(ctx, {
     }
 });
 
-document.querySelector('.add-buddy-btn').addEventListener('click', addBuddyHandler)
+document.querySelector('.add-buddy-btn').addEventListener('click', searchBuddyHandler)
+document.querySelector('#add-to-buddy-list').addEventListener('click', addBuddyHandler)
