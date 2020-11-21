@@ -7,6 +7,32 @@ const { route } = require('./user-routes');
 // ----- EXERCISE ROUTES START -----
 // ----------------------------------------------------------------------------------------------------
 
+router.get('/dashboard', (req, res) => {
+    Exercise.findAll({
+        
+    })
+    .then(({id}) => {res.json(id)})
+    .catch(err => {
+        console.log(err);
+        res.status(500).json(err)
+    })
+})
+
+router.get('/dashboard/:id', (req, res) => {
+    Excersise.findOne({
+        where: {
+            id: req.params.id
+        }
+    })
+    .then(dbExerciseData => {
+        res.json(dbExerciseData);
+    }) 
+    .catch(err => {
+        console.log(err);
+        res.status(500).json(err);
+    });
+})
+
 // get exercises
 router.get('/', (req, res) => {
 

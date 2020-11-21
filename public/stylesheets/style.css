@@ -35,7 +35,7 @@ header {
 
 .modal-header {
     background: var(--gray);
-    background: linear-gradient(90deg, var(--neon-blue) 0%, var(--gray) 50%, var(--black) 100%);
+    background: linear-gradient(90deg, var(--neon-blue) 0%, var(--gray) 50%, var(--neon-green) 100%);
     font-size: 28px;
 }
 
@@ -515,8 +515,8 @@ footer {
 }
 
 .stats-chart {
-    height: 500px;
-    width: 850px;
+    height: 60vh;
+    width: 45vw;
     float: right;
     margin-right: 125px;
     margin-top: 80px;
@@ -597,7 +597,8 @@ footer {
     overflow-y: scroll;
 }
 
-.add-buddy {
+.add-buddy-btn,
+.add-weight{
     color: var(--neon-blue);
     background-color: black;
     border: 2px solid var(--neon-blue);
@@ -609,7 +610,8 @@ footer {
     transition: .4s;
 }
 
-.add-buddy:hover {
+.add-buddy-btn:hover,
+.add-weight:hover {
     border: 2px solid var(--neon-green);
     -webkit-text-stroke-color: var(--neon-green);
     color: var(--neon-green);
@@ -679,6 +681,12 @@ footer {
 }
 
 #remove-buddy:focus,
-.add-buddy:focus {
+.add-buddy-btn:focus,
+.add-weight:focus {
     outline: none;
+}
+
+.found-user {
+    font-size: 40px;
+    padding-left: 20px;
 }
