@@ -16,7 +16,7 @@
                     <span>Joined: {{format_date joinDate}}</span>
                 </div>
                 <div class="edit-profile-link">
-                    <a href="/dashboard/profile/{{user_id}}"><i class="fas fa-user-edit"></i> Edit Info.</a>
+                    <a href="/dashboard/profile/{{profile_id}}"><i class="fas fa-user-edit"></i> Edit Info.</a>
                 </div>
             </aside>
 
@@ -24,12 +24,9 @@
                 <h2 class="buddy-header">Buddy List</h2>
                 <input type="text" class="add-buddy-input" id="add-buddy-input"><button class="add-buddy-btn" id="add-buddy-btn" type="submit"><i class="fas fa-user-plus"></i></button>
                 <ul class="buddy-list">
-                    <li>Jane <button id="remove-buddy" type="submit" data-toggle="modal" data-target="#remove-buddy-modal"><i class="fas fa-user-times"></i></button></li>  
-                    <li>Madison <button id="remove-buddy" type="submit" data-toggle="modal" data-target="#remove-buddy-modal"><i class="fas fa-user-times"></i></button></li>  
-                    <li>Shipria <button id="remove-buddy" type="submit" data-toggle="modal" data-target="#remove-buddy-modal"><i class="fas fa-user-times"></i></button></li>   
-                    <li>Leticia <button id="remove-buddy" type="submit" data-toggle="modal" data-target="#remove-buddy-modal"><i class="fas fa-user-times"></i></button></li>   
-                    <li>Andrew <button id="remove-buddy" type="submit" data-toggle="modal" data-target="#remove-buddy-modal"><i class="fas fa-user-times"></i></button></li>    
-                    <li>Jayson <button id="remove-buddy" type="submit" data-toggle="modal" data-target="#remove-buddy-modal"><i class="fas fa-user-times"></i></button></li>    
+                    {{#each friends.buddies as |buddy|}}
+                        <li>{{buddy.buddy_name}} <button id="remove-buddy" type="submit" data-toggle="modal" data-target="#remove-buddy-modal"><i class="fas fa-user-times"></i></button></li>   
+                    {{/each}}
                 </ul>
             </aside>
         </div>
@@ -71,8 +68,12 @@
 
 <!-- Modals -->
 
+{{> add-weight-modal}}
+{{> bad-search-modal}}
+{{> confirm-add-buddy-modal}}
+{{!-- {{> remove-buddy-modal}} --}}
 {{!-- Remove Buddy Modal --}}
-<div class="modal fade" id="remove-buddy-modal" tabindex="-1" role="dialog" aria-labelledby="remove-friend">
+<div class="modal fade" id="remove-buddy-modal" tabindex="-1" role="dialog" aria-labelledby="remove-buddy-modal">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
@@ -80,70 +81,11 @@
         <h4 class="modal-title" id="myModalLabel">Remove Buddy From List</h4>
       </div>
       <div class="modal-body">
-        Are you sure you want to remove (buddy name)?
+        Are you sure you want to remove ?
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-danger"  id="remove-buddy-confirm">Remove</button>
         <button type="button" class="btn btn-primary" data-dismiss="modal">Keep Friend</button>
-      </div>
-    </div>
-  </div>
-</div>
-
-{{!-- Add Weight Stats --}}
-<div class="modal fade" id="add-weight" tabindex="-1" role="dialog" aria-labelledby="add-weight">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="myModalLabel">Input your new weight to add to your chart!</h4>
-      </div>
-      <div class="modal-body">
-        What is your current weight? <input type="text" name="weight-chart-input" id="weight-chart-input">
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
-        <button type="submit" class="btn btn-primary" id="submit-weight-btn">Submit Weight</button>
-      </div>
-    </div>
-  </div>
-</div>
-
-{{!-- Add Buddy modal --}}
-<div class="modal fade" id="add-buddy-modal" tabindex="-1" role="dialog" aria-labelledby="add-buddy-modal">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-        <div class="modal-header">
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-            <h4 class="modal-title" id="myModalLabel">List of users</h4>
-        </div>
-        <div class="modal-body">
-            The following user matched your input!
-        </div>
-        <div class="found-user">
-
-        </div>
-        <div class="modal-footer">
-            <button type="button" class="btn btn-info" id="add-to-buddy-list">Add User to Buddy List</button>
-            <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
-        </div>
-        </div>
-    </div>
-</div>
-
-{{!-- Buddy Search Fail Modal --}}
-<div class="modal fade" id="search-fail-modal" tabindex="-1" role="dialog" aria-labelledby="search-fail-modal">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="myModalLabel">Your Buddy Search Has Failed</h4>
-      </div>
-      <div class="modal-body">
-          There is no user with that name, sorry.
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
       </div>
     </div>
   </div>
