@@ -69,8 +69,7 @@ router.get('/:usersearch', (req, res) => {
         .catch(err => {
             console.log(err);
             res.status(500).json(err);
-        })
-        ;
+        });
 });
 
 // create a new user
@@ -186,19 +185,20 @@ router.get('/:id/buddy', (req, res) => {
 })
 
 // add a buddy to a user's buddy list
-router.post('/buddy', withAuth, (req, res) => {
+router.post('/buddy/:id', withAuth, (req, res) => {
 
-    User.findOne({
-        where: {
-            buddy_name: req.body.buddy_name
-        }
-    })
+    // User.findOne({
+    //     where: {
+    //         // buddy_name: req.body.buddy_name
+    //         buddy_id: req.params.id
+    //     }
+    // })
 
-    Buddy.create(
+    Buddy.create( 
         {
-            buddy_id: req.body.buddy_id,
-            user_id: req.body.user_id
-            // user_id: req.session.user_id
+            buddy_id: req.params.id,
+            // user_id: req.body.user_id
+            user_id: req.session.user_id
         }
     )
     .then(dbBuddyData => res.json(dbBuddyData))

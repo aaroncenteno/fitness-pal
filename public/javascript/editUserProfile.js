@@ -28,11 +28,15 @@ async function createProfileFormHandler(event) {
                 'Content-Type': 'application/json'
             }
         });
+        const errorMessage = response.statusText;
+        const errorMessageEl = document.querySelector(".error-message");
+        errorMessageEl.innerHTML = 'Error Message: ' + errorMessage
 
         if (response.ok) {
             document.location.replace('/dashboard')
         } else {
             console.log(response.statusText);
+            $("#error-modal").modal('toggle');
         }
     }
 }
