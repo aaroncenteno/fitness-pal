@@ -14,7 +14,7 @@ async function searchBuddyHandler(event) {
         .then(response => {
             return response.json();
         })
-        console.log(response.id, response.username)
+        // console.log(response.id, response.username)
         foundUser.innerHTML = response.username + ' User ID: ' + response.id;
         
         if(username == response.username) {
@@ -30,7 +30,7 @@ async function addBuddyHandler(event) {
     const foundUser = document.querySelector(".found-user");
     const userId = foundUser.innerHTML.split(": ")[1];
 
-    const response = await fetch('/api/users/buddy' + userId, {
+    const response = await fetch('/api/users/buddy/' + userId, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
