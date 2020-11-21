@@ -40,4 +40,4 @@ jQuery(function ($) {
     });
 });
 
-document.querySelector('create-exercise-form').addEventListener('submit', createExerciseFormHandler);
+document.querySelector('.create-exercise-form').addEventListener('submit', createExerciseFormHandler);

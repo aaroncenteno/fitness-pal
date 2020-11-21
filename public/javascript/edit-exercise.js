@@ -50,4 +50,4 @@ jQuery(function ($) {
     });
 });
 
-document.querySelector('.user-info-form').addEventListener('submit', editExerciseFormHandler);
+document.querySelector('.create-exercise-form').addEventListener('submit', editExerciseFormHandler);
