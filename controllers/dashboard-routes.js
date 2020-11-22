@@ -166,15 +166,26 @@ router.get('/workout', (req, res) => {
 });
 
 // display exercise search
-router.get('/exercise-search', (req, res) => {
-    if (req.session.loggedIn) {
-        res.render('exercise-search', {
-            loggedIn: req.session.loggedIn
-        });
-        return;
-    }
-    res.redirect('/');
-});
+// router.get('/exercise-search', (req, res) => {
+//     if (req.session.loggedIn) {
+//         res.render('exercise-search', {
+//             loggedIn: req.session.loggedIn
+//         });
+//         return;
+//     }
+//     res.redirect('/');
+// });
+
+// display exercise search results
+// router.get('/exercise-search/results', (req, res) => {
+//     if (req.session.loggedIn) {
+//         res.render('exercise-search-results', {
+//             loggedIn: req.session.loggedIn
+//         });
+//         return;
+//     }
+//     res.redirect('/');
+// });
 
 // display personal exercises page
 router.get('/personal-exercise', (req, res) => {

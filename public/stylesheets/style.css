@@ -354,6 +354,8 @@ footer {
 }
 
 /* Create User Profile Styling */
+/* Search Exercise Styling */
+.exercise-search-form,
 .user-info-form, 
 .create-exercise-form {
     font-size: 24px;
@@ -423,19 +425,21 @@ footer {
     height: 30px;
 }
 
-/* Create/Edit Profile Styling and*/
-/*Create/Edit Exercise styling*/
-
+/* Create/Edit Profile Styling and */
+/* Create/Edit Exercise styling */
+/* Search Exercise styling */
+.exercise-search-wrapper,
 .edit-profile-jumbotron,
 .create-profile-wrapper,
 .create-exercise-jumbotron,
-.create-exercose-wrapper,
+.create-exercise-wrapper,
 .dashboard-jumbotron {
     background-size: cover;
     background-image:linear-gradient(150deg, rgba(54, 189, 207, .4) 0%, rgba(173, 173, 173, .6) 50%, rgba(199, 248, 86, .4) 100%), url("../imgs/gym.jpg") ;
     height: 100vh;
 }
 
+.exercise-search-wrapper,
 .edit-profile-wrapper,
 .create-profile-wrapper,
 .create-exercise-jumbotron,
@@ -451,11 +455,15 @@ footer {
     color: white;
 }
 
+#gym-no-gym-list,
+#upper-lower-list,
+#fitness-level-list,
 #goal-list,
 #level-list {
     padding-bottom: 40px;
 }
 
+.search-exercises-btn,
 .update-btn,
 .cancel-btn,
 .create-profile-btn,

@@ -3,7 +3,7 @@ const router = require('express').Router();
 // route to home
 router.get('/', (req, res) => {
     res.render('homepage', {
-        loggedIn: req.session.loggedIn 
+        loggedIn: req.session.loggedIn
     });
 });
 
@@ -31,6 +31,28 @@ router.get('/profile', (req, res) => {
     res.render('create-user-profile', {
         loggedIn: req.session.loggedIn
     });
+});
+
+// display exercise search
+router.get('/exercise-search', (req, res) => {
+    if (req.session.loggedIn) {
+        res.render('exercise-search', {
+            loggedIn: req.session.loggedIn
+        });
+        return;
+    }
+    res.redirect('/');
+});
+
+// display exercise search results
+router.get('/exercise-search/results', (req, res) => {
+    if (req.session.loggedIn) {
+        res.render('exercise-search-results', {
+            loggedIn: req.session.loggedIn
+        });
+        return;
+    }
+    res.redirect('/');
 });
 
 module.exports = router;
