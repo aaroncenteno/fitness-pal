@@ -432,6 +432,8 @@ footer {
 .edit-profile-jumbotron,
 .create-profile-wrapper,
 .create-exercise-jumbotron,
+.generate-workout-jumbotron,
+.generate-workout-form,
 .create-exercise-wrapper,
 .dashboard-jumbotron {
     background-size: cover;
@@ -443,7 +445,9 @@ footer {
 .edit-profile-wrapper,
 .create-profile-wrapper,
 .create-exercise-jumbotron,
-.create-exercose-wrapper {
+.create-exercose-wrapper,
+.generate-workout-jumbotron,
+.generate-workout-form {
     padding-top: 100px;
 }
 
@@ -467,7 +471,8 @@ footer {
 .update-btn,
 .cancel-btn,
 .create-profile-btn,
-.create-exercise-btn {
+.create-exercise-btn,
+.generate-workout-btn {
     border: 2px var(--neon-blue) solid;
     border-radius: 15px;
     cursor: pointer;
@@ -706,7 +711,19 @@ footer {
     outline: none;
 }
 
+
+/*Generate workout styling*/
+.generate-workout-form {
+    margin: 0 auto;
+    width: fit-content;
+    padding: 40px;
+    border-radius: 15px;
+    border: 5px inset var(--neon-blue);
+    background: rgba(0, 0, 0, .4);
+    box-shadow: 10px 10px 40px var(--neon-blue);
+
 .found-user {
     font-size: 40px;
     padding-left: 20px;
+
 }
