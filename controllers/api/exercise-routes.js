@@ -151,12 +151,12 @@ router.delete('/personal/:id', withAuth, (req, res) => {
 // ----------------------------------------------------------------------------------------------------
 
 // get all of a single user's workouts
-router.get('/workout', (req, res) => {
+router.get('/workout/:id', (req, res) => {
  
     Workout.findAll(
         {
             where: {
-                user_id:  req.session.user_id 
+                user_id:  req.params.id
             }
         }
     )
