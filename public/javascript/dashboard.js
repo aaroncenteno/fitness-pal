@@ -43,6 +43,35 @@ async function addBuddyHandler(event) {
     console.log(userId);
 }
 
+$("#remove-buddy").click(function (event) {
+    var parent = $(this).closest('.added-buddy')
+    const buddyName = parent[0].innerHTML.split(" ")[0]
+    const buddyId = parent[0].innerHTML.split(" ")[2]
+    const removeBuddyName = document.querySelector('.remove-buddy-name');
+    const removeBuddyId = document.querySelector('.remove-buddy-id');
+
+    removeBuddyName.innerHTML = buddyName;
+    removeBuddyId.innerHTML = buddyId;
+    $("#remove-buddy-modal").modal('toggle')
+})
+
+async function removeBuddyHandler(event) {
+    const buddyIdEL = document.querySelector('.remove-buddy-id');
+    const buddyId = buddyIdEL.innerHTML
+
+    const response = await fetch('/api/users/buddy/' + buddyId, {
+        method: 'DELETE',
+        headers: {
+            'Content-Type': 'application/json'
+        }
+    })
+    if(response.ok) {
+        document.location.reload();
+        console.log('Buddy Deleted')
+    }
+}
+
+
 // Sample Exercise
 async function sampleExercise() {
     const exerciseEl = document.querySelector('.random-exercise');
@@ -51,7 +80,7 @@ async function sampleExercise() {
         return Math.floor(Math.random() * (max - min + 1)) + min;
     }
 
-    const response = await fetch('/api/exercises/' + randomNumber(0,23), {
+    const response = await fetch('/api/exercises/dashboard/' + randomNumber(0,23), {
         method: 'GET',
         headers: {
             'Content-Type': 'application/json'
@@ -130,3 +159,5 @@ let chart = new Chart(ctx, {
 
 document.querySelector('.add-buddy-btn').addEventListener('click', searchBuddyHandler)
 document.querySelector('#add-to-buddy-list').addEventListener('click', addBuddyHandler)
+document.querySelector('#remove-buddy-confirm').addEventListener('click', removeBuddyHandler)
+

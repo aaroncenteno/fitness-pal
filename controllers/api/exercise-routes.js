@@ -18,7 +18,7 @@ router.get('/dashboard', (req, res) => {
     })
 })
 
-router.get('/:id', (req, res) => {
+router.get('/dashboard/:id', (req, res) => {
     Exercise.findOne({
         where: {
             id: req.params.id
@@ -32,6 +32,18 @@ router.get('/:id', (req, res) => {
         res.status(500).json(err);
     });
 })
+
+// router.get('/suggested', (req, res) => {
+
+//     const suggestedExercise = await Exercise.count({
+//         where: {
+//             id: {
+//                 [Op.gt]: 0
+//             }
+//         }
+//     });
+//     console.log(`There are ${suggestedExercise} exercises in the datbase.`)
+// })
 
 // get exercises
 router.get('/', (req, res) => {

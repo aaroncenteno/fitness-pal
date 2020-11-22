@@ -25,7 +25,7 @@
                 <input type="text" class="add-buddy-input" id="add-buddy-input"><button class="add-buddy-btn" id="add-buddy-btn" type="submit"><i class="fas fa-user-plus"></i></button>
                 <ul class="buddy-list">
                     {{#each friends.buddies as |buddy|}}
-                        <li>{{buddy.buddy_name}} <button id="remove-buddy" type="submit" data-toggle="modal" data-target="#remove-buddy-modal"><i class="fas fa-user-times"></i></button></li>   
+                        <li class="added-buddy">{{buddy.buddy_name}} ID: {{buddy.buddy_id}} <button id="remove-buddy" type="submit" {{!-- data-toggle="modal" data-target="#remove-buddy-modal" --}}><i class="fas fa-user-times"></i></button></li>   
                     {{/each}}
                 </ul>
             </aside>
@@ -71,6 +71,7 @@
 {{> bad-search-modal}}
 {{> confirm-add-buddy-modal}}
 {{> remove-buddy-modal}}
+
 
 
 
