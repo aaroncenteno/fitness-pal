@@ -1,0 +1,12 @@
+<article class="completed-workout">
+    <div class="workout-title">
+        <a href="/workout/{{id}}">{{title}}</a><span class="date-completed">Workout Completed on {{format_date created_at}} </span>
+    </div>
+    <div class="exercises">
+        <ol class="exercises-list">
+            {{#each exercise}}
+            <li></li>
+            {{/each}}
+        </ol>
+    </div>
+</article>

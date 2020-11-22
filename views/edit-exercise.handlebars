@@ -1,0 +1,37 @@
+{{!-- gym vs no gym
+upper vs lower body
+sets
+repetitions
+Include CSS classes for styling at a later time --}}
+
+<div class="create-exercise-jumbotron">
+    <div class="create-profile-jumbotron">
+        <form class="create-exercise-form">
+            <div id="gym-list" class="dropdown-check-list" tabindex="100">
+                <span class="anchor">Is this exercise done in a gym?</span>
+                <ul class="items">
+                    <li><input id="gym" name="gym-no-gym" type="checkbox" value="Gym"/><label for="gym">Gym</label></li>
+                    <li><input id="no-gym" name="gym-no-gym" type="checkbox" value="No gym"/><label for="no-gym">No gym</label></li>
+                </ul>
+            </div>
+            <div id="body-list" class="dropdown-check-list" tabindex="100">
+                <span class="anchor">Is this exercise for the upper or lower body?</span>
+                <ul class="items">
+                    <li><input id="upper" name="upper-lower" type="checkbox" value="Upper Body"/><label for="upper">Upper Body</label></li>
+                    <li><input id="lower" name="upper-lower" type="checkbox" value="Lower Body"/><label for="lower">Lower Body</label></li>
+                </ul>
+            </div>
+            <div class="sets">
+                <p>How many sets did you do for this exercise? <input type="text" class="sets" id="sets-number" value=""{{ }}> Sets </p>
+            </div>
+            <div class="reps">
+                <p>How many reps was this exercise? <input type="text" class="reps" id="reps-number" value={{ }}> Reps </p>
+            </div>
+            <button type="submit" class="update-btn">Update Exercise!</button>
+            <a href="/dashboard" class="cancel-btn">Cancel</a>
+        </form>
+    </div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+<script src="/javascript/edit-exercise.js"></script>
