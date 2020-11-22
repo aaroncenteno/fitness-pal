@@ -612,7 +612,8 @@ footer {
 }
 
 .add-buddy-btn,
-.add-weight{
+.add-weight,
+.remove-weight-btn{
     color: var(--neon-blue);
     background-color: black;
     border: 2px solid var(--neon-blue);

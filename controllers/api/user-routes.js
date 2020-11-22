@@ -411,5 +411,20 @@ router.post('/weight', (req, res) => {
     })
 });
 
+router.delete('/weight/:user_id', (req, res) => {
+    Weight.destroy({
+        where: {
+            user_id: req.params.user_id
+        }
+    })
+    .then(dbWeightData => {
+        res.json(dbWeightData);
+    })
+    .catch(err => {
+        console.log(err);
+        res.status(500).json(err);
+    })
+})
+
 
 module.exports = router;
