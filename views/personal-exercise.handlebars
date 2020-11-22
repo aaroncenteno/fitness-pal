@@ -1,7 +1,14 @@
 <div class="personalExercise-wrapper">
     <div class="personalExercise-innerWrapper">
-        <a href="/dashboard/create-personal-exercise">Create An Exercise!</a>
-        {{> createdPersonalExercise}}
+        <a href="/dashboard/create-personal-exercise" class="create-exercise-link">Create An Exercise!</a>
+        <div class="personal-exercises-list">
+            {{#if personal_exercises.length}}
+            {{#each personal_exercises as |personal_exercise|}}
+
+            {{> createdPersonalExercise personal_exercise}}
+            {{/each}}
+            {{/if}}
+        </div>
     </div>
 </div>
 

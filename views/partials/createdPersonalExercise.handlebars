@@ -1,7 +1,10 @@
 <div class="created-personal-exercise">
-    <div class="exercise-name">{{personal_exercises.exercise_name}}</div>
-    <div class="equipment-type">{{personal_exercises.gym_no_gym}}</div>
-    <div class="body-section">{{personal_exercises.upper_lower}}</div>
-    <div class="fitnessLevel">{{personal_exercises.fitness_level}}</div>
-    <div class="exercise-instruction">{{personal_exercises.instructions}}</div>
+    <div class="exercise-name">Exercise: {{exercise_name}}</div>
+    <div class="equipment-type">Gym or No Gym: {{gym_no_gym}}</div>
+    <div class="body-section">Upper or Lower Body: {{upper_lower}} Body</div>
+    <div class="fitnessLevel">Fitness Level: {{fitness_level}} Level</div>
+    <div class="exercise-instruction">Instructions: {{instructions}}</div>
+    <div class="editLink-container">
+        <a href="/dashboard/edit-personal/{{id}}" class="edit-exercise-link">Edit Exercise</a>
+    </div>
 </div>

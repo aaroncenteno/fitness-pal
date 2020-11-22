@@ -217,11 +217,24 @@ router.get('/personal-exercise', (req, res) => {
         },
         attributes: { exclude: ['password'] },
         include: [
-            {
-                model: Personal_Exercise,
-                attributes: ['id', 'exercise_name', 'gym_no_gym', 'upper_lower', 'fitness_level', 'instructions']
-            }
-        ]
+                    {
+                        model: Personal_Exercise,
+                        attributes: ['id', 'exercise_name', 'gym_no_gym', 'upper_lower', 'fitness_level', 'instructions']
+                    }
+                ]
+    })
+    .then(dbUserData => {
+        const results = dbUserData.get({plain: true});
+        const personal_exercises = results.personal_exercises
+        console.log(personal_exercises)
+        if (req.session.loggedIn) {
+            res.render('personal-exercise', {
+                loggedIn: req.session.loggedIn,
+                personal_exercises
+            });
+            return;
+        }
+        res.redirect('/');
     })
         .then(dbUserData => {
             const personal_exercises = dbUserData.personal_exercises
