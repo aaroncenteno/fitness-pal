@@ -1,5 +1,6 @@
 const router = require('express').Router();
 const { User, Buddy, Profile, Personal_Exercise, Workout } = require('../../models');
+const Weight = require('../../models/Weight');
 
 const withAuth = require('../../utils/auth');
 
@@ -53,6 +54,10 @@ router.get('/:usersearch', (req, res) => {
             {
                 model: Workout,
                 attributes: ['id', 'exercise_list', 'personal_list']
+            },
+            {
+                model: Weight,
+                attributes: ['weight', 'user_id', 'createdAt']
             }
         ]
     })
@@ -375,5 +380,36 @@ router.put('/profile/:id', withAuth, (req, res) => {
 // ----------------------------------------------------------------------------------------------------
 // ----- USER PROFILE ROUTES END -----
 // ----------------------------------------------------------------------------------------------------
+
+// Add Weight Route 
+router.get('/weight/:user_id', (req, res) => {
+    Weight.findAll({
+        where: {
+            user_id: req.params.user_id
+        }
+    })
+    .then(dbWeightData => {
+        res.json(dbWeightData);
+    })
+    .catch(err => {
+        console.log(err);
+        res.status(500).json(err);
+    })
+})
+
+router.post('/weight', (req, res) => {
+    Weight.create({
+        weight: req.body.weight,
+        user_id: req.session.user_id
+    })
+    .then(dbWeightData => {
+        res.json(dbWeightData)
+    })
+    .catch(err => {
+        console.log(err);
+        res.status(500).json(err);
+    })
+});
+
 
 module.exports = router;

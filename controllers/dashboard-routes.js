@@ -44,6 +44,7 @@ router.get('/', (req, res) => {
             const goals = dbUserData.profile.goal.split(",");
             const workouts = dbUserData.workouts
             const personalExercises = dbUserData.personal_exercises
+            const id = req.session.user_id
   
             res.render('dashboard', {
                 loggedIn: true,
@@ -53,7 +54,8 @@ router.get('/', (req, res) => {
                 goals,
                 friends,
                 workouts,
-                personalExercises
+                personalExercises,
+                id
             });
         })
         .catch(err => {

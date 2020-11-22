@@ -80,7 +80,7 @@ async function sampleExercise() {
         return Math.floor(Math.random() * (max - min + 1)) + min;
     }
 
-    const response = await fetch('/api/exercises/dashboard/' + randomNumber(0,23), {
+    const response = await fetch('/api/exercises/dashboard/' + randomNumber(1,24), {
         method: 'GET',
         headers: {
             'Content-Type': 'application/json'
@@ -95,69 +95,107 @@ async function sampleExercise() {
 
 }
 
-sampleExercise()
+sampleExercise();
 
-// Create a new chart
-let ctx = document.getElementById('myChart').getContext('2d');
-let chart = new Chart(ctx, {
-    // The type of chart we want to create
-    type: 'line',
 
-    // The data for our dataset
-    data: {
-        labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
-        datasets: [
-            {
-            label: 'My First dataset',
-            backgroundColor: 'rgba(54, 189, 207, .8)',
-            borderColor: 'rgba(255, 255, 255, .8)',
-            data: [1, 10, 20, 30, 40, 20, 30]
-            },
-            {
-                label: 'My Second dataset',
-                backgroundColor: 'rgba(255, 98, 208, .8)',
-                borderColor: 'rgba(255, 255, 255, 1)',
-                data: [1, 5, 30, 20, 10, 25, 45]  
-            }
-        ],
-    },
-    options: {
-        responsive: true,
-        scales: {
-            yAxes: [{
-                gridLines: {
-                    drawBorder: false,
-                    color: 'white'
-                },
-                ticks: {
-                    fontColor: 'white',
-                    fontFamily: 'Russo One',
-                    fontSize: 16,
-                }
-            }],
-            xAxes: [{
-                gridLines: {
-                    drawBorder: false,
-                    color: 'white'
-                },
-                ticks: {
-                    fontColor: 'white',
-                    fontFamily: 'Russo one',
-                    fontSize: 16,
-                }
-            }],
-        },
-        legend: {
-            labels: {
-                fontColor: 'white',
-                fontSize: 16,
-                fontFamily: 'Russo One',
-            }
+// Add a users weight to the database
+async function addWeightHandler(event) {
+    const weight = document.querySelector("#weight-chart-input").value.trim();
+
+    const response = await fetch('/api/users/weight', {
+        method: 'POST',
+        body: JSON.stringify({weight}),
+        headers: {
+            'Content-Type': 'application/json'
         }
+    })
+    if(response.ok) {
+        console.log('weight added!');
+        window.location.reload();
     }
-});
+}
 
+async function pushWeightChart() {
+    const userIdEl = document.querySelector('.req-session-id');
+    const user_id = userIdEl.innerHTML
+
+    const response = await fetch('/api/users/weight/' + user_id, {
+        method: 'GET',
+        headers: {
+            'Content-Type': 'application/json'
+        }
+    })
+    .then(response => response.json())
+    .then(data => {
+        let weight = [];
+        let date = [];
+
+        for (i = 0; i < data.length; i++) {
+            var formatDate = moment(data[i].createdAt).format('MMM Do YY')
+            date.push(formatDate);
+            weight.push(data[i].weight);
+        }
+        console.log(date)
+        // Create a new chart
+        let ctx = document.getElementById('myChart').getContext('2d');
+        let chart = new Chart(ctx, {
+            // The type of chart we want to create
+            type: 'line',
+
+            // The data for our dataset
+            data: {
+                labels: date,
+                datasets: [
+                    {
+                    label: 'Your weight journey',
+                    backgroundColor: 'rgba(54, 189, 207, .8)',
+                    borderColor: 'rgba(255, 255, 255, .8)',
+                    data: weight
+                    }
+                ],
+            },
+            options: {
+                responsive: true,
+                scales: {
+                    yAxes: [{
+                        gridLines: {
+                            drawBorder: false,
+                            color: 'white'
+                        },
+                        ticks: {
+                            fontColor: 'white',
+                            fontFamily: 'Russo One',
+                            fontSize: 16,
+                        }
+                    }],
+                    xAxes: [{
+                        gridLines: {
+                            drawBorder: false,
+                            color: 'white'
+                        },
+                        ticks: {
+                            fontColor: 'white',
+                            fontFamily: 'Russo one',
+                            fontSize: 16,
+                        }
+                    }],
+                },
+                legend: {
+                    labels: {
+                        fontColor: 'white',
+                        fontSize: 16,
+                        fontFamily: 'Russo One',
+                    }
+                }
+            }
+        });
+    })
+}
+
+pushWeightChart();
 document.querySelector('.add-buddy-btn').addEventListener('click', searchBuddyHandler)
 document.querySelector('#add-to-buddy-list').addEventListener('click', addBuddyHandler)
 document.querySelector('#remove-buddy-confirm').addEventListener('click', removeBuddyHandler)
+document.querySelector('#submit-weight-btn').addEventListener('click', addWeightHandler)
+
 
