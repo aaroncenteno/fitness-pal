@@ -3,88 +3,57 @@ const { Profile, User, Personal_Exercise, Workout, Buddy } = require('../models'
 
 // route to dashboard
 router.get('/', (req, res) => {
-    // User.findOne(
-    //     {   
-    //         where: {
-    //             id: req.session.id,
-    //         },
-    //         attributes: { exclude: ['password'] },
-    //         include: [
-    //             // include Buddy model 
-    //             {
-    //                 model: User,
-    //                 attributes: ['id', 'username'],
-    //                 through: Buddy,
-    //                 as: 'buddies'
-    //             },
-    //             {
-    //                 model: Profile,
-    //                 attributes: ['id', 'height_ft', 'height_in', 'weight', 'fitness_level', 'goal', 'user_id'],
-    //                 // attributes: ['id', 'height_ft', 'height_in', 'weight', 'fitness_level', 'user_id']
-
-    //             },
-    //             {
-    //                 model: Personal_Exercise,
-    //                 attributes: ['id', 'exercise_name', 'gym_no_gym', 'upper_lower', 'fitness_level', 'instructions']
-    //             },
-    //             {
-    //                 model: Workout,
-    //                 attributes: ['id', 'exercise_list', 'personal_list']
-    //             }
-    //         ]
-    //     }
-    // )
-    //     .then(dbUserData => {
-    //         const username = req.session.username;
-    //         const user_id = req.session.user_id;  
-                    
-    //         res.render('dashboard', {
-    //             loggedIn: true,
-    //             username,
-    //             user_id,
-    //             user
-    //         });
-    //     })
-        Profile.findOne({
-            where: {
-                user_id: req.session.user_id
+    User.findOne({
+        where: {
+            id: req.session.user_id
+        },
+        // exclude password column for security
+        attributes: { exclude: ['password'] },
+        include: [
+            // include Buddy model 
+            {
+                model: User,
+                attributes: [
+                    ['id', 'buddy_id'],
+                    ['username', 'buddy_name']
+                ],
+                through: Buddy,
+                as: 'buddies'
             },
-            attributes: ['id', 'height_ft', 'height_in', 'weight', 'fitness_level', 'goal', 'user_id'],
-            include: [
-                {
-                    model: User,
-                    attributes: ['id', 'username', 'createdAt'],
-                    include: [
-                        {
-                            model: User,
-                            attributes: ['id', 'username'],
-                            through: Buddy,
-                            as: 'buddies'
-                        },
-                        {
-                            model: Personal_Exercise,
-                            attributes: ['id', 'exercise_name', 'gym_no_gym', 'upper_lower', 'fitness_level', 'instructions']
-                        },
-                        {
-                            model: Workout,
-                            attributes: ['id', 'exercise_list', 'personal_list']
-                        }
-                    ]
-                }  
-            ]
-        })
-        .then(dbProfileData => {
+            {
+                model: Profile,
+                attributes: ['id', 'height_ft', 'height_in', 'weight', 'fitness_level', 'goal', 'user_id']
+                // attributes: ['id', 'height_ft', 'height_in', 'weight', 'fitness_level', 'user_id']
+
+            },
+            {
+                model: Personal_Exercise,
+                attributes: ['id', 'exercise_name', 'gym_no_gym', 'upper_lower', 'fitness_level', 'instructions']
+            },
+            {
+                model: Workout,
+                attributes: ['id', 'exercise_list', 'personal_list']
+            }
+        ]
+    })
+        .then(dbUserData => {
+            const friends = dbUserData.get({plain: true});
             const username = req.session.username;
-            const user_id = dbProfileData.id; 
-            const joinDate = dbProfileData.user.createdAt;
-            const goals = dbProfileData.goal.split(",");
-                    
+            const profile_id = dbUserData.profile.id; 
+            const joinDate = dbUserData.createdAt;
+            const goals = dbUserData.profile.goal.split(",");
+            const workouts = dbUserData.workouts
+            const personalExercises = dbUserData.personal_exercises
+  
             res.render('dashboard', {
                 loggedIn: true,
                 username,
-                user_id,
+                profile_id,
                 joinDate,
-                goals
+                goals,
+                friends,
+                workouts,
+                personalExercises
             });
         })
         .catch(err => {
@@ -139,9 +108,10 @@ router.get('/profile/:id', (req, res) => {
             profile.getInShape = (temp.includes('Get In Shape')) ? 'checked' : 'unchecked'
             profile.feelHealthier = (temp.includes('Feel Healthier')) ? 'checked' : 'unchecked'
 
-
+            const user_id = dbProfileData.user_id;
             res.render('edit-user-profile', {
                 profile,
+                user_id,
                 loggedIn: true
             });
         })
@@ -192,6 +162,51 @@ router.get('/edit-personal/:id', (req, res) => {
             res.status(500).json(err);
         });
 });
+
+// display daily workout
+router.get('/workout', (req, res) => {
+    if (req.session.loggedIn) {
+        res.render('dailyworkout', {
+            loggedIn: req.session.loggedIn
+        });
+        return;
+    }
+    res.redirect('/');
+});
+
+// display exercise search
+// router.get('/exercise-search', (req, res) => {
+//     if (req.session.loggedIn) {
+//         res.render('exercise-search', {
+//             loggedIn: req.session.loggedIn
+//         });
+//         return;
+//     }
+//     res.redirect('/');
+// });
+
+// display exercise search results
+// router.get('/exercise-search/results', (req, res) => {
+//     if (req.session.loggedIn) {
+//         res.render('exercise-search-results', {
+//             loggedIn: req.session.loggedIn
+//         });
+//         return;
+//     }
+//     res.redirect('/');
+// });
+
+// display personal exercises page
+router.get('/personal-exercise', (req, res) => {
+    if (req.session.loggedIn) {
+        res.render('personal-exercise', {
+            loggedIn: req.session.loggedIn
+        });
+        return;
+    }
+    res.redirect('/');
+});
+
 
 // display workout form and data for edit
 router.get('/edit-workout/:id', (req, res) => {

@@ -1,0 +1,70 @@
+<div class="exercise-search-jumbotron">
+    <div class="exercise-search-wrapper">
+        <form class="exercise-search-form">
+
+            <div class="exercise-search-statement">
+                <p>What would you like to work on today?</p>
+            </div>
+
+            {{!-- Gym / No Gym Option --}}
+
+            <div id="gym-no-gym-list" class="dropdown-check-list" tabindex="100">
+                <span class="anchor">Will you be working out at a gym?</span>
+                <ul class="items">
+                    <li>
+                        <input id="gym-option" name="gym-no-gym-option" type="radio" value="gym" />
+                        <label for="gym-option">Gym</label>
+                    </li>
+                    <li>
+                        <input id="no-gym-option" name="gym-no-gym-option" type="radio" value="no_gym" />
+                        <label for="no-gym-option">No Gym</label>
+                    </li>
+                </ul>
+            </div>
+
+            {{!-- Upper / Lower Body Option --}}
+
+            <div id="upper-lower-list" class="dropdown-check-list" tabindex="100">
+                <span class="anchor">Upper or Lower Body?</span>
+                <ul class="items">
+                    <li>
+                        <input id="upper-option" name="body-option" type="radio" value="upper" />
+                        <label for="upper-option">Upper</label>
+                    </li>
+                    <li>
+                        <input id="lower-option" name="body-option" type="radio" value="lower" />
+                        <label for="lower-option">Lower</label>
+                    </li>
+                </ul>
+            </div>
+
+            {{!-- Fitness Level Option --}}
+
+            <div id="fitness-level-list" class="dropdown-check-list" tabindex="100">
+                <span class="anchor">Pick a difficulty level</span>
+                <ul class="items">
+                    <li>
+                        <input id="beginner-option" name="level-option" type="radio" value="beginner" />
+                        <label for="beginner-option">Beginner</label>
+                    </li>
+                    <li>
+                        <input id="intermediate-option" name="level-option" type="radio" value="intermediate" />
+                        <label for="intermediate-option">Intermediate</label>
+                    </li>
+                    <li>
+                        <input id="advanced-option" name="level-option" type="radio" value="advanced" />
+                        <label for="advanced-option">Advanced</label>
+                    </li>
+                </ul>
+            </div>
+
+            <button type="submit" class="search-exercises-btn">Search!</button>
+            <a href="/dashboard" class="cancel-btn">Cancel</a>
+
+        </form>
+    </div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"
+    integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+<script src="/javascript/exercise-search.js""></script>

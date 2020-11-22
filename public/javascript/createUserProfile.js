@@ -3,7 +3,7 @@ async function createProfileFormHandler(event) {
 
     const height_ft = document.querySelector("#height-feet").value.trim();
     const height_in = document.querySelector("#height-inches").value.trim();
-    const weight = document.querySelector("#weight").value.trim();
+    const weight = document.querySelector("#weight-input").value.trim();
     const fitness_level = document.querySelector("input[name='level']:checked").value;
     const goal_array = Array
         .from(document.querySelectorAll('input[type="checkbox"]'))

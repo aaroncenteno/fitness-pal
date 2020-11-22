@@ -38,9 +38,9 @@ Weight.init(
         // use underscores instead of camel-casing (i.e. `comment_text` and not `commentText`)
         underscored: true,
         // make it so our model name stays lowercase in the database
-        modelName: 'profile'
+        modelName: 'weight'
     }
 )
 
 // export the newly created model so we can use it in other parts of the app
-module.exports = Profile;
+module.exports = Weight;

@@ -69,8 +69,7 @@ router.get('/:usersearch', (req, res) => {
         .catch(err => {
             console.log(err);
             res.status(500).json(err);
-        })
-        ;
+        });
 });
 
 // create a new user
@@ -170,6 +169,7 @@ router.get('/:id/buddy', (req, res) => {
         where: {
             user_id: req.params.id
         }
+
     })
     .then(dbBuddyData => {
         if (!dbBuddyData) {
@@ -185,19 +185,13 @@ router.get('/:id/buddy', (req, res) => {
 })
 
 // add a buddy to a user's buddy list
-router.post('/buddy', withAuth, (req, res) => {
+router.post('/buddy/:id', withAuth, (req, res) => {
 
-    User.findOne({
-        where: {
-            buddy_name: req.body.buddy_name
-        }
-    })
-
-    Buddy.create(
+    Buddy.create( 
         {
-            buddy_id: req.body.buddy_id,
-            user_id: req.body.user_id
-            // user_id: req.session.user_id
+            buddy_id: req.params.id,
+            // user_id: req.body.user_id
+            user_id: req.session.user_id
         }
     )
     .then(dbBuddyData => res.json(dbBuddyData))
@@ -205,6 +199,26 @@ router.post('/buddy', withAuth, (req, res) => {
         console.log(err);
         res.status(500).json(err);
     });
+});
+
+// delete a buddy
+router.delete('/buddy/:buddy_id', withAuth, (req, res) => {
+    Buddy.destroy({
+        where: {
+            buddy_id: req.params.buddy_id
+        }
+    })
+        .then(dbBuddyData => {
+            if (!dbBuddyData) {
+                res.status(404).json({ message: 'No buddy found with this id' });
+                return;
+            }
+            res.json(dbBuddyData);
+        })
+        .catch(err => {
+            console.log(err);
+            res.status(500).json(err);
+        });
 });
 
 // delete a user

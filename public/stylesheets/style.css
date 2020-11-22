@@ -35,7 +35,7 @@ header {
 
 .modal-header {
     background: var(--gray);
-    background: linear-gradient(90deg, var(--neon-blue) 0%, var(--gray) 50%, var(--black) 100%);
+    background: linear-gradient(90deg, var(--neon-blue) 0%, var(--gray) 50%, var(--neon-green) 100%);
     font-size: 28px;
 }
 
@@ -354,6 +354,8 @@ footer {
 }
 
 /* Create User Profile Styling */
+/* Search Exercise Styling */
+.exercise-search-form,
 .user-info-form, 
 .create-exercise-form {
     font-size: 24px;
@@ -423,21 +425,23 @@ footer {
     height: 30px;
 }
 
-/* Create/Edit Profile Styling and*/
-/*Create/Edit Exercise styling*/
-
+/* Create/Edit Profile Styling and */
+/* Create/Edit Exercise styling */
+/* Search Exercise styling */
+.exercise-search-wrapper,
 .edit-profile-jumbotron,
 .create-profile-wrapper,
 .create-exercise-jumbotron,
-.create-exercose-wrapper,
 .generate-workout-jumbotron,
 .generate-workout-form,
+.create-exercise-wrapper,
 .dashboard-jumbotron {
     background-size: cover;
     background-image:linear-gradient(150deg, rgba(54, 189, 207, .4) 0%, rgba(173, 173, 173, .6) 50%, rgba(199, 248, 86, .4) 100%), url("../imgs/gym.jpg") ;
-    height: 100vh;
+    height: max-content;
 }
 
+.exercise-search-wrapper,
 .edit-profile-wrapper,
 .create-profile-wrapper,
 .create-exercise-jumbotron,
@@ -455,11 +459,15 @@ footer {
     color: white;
 }
 
+#gym-no-gym-list,
+#upper-lower-list,
+#fitness-level-list,
 #goal-list,
 #level-list {
     padding-bottom: 40px;
 }
 
+.search-exercises-btn,
 .update-btn,
 .cancel-btn,
 .create-profile-btn,
@@ -520,8 +528,8 @@ footer {
 }
 
 .stats-chart {
-    height: 500px;
-    width: 850px;
+    height: 60vh;
+    width: 45vw;
     float: right;
     margin-right: 125px;
     margin-top: 80px;
@@ -547,7 +555,19 @@ footer {
 
 .completed-workouts {
     display: inline-block;
-    margin-left: 400px;
+    margin-left: 70px;
+    height: 400px;
+    color: var(--neon-blue);
+    border: 5px inset var(--neon-green);
+    border-radius:  15px;
+    box-shadow: 10px 10px 40px var(--neon-green);
+    background: rgba(0, 0, 0, .8);
+    margin-top: 50px;
+    margin-bottom: 80px;
+    padding: 20px;
+    width: 45vw;
+    overflow: hidden;
+    overflow-y: scroll;
 }
 
 .user-info,
@@ -602,7 +622,8 @@ footer {
     overflow-y: scroll;
 }
 
-.add-buddy {
+.add-buddy-btn,
+.add-weight{
     color: var(--neon-blue);
     background-color: black;
     border: 2px solid var(--neon-blue);
@@ -614,7 +635,8 @@ footer {
     transition: .4s;
 }
 
-.add-buddy:hover {
+.add-buddy-btn:hover,
+.add-weight:hover {
     border: 2px solid var(--neon-green);
     -webkit-text-stroke-color: var(--neon-green);
     color: var(--neon-green);
@@ -684,9 +706,11 @@ footer {
 }
 
 #remove-buddy:focus,
-.add-buddy:focus {
+.add-buddy-btn:focus,
+.add-weight:focus {
     outline: none;
 }
+
 
 /*Generate workout styling*/
 .generate-workout-form {
@@ -697,4 +721,9 @@ footer {
     border: 5px inset var(--neon-blue);
     background: rgba(0, 0, 0, .4);
     box-shadow: 10px 10px 40px var(--neon-blue);
+
+.found-user {
+    font-size: 40px;
+    padding-left: 20px;
+
 }
