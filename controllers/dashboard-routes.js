@@ -44,6 +44,7 @@ router.get('/', (req, res) => {
             const goals = dbUserData.profile.goal.split(",");
             const workouts = dbUserData.workouts
             const personalExercises = dbUserData.personal_exercises
+            const id = req.session.user_id
   
             res.render('dashboard', {
                 loggedIn: true,
@@ -53,7 +54,8 @@ router.get('/', (req, res) => {
                 goals,
                 friends,
                 workouts,
-                personalExercises
+                personalExercises,
+                id
             });
         })
         .catch(err => {
@@ -163,6 +165,17 @@ router.get('/edit-personal/:id', (req, res) => {
         });
 });
 
+// Create exercise page
+router.get('/create-personal-exercise', (req, res) => {
+    if(req.session.loggedIn) {
+        res.render('create-exercise', {
+            loggedIn: true
+        });
+        return;
+    }
+    res.redirect('/');
+})
+
 // display daily workout
 router.get('/workout', (req, res) => {
     if (req.session.loggedIn) {
@@ -198,13 +211,29 @@ router.get('/workout', (req, res) => {
 
 // display personal exercises page
 router.get('/personal-exercise', (req, res) => {
-    if (req.session.loggedIn) {
-        res.render('personal-exercise', {
-            loggedIn: req.session.loggedIn
-        });
-        return;
-    }
-    res.redirect('/');
+    User.findOne({
+        where: {
+            id: req.session.user_id
+        },
+        attributes: {exclude: ['password']},
+        include: [
+                    {
+                        model: Personal_Exercise,
+                        attributes: ['id', 'exercise_name', 'gym_no_gym', 'upper_lower', 'fitness_level', 'instructions']
+                    }
+                ]
+    })
+    .then(dbUserData => {
+        const personal_exercises = dbUserData.personal_exercises
+        if (req.session.loggedIn) {
+            res.render('personal-exercise', {
+                loggedIn: req.session.loggedIn,
+                personal_exercises
+            });
+            return;
+        }
+        res.redirect('/');
+    })
 });
 
 

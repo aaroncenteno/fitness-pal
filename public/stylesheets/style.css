@@ -214,7 +214,8 @@ footer {
 
 /* Sign-Up/Login Styling */
 .signup-wrapper,
-.login-wrapper {
+.login-wrapper,
+.personalExercise-wrapper {
     background: var(--gray);
     background-image: linear-gradient(150deg, rgba(54, 189, 207, .6) 0%, rgba(173, 173, 173, .8) 50%, rgba(199, 248, 86, .6) 100%), url("../imgs/wall_background02.jpg");
     height: 90vh;
@@ -222,7 +223,8 @@ footer {
 }
 
 .signup-innerWrapper,
-.login-innerWrapper {
+.login-innerWrapper,
+.personalExercise-innerWrapper {
     padding-top: 100px;
     position: relative;
 }
@@ -725,5 +727,6 @@ footer {
 .found-user {
     font-size: 40px;
     padding-left: 20px;
-
 }
+
+/* Personal Exercise Page Styling */
