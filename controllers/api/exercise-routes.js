@@ -18,8 +18,8 @@ router.get('/dashboard', (req, res) => {
     })
 })
 
-router.get('/dashboard/:id', (req, res) => {
-    Excersise.findOne({
+router.get('/:id', (req, res) => {
+    Exercise.findOne({
         where: {
             id: req.params.id
         }
