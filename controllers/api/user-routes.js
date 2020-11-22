@@ -202,10 +202,10 @@ router.post('/buddy/:id', withAuth, (req, res) => {
 });
 
 // delete a buddy
-router.delete('/:id', withAuth, (req, res) => {
+router.delete('/buddy/:buddy_id', withAuth, (req, res) => {
     Buddy.destroy({
         where: {
-            id: req.params.id
+            buddy_id: req.params.buddy_id
         }
     })
         .then(dbBuddyData => {

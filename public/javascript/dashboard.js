@@ -25,6 +25,7 @@ async function searchBuddyHandler(event) {
     }
 }
 
+// Add a buddy to buddy list
 async function addBuddyHandler(event) {
     const addToBuddyList = document.querySelector("#add-to-buddy-list");
     const foundUser = document.querySelector(".found-user");
@@ -37,35 +38,61 @@ async function addBuddyHandler(event) {
         }
     })
     if(response.ok) {
-        console.log('Buddy Added!')
+        document.location.reload();
     }
     console.log(userId);
 }
 
+$("#remove-buddy").click(function (event) {
+    var parent = $(this).closest('.added-buddy')
+    const buddyName = parent[0].innerHTML.split(" ")[0]
+    const buddyId = parent[0].innerHTML.split(" ")[2]
+    const removeBuddyName = document.querySelector('.remove-buddy-name');
+    const removeBuddyId = document.querySelector('.remove-buddy-id');
+
+    removeBuddyName.innerHTML = buddyName;
+    removeBuddyId.innerHTML = buddyId;
+    $("#remove-buddy-modal").modal('toggle')
+})
+
+async function removeBuddyHandler(event) {
+    const buddyIdEL = document.querySelector('.remove-buddy-id');
+    const buddyId = buddyIdEL.innerHTML
+
+    const response = await fetch('/api/users/buddy/' + buddyId, {
+        method: 'DELETE',
+        headers: {
+            'Content-Type': 'application/json'
+        }
+    })
+    if(response.ok) {
+        document.location.reload();
+        console.log('Buddy Deleted')
+    }
+}
 
 
 // Sample Exercise
 async function sampleExercise() {
-    const exerciseEl = document.querySelector('.suggested-exercise');
+    const exerciseEl = document.querySelector('.random-exercise');
+    const exerciseInstructions = document.querySelector('.random-instruction');
+    const randomNumber = (min, max) => {
+        return Math.floor(Math.random() * (max - min + 1)) + min;
+    }
 
-    $.ajax('/api/exercises/dashboard', {
-        type: 'GET'
-    }).then(
-       function () {
-           
-       }
-    )
-    // await fetch('/api/exercises/dashboard', {
-    //     method: 'GET'
-    // })
-    // .then( response => {
-    //     response.json()
-    // }
-    // )
-    // .then(results => {
-    //     JSON.stringify(results)
-    //     exerciseEl.appendChild(results)
-    // })
+    const response = await fetch('/api/exercises/dashboard/' + randomNumber(0,23), {
+        method: 'GET',
+        headers: {
+            'Content-Type': 'application/json'
+        }
+    })
+    .then(response => {
+        // console.log(response.json())
+        return response.json();
+    })
+    exerciseEl.innerHTML = response.exercise_name
+    exerciseInstructions.innerHTML = response.instructions;
+
 }
 
 sampleExercise()
@@ -132,3 +159,5 @@ let chart = new Chart(ctx, {
 
 document.querySelector('.add-buddy-btn').addEventListener('click', searchBuddyHandler)
 document.querySelector('#add-to-buddy-list').addEventListener('click', addBuddyHandler)
+document.querySelector('#remove-buddy-confirm').addEventListener('click', removeBuddyHandler)
+

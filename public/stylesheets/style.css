@@ -436,7 +436,7 @@ footer {
 .dashboard-jumbotron {
     background-size: cover;
     background-image:linear-gradient(150deg, rgba(54, 189, 207, .4) 0%, rgba(173, 173, 173, .6) 50%, rgba(199, 248, 86, .4) 100%), url("../imgs/gym.jpg") ;
-    height: 100vh;
+    height: max-content;
 }
 
 .exercise-search-wrapper,
@@ -550,7 +550,19 @@ footer {
 
 .completed-workouts {
     display: inline-block;
-    margin-left: 400px;
+    margin-left: 70px;
+    height: 400px;
+    color: var(--neon-blue);
+    border: 5px inset var(--neon-green);
+    border-radius:  15px;
+    box-shadow: 10px 10px 40px var(--neon-green);
+    background: rgba(0, 0, 0, .8);
+    margin-top: 50px;
+    margin-bottom: 80px;
+    padding: 20px;
+    width: 45vw;
+    overflow: hidden;
+    overflow-y: scroll;
 }
 
 .user-info,

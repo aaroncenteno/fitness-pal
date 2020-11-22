@@ -42,7 +42,8 @@ router.get('/', (req, res) => {
             const profile_id = dbUserData.profile.id; 
             const joinDate = dbUserData.createdAt;
             const goals = dbUserData.profile.goal.split(",");
-            console.log(friends);
+            const workouts = dbUserData.workouts
+            const personalExercises = dbUserData.personal_exercises
   
             res.render('dashboard', {
                 loggedIn: true,
@@ -50,7 +51,9 @@ router.get('/', (req, res) => {
                 profile_id,
                 joinDate,
                 goals,
-                friends
+                friends,
+                workouts,
+                personalExercises
             });
         })
         .catch(err => {
