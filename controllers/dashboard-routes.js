@@ -93,6 +93,12 @@ router.get('/', (req, res) => {
         });
 });
 
+
+
+router.get('/generateworkout', (req, res) => {
+     res.render("generate-workout")    
+})
+
 // display edit-profile form and data
 router.get('/profile/:id', (req, res) => {
     Profile.findOne({
