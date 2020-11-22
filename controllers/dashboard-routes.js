@@ -224,7 +224,9 @@ router.get('/personal-exercise', (req, res) => {
                 ]
     })
     .then(dbUserData => {
-        const personal_exercises = dbUserData.personal_exercises
+        const results = dbUserData.get({plain: true});
+        const personal_exercises = results.personal_exercises
+        console.log(personal_exercises)
         if (req.session.loggedIn) {
             res.render('personal-exercise', {
                 loggedIn: req.session.loggedIn,

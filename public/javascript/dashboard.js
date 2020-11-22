@@ -115,6 +115,22 @@ async function addWeightHandler(event) {
     }
 }
 
+async function deleteWeightHandler(event) {
+    const userIdEl = document.querySelector('.req-session-id');
+    const user_id = userIdEl.innerHTML
+
+    const response = await fetch('/api/users/weight/' + user_id, {
+        method: 'DELETE',
+        headers: {
+            'Content-Type': 'application/json'
+        }
+    })
+    if(response.ok) {
+        console.log('weight data deleted');
+        document.location.reload();
+    }
+}
+
 async function pushWeightChart() {
     const userIdEl = document.querySelector('.req-session-id');
     const user_id = userIdEl.innerHTML
@@ -197,5 +213,6 @@ document.querySelector('.add-buddy-btn').addEventListener('click', searchBuddyHa
 document.querySelector('#add-to-buddy-list').addEventListener('click', addBuddyHandler)
 document.querySelector('#remove-buddy-confirm').addEventListener('click', removeBuddyHandler)
 document.querySelector('#submit-weight-btn').addEventListener('click', addWeightHandler)
+document.querySelector('#delete-weight-confirm').addEventListener('click', deleteWeightHandler)
 
 
