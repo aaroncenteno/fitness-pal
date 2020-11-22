@@ -124,7 +124,7 @@ router.post('/search', (req, res) => {
             }
 
             // ADD CODE HERE TO SEND BACK THE DATA AND RENDER OF THE EXERCISE SEARCH RESULTS PAGE
-            // SHOULD BE SIMILAR TO AARON'S CODE
+            
 
 
 
