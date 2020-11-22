@@ -354,6 +354,8 @@ footer {
 }
 
 /* Create User Profile Styling */
+/* Search Exercise Styling */
+.exercise-search-form,
 .user-info-form, 
 .create-exercise-form {
     font-size: 24px;
@@ -423,9 +425,10 @@ footer {
     height: 30px;
 }
 
-/* Create/Edit Profile Styling and*/
-/*Create/Edit Exercise styling*/
-
+/* Create/Edit Profile Styling and */
+/* Create/Edit Exercise styling */
+/* Search Exercise styling */
+.exercise-search-wrapper,
 .edit-profile-jumbotron,
 .create-profile-wrapper,
 .create-exercise-jumbotron,
@@ -436,6 +439,7 @@ footer {
     height: max-content;
 }
 
+.exercise-search-wrapper,
 .edit-profile-wrapper,
 .create-profile-wrapper,
 .create-exercise-jumbotron,
@@ -451,11 +455,15 @@ footer {
     color: white;
 }
 
+#gym-no-gym-list,
+#upper-lower-list,
+#fitness-level-list,
 #goal-list,
 #level-list {
     padding-bottom: 40px;
 }
 
+.search-exercises-btn,
 .update-btn,
 .cancel-btn,
 .create-profile-btn,
