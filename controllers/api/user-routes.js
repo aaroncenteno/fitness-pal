@@ -192,13 +192,6 @@ router.get('/:id/buddy', (req, res) => {
 // add a buddy to a user's buddy list
 router.post('/buddy/:id', withAuth, (req, res) => {
 
-    // User.findOne({
-    //     where: {
-    //         // buddy_name: req.body.buddy_name
-    //         buddy_id: req.params.id
-    //     }
-    // })
-
     Buddy.create( 
         {
             buddy_id: req.params.id,

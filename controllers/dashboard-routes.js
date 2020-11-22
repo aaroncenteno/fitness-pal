@@ -64,6 +64,12 @@ router.get('/', (req, res) => {
         });
 });
 
+
+
+router.get('/generateworkout', (req, res) => {
+     res.render("generate-workout")    
+})
+
 // display edit-profile form and data
 router.get('/profile/:id', (req, res) => {
     Profile.findOne({
@@ -182,15 +188,26 @@ router.get('/workout', (req, res) => {
 });
 
 // display exercise search
-router.get('/exercise-search', (req, res) => {
-    if (req.session.loggedIn) {
-        res.render('exercise-search', {
-            loggedIn: req.session.loggedIn
-        });
-        return;
-    }
-    res.redirect('/');
-});
+// router.get('/exercise-search', (req, res) => {
+//     if (req.session.loggedIn) {
+//         res.render('exercise-search', {
+//             loggedIn: req.session.loggedIn
+//         });
+//         return;
+//     }
+//     res.redirect('/');
+// });
+
+// display exercise search results
+// router.get('/exercise-search/results', (req, res) => {
+//     if (req.session.loggedIn) {
+//         res.render('exercise-search-results', {
+//             loggedIn: req.session.loggedIn
+//         });
+//         return;
+//     }
+//     res.redirect('/');
+// });
 
 // display personal exercises page
 router.get('/personal-exercise', (req, res) => {

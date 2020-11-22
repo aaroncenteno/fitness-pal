@@ -1,4 +1,4 @@
-async function createExercise(event) {
+async function createExerciseFormHandler(event) {
     event.preventDefault();
 
     const gym = document.querySelector("#gym").value.trim();
@@ -40,4 +40,4 @@ jQuery(function ($) {
     });
 });
 
-document.querySelector('create-exercise-form').addEventListener('submit', createProfileFormHandler);
+document.querySelector('.create-exercise-form').addEventListener('submit', createExerciseFormHandler);
