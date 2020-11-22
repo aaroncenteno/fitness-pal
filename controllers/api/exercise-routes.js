@@ -9,13 +9,13 @@ const { route } = require('./user-routes');
 
 router.get('/dashboard', (req, res) => {
     Exercise.findAll({
-        
+
     })
-    .then(({id}) => {res.json(id)})
-    .catch(err => {
-        console.log(err);
-        res.status(500).json(err)
-    })
+        .then(({ id }) => { res.json(id) })
+        .catch(err => {
+            console.log(err);
+            res.status(500).json(err)
+        })
 })
 
 router.get('/dashboard/:id', (req, res) => {
@@ -24,13 +24,13 @@ router.get('/dashboard/:id', (req, res) => {
             id: req.params.id
         }
     })
-    .then(dbExerciseData => {
-        res.json(dbExerciseData);
-    }) 
-    .catch(err => {
-        console.log(err);
-        res.status(500).json(err);
-    });
+        .then(dbExerciseData => {
+            res.json(dbExerciseData);
+        })
+        .catch(err => {
+            console.log(err);
+            res.status(500).json(err);
+        });
 })
 
 // router.get('/suggested', (req, res) => {
@@ -45,7 +45,7 @@ router.get('/dashboard/:id', (req, res) => {
 //     console.log(`There are ${suggestedExercise} exercises in the datbase.`)
 // })
 
-// get exercises
+// get all exercises
 router.get('/', (req, res) => {
 
     const whereCondition = {};
@@ -61,6 +61,58 @@ router.get('/', (req, res) => {
     }
 
     Exercise.findAll({
+
+        where: whereCondition
+
+    })
+        .then(dbExerciseData => {
+            // if the search brings back nothing
+            if (!dbExerciseData) {
+                // send a 404 status to indicate everything is ok but no data found
+                res.status(404).json({ message: 'No exercises found' });
+                return;
+            }
+            // otherwise, send back the data
+            res.json(dbExerciseData);
+        })
+        .catch(err => {
+            console.log(err);
+            res.status(500).json(err);
+        })
+        ;
+
+})
+
+// search exercises
+router.post('/search', (req, res) => {
+
+    console.log("In the GET route.");
+    console.log(req.body);
+    // const searchURL = req.params.searchstring;
+
+    const whereCondition = {};
+
+    // if (req.query.gym_no_gym) {
+    //     whereCondition.gym_no_gym = req.query.gym_no_gym;
+    // }
+    // if (req.query.upper_lower) {
+    //     whereCondition.upper_lower = req.query.upper_lower;
+    // }
+    // if (req.query.fitness_level) {
+    //     whereCondition.fitness_level = req.query.fitness_level;
+    // }
+
+    if (req.body.gym_no_gym) {
+        whereCondition.gym_no_gym = req.body.gym_no_gym;
+    }
+    if (req.body.upper_lower) {
+        whereCondition.upper_lower = req.body.upper_lower;
+    }
+    if (req.body.fitness_level) {
+        whereCondition.fitness_level = req.body.fitness_level;
+    }
+
+    Exercise.findAll({
         where: whereCondition
     })
         .then(dbExerciseData => {
@@ -70,6 +122,15 @@ router.get('/', (req, res) => {
                 res.status(404).json({ message: 'No exercises found' });
                 return;
             }
+
+            // ADD CODE HERE TO SEND BACK THE DATA AND RENDER OF THE EXERCISE SEARCH RESULTS PAGE
+            
+
+
+
+
+
+
             // otherwise, send back the data
             res.json(dbExerciseData);
         })
@@ -190,10 +251,11 @@ router.delete('/personal/:id', withAuth, (req, res) => {
 
 // get all of a single user's workouts
 router.get('/workout/:id', (req, res) => {
+ 
     Workout.findAll(
         {
             where: {
-                user_id: req.params.id
+                user_id:  req.params.id
             }
         }
     )

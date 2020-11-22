@@ -356,6 +356,8 @@ footer {
 }
 
 /* Create User Profile Styling */
+/* Search Exercise Styling */
+.exercise-search-form,
 .user-info-form, 
 .create-exercise-form {
     font-size: 24px;
@@ -425,12 +427,15 @@ footer {
     height: 30px;
 }
 
-/* Create/Edit Profile Styling and*/
-/*Create/Edit Exercise styling*/
-
+/* Create/Edit Profile Styling and */
+/* Create/Edit Exercise styling */
+/* Search Exercise styling */
+.exercise-search-wrapper,
 .edit-profile-jumbotron,
 .create-profile-wrapper,
 .create-exercise-jumbotron,
+.generate-workout-jumbotron,
+.generate-workout-form,
 .create-exercise-wrapper,
 .dashboard-jumbotron {
     background-size: cover;
@@ -438,10 +443,13 @@ footer {
     height: max-content;
 }
 
+.exercise-search-wrapper,
 .edit-profile-wrapper,
 .create-profile-wrapper,
 .create-exercise-jumbotron,
-.create-exercose-wrapper {
+.create-exercose-wrapper,
+.generate-workout-jumbotron,
+.generate-workout-form {
     padding-top: 100px;
 }
 
@@ -453,15 +461,20 @@ footer {
     color: white;
 }
 
+#gym-no-gym-list,
+#upper-lower-list,
+#fitness-level-list,
 #goal-list,
 #level-list {
     padding-bottom: 40px;
 }
 
+.search-exercises-btn,
 .update-btn,
 .cancel-btn,
 .create-profile-btn,
-.create-exercise-btn {
+.create-exercise-btn,
+.generate-workout-btn {
     border: 2px var(--neon-blue) solid;
     border-radius: 15px;
     cursor: pointer;
@@ -701,12 +714,20 @@ footer {
     outline: none;
 }
 
+
+/*Generate workout styling*/
+.generate-workout-form {
+    margin: 0 auto;
+    width: fit-content;
+    padding: 40px;
+    border-radius: 15px;
+    border: 5px inset var(--neon-blue);
+    background: rgba(0, 0, 0, .4);
+    box-shadow: 10px 10px 40px var(--neon-blue);
+
 .found-user {
     font-size: 40px;
     padding-left: 20px;
 }
 
 /* Personal Exercise Page Styling */
-
-
-
