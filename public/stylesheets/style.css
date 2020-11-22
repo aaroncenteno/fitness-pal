@@ -665,11 +665,13 @@ footer {
     caret-color: var(--neon-blue);
 }
 
+.search-result-header,
 .buddy-header {
     margin-left: 80px;
     text-decoration: underline var(--neon-blue) ;
 }
 
+.exercise-list,
 .buddy-list {
     list-style: none;
     font-size: 20px;

@@ -1,1 +1,10 @@
 <div>these are the exercise search results</div>
+
+<div class="exercise-search-results">
+    <div class="search-result-header">Exercise Search Results</div>
+    <div class="exercise-list">
+        {{#each results as |result|}}
+            <button type="button" class="exercise-name">{{exercise_name}}</button>
+        {{/each}}
+    </div>
+</div>

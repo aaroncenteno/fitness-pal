@@ -57,10 +57,17 @@ async function searchResultsHandler(event) {
         }
     })
 
-        .then(response => {
-            return response.json();
-        })
+    // if (response.ok) {
+    //     document.location.replace('/exercise-search/results');
+    // } else {
+    //     alert(response.statusText);
+    // }
 
+    if (response.ok) {
+        console.log('success');
+    } else {
+        alert(response.statusText);
+    }
 }
 
 jQuery(function ($) {
