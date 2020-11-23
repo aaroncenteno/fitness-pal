@@ -461,6 +461,11 @@ footer {
     padding-top: 100px;
 }
 
+.edit-profile-wrapper {
+    padding: 100px 50px;
+}
+
+
 .exercise-search-wrapper {
     padding-bottom: 100px;
 }
@@ -503,6 +508,12 @@ footer {
     margin-bottom: 20px;
     text-decoration: none;
     padding: 5px;
+}
+
+.update-btn {
+    font-size: 2vw;
+    width: 51%;
+    margin: auto auto 15px auto;
 }
 
 .create-profile-btn {
@@ -983,6 +994,19 @@ footer {
         margin: auto auto 15px auto;
     }
     /* Create User Profile Styling End */
+
+
+     /* Create User Profile Styling End */
+     .edit-profile-wrapper {
+        padding: 100px 50px;
+    }
+
+    .update-btn {
+        font-size: 2.3vw;
+        width: 42%;
+        margin: auto auto 15px auto;
+    }
+    /* Edit Profile Styling Start */
 }
 
 
@@ -1167,6 +1191,19 @@ footer {
         margin: auto auto 15px auto;
     }
     /* Create User Profile Styling End */
+
+
+    /* Create User Profile Styling End */
+    .edit-profile-wrapper {
+        padding: 100px 50px;
+    }
+
+    .update-btn {
+        font-size: 2.5vw;
+        width: 38%;
+        margin: auto auto 15px auto;
+    }
+    /* Edit Profile Styling Start */
 }
 
 
@@ -1349,6 +1386,7 @@ footer {
     }
     /* Create Exercise Styling End */
 
+
     /* Create User Profile Styling Start */
     .create-profile-wrapper {
         padding: 100px 50px;
@@ -1360,6 +1398,19 @@ footer {
         margin: auto auto 15px auto;
     }
     /* Create User Profile Styling End */
+
+
+    /* Create User Profile Styling End */
+    .edit-profile-wrapper {
+        padding: 100px 50px;
+    }
+
+    .update-btn {
+        font-size: 3vw;
+        width: 35%;
+        margin: auto auto 15px auto;
+    }
+    /* Edit Profile Styling Start */
 }
 
 
@@ -1566,5 +1617,18 @@ footer {
         width: 43%;
         margin: auto auto 15px auto;
     }
+
+
+
     /* Create User Profile Styling End */
+    .edit-profile-wrapper {
+        padding: 100px 50px;
+    }
+
+    .update-btn {
+        font-size: 4vw;
+        width: 51%;
+        margin: auto auto 15px auto;
+    }
+    /* Edit Profile Styling Start */
 }
