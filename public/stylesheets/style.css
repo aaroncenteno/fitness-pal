@@ -375,7 +375,7 @@ footer {
 }
 
 .exercise-search-form {
-    font-size: 3.4vw;
+    font-size: 2.4vw;
 }
 
 .dropdown-check-list:focus{
@@ -461,6 +461,10 @@ footer {
     padding-top: 100px;
 }
 
+.exercise-search-wrapper {
+    padding-bottom: 100px;
+}
+
 .height-feet,
 .height-inches,
 .weight-input {
@@ -495,6 +499,10 @@ footer {
     margin-bottom: 20px;
     text-decoration: none;
     padding: 5px;
+}
+
+.search-exercises-btn {
+    margin: auto auto 15px auto;
 }
 
 .update-btn:hover,
@@ -893,7 +901,7 @@ footer {
     /* Exercise Search Styling Start */
     .search-exercises-btn,
     .cancel-btn {
-        font-size: 3.3vw;
+        font-size: 2.3vw;
     }
 
     .search-exercises-btn {
@@ -1064,7 +1072,7 @@ footer {
     /* Exercise Search Styling Start */
     .search-exercises-btn,
     .cancel-btn {
-        font-size: 3.5vw;
+        font-size: 2.5vw;
     }
 
     .search-exercises-btn {
@@ -1245,7 +1253,7 @@ footer {
     /* Exercise Search Styling Start */
     .search-exercises-btn,
     .cancel-btn {
-        font-size: 4vw;
+        font-size: 3vw;
     }
 
     .search-exercises-btn {
@@ -1440,7 +1448,7 @@ footer {
     /* Exercise Search Styling Start */
     .search-exercises-btn,
     .cancel-btn {
-        font-size: 4vw;
+        font-size: 3vw;
     }
 
     .search-exercises-btn {
