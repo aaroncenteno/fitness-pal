@@ -818,6 +818,27 @@ footer {
         flex-wrap: wrap;
     }
     /* Homepage Styling End */
+
+    /* Login Styling Start */
+    .login-btn {
+        width: 11vw;
+        margin-left: 87px;
+    }
+    /* Login Styling End */
+
+    /* Signup Styling Start */
+    .signup-innerWrapper {
+        padding-top: 1px;
+    }
+
+    .signup-form {
+        margin: 49px auto;
+    }
+
+    .signup-btn {
+        margin: 0 0 40px 93px;
+    }
+    /* Signup Styling End */
 }
 
 
@@ -825,9 +846,6 @@ footer {
 @media only screen and (max-width: 992px) {
 
     /* Homepage Styling Start */
-    .head-title {
-        margin-left: 
-    }
     .options {
         width: 40%;
         font-size: 2vw;
@@ -868,6 +886,27 @@ footer {
         flex-wrap: wrap;
     }
     /* Homepage Styling End */
+
+    /* Login Styling Start */
+    .login-btn {
+        width: 13vw;
+        margin-left: 87px;
+    }
+    /* Login Styling End */
+
+    /* Signup Styling Start */
+    .signup-innerWrapper {
+        padding-top: 1px;
+    }
+
+    .signup-form {
+        margin: 49px auto;
+    }
+
+    .signup-btn {
+        margin: 0 0 40px 93px;
+    }
+    /* Signup Styling End */
 }
 
 
@@ -922,6 +961,27 @@ footer {
         font-size: x-large;
     }
     /* Homepage Styling End */
+
+    /* Login Styling Start */
+    .login-btn {
+        width: 17vw;
+        margin-left: 83px;
+    }
+    /* Login Styling End */
+
+    /* Signup Styling Start */
+    .signup-innerWrapper {
+        padding-top: 1px;
+    }
+
+    .signup-form {
+        margin: 49px auto;
+    }
+
+    .signup-btn {
+        margin: 0 0 40px 93px;
+    }
+    /* Signup Styling End */
 }
 
 
@@ -943,6 +1003,7 @@ footer {
         font-size: inherit;
         padding-top: 0;
         padding-left: 18px;
+        padding-bottom: 10px;
     }
 
     .homepage-text {
@@ -985,6 +1046,27 @@ footer {
 
     footer {
         font-size: x-large;
+        padding-left: 39%;
     }
     /* Homepage Styling End */
+
+    /* Login Styling Start */
+    .login-btn {
+        width: 17vw;
+    }
+    /* Login Styling End */
+
+    /* Signup Styling Start */
+    .signup-innerWrapper {
+        padding-top: 1px;
+    }
+
+    .signup-form {
+        margin: 49px auto;
+    }
+
+    .signup-btn {
+        margin: 0 0 40px 93px;
+    }
+    /* Signup Styling End */
 }
