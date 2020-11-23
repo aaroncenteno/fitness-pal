@@ -29,8 +29,8 @@ header {
     background: linear-gradient(90deg, var(--neon-blue) 0%, var(--gray) 50%, var(--black) 100%);
 }
 
-.modal {
-}
+/* .modal {
+} */
 
 .modal-header {
     background: var(--gray);
@@ -445,6 +445,10 @@ footer {
     background-size: cover;
     background-image:linear-gradient(150deg, rgba(54, 189, 207, .4) 0%, rgba(173, 173, 173, .6) 50%, rgba(199, 248, 86, .4) 100%), url("../imgs/gym.jpg") ;
     height: max-content;
+}
+
+.exercise-name-input {
+    color: var(--black);
 }
 
 .exercise-search-wrapper,
@@ -908,7 +912,7 @@ footer {
     /* Exercise Search Styling End */
 
 
-    /* Create Exercise Styling Start */
+    /* Personal Exercise Styling Start */
     .create-exercise-link {
         margin-left: 35%;
     }
@@ -928,6 +932,24 @@ footer {
 
     .personalExercise-innerWrapper {
         padding-top: 44px;
+    }
+    /* Personal Exercise Styling End */
+
+
+    /* Create Exercise Styling Start */
+    .create-exercise-jumbotron {
+        padding-top: 45px;
+        padding-bottom: 45px;
+    }
+
+    .create-exercise-form {
+        margin: 0 auto;
+    }
+
+    .create-exercise-btn {
+        font-size: 3vw;
+        width: 44%;
+        margin: auto auto 15px auto;
     }
     /* Create Exercise Styling End */
 }
@@ -1061,7 +1083,7 @@ footer {
     /* Exercise Search Styling End */
 
 
-    /* Create Exercise Styling Start */
+    /* Personal Exercise Styling Start */
     .create-exercise-link {
         margin-left: 34%;
     }
@@ -1081,6 +1103,24 @@ footer {
 
     .personalExercise-innerWrapper {
         padding-top: 44px;
+    }
+    /* Personal Exercise Styling End */
+
+
+    /* Create Exercise Styling Start */
+    .create-exercise-jumbotron {
+        padding-top: 45px;
+        padding-bottom: 45px;
+    }
+
+    .create-exercise-form {
+        margin: 0 auto;
+    }
+
+    .create-exercise-btn {
+        font-size: 4vw;
+        width: 49%;
+        margin: auto auto 15px auto;
     }
     /* Create Exercise Styling End */
 }
@@ -1224,7 +1264,7 @@ footer {
     /* Exercise Search Styling End */
 
 
-    /* Create Exercise Styling Start */
+    /* Personal Exercise Styling Start */
     .create-exercise-link {
         margin-left: 29%;
     }
@@ -1245,8 +1285,25 @@ footer {
     .personalExercise-innerWrapper {
         padding-top: 44px;
     }
-    /* Create Exercise Styling End */
+    /* Personal Exercise Styling End */
 
+
+    /* Create Exercise Styling Start */
+    .create-exercise-jumbotron {
+        padding-top: 45px;
+        padding-bottom: 45px;
+    }
+
+    .create-exercise-form {
+        margin: 0 6%;
+    }
+
+    .create-exercise-btn {
+        font-size: 4vw;
+        width: 49%;
+        margin: auto auto 15px auto;
+    }
+    /* Create Exercise Styling End */
 }
 
 
@@ -1402,7 +1459,7 @@ footer {
     /* Exercise Search Styling End */
 
     
-    /*Create Exercise Styling Start */
+    /*Personal Exercise Styling Start */
     .create-exercise-link {
         margin-left: 124px;
     }
@@ -1421,6 +1478,24 @@ footer {
 
     .personalExercise-innerWrapper {
         padding-top: 44px;
+    }
+    /* Personal Exercise Styling End */
+
+
+    /* Create Exercise Styling Start */
+    .create-exercise-jumbotron {
+        padding-top: 45px;
+        padding-bottom: 45px;
+    }
+
+    .create-exercise-form {
+        margin: 0 6%;
+    }
+
+    .create-exercise-btn {
+        font-size: 4vw;
+        width: 49%;
+        margin: auto auto 15px auto;
     }
     /* Create Exercise Styling End */
 }
