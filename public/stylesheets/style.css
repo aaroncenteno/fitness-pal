@@ -16,7 +16,6 @@
 body {
     font-family: 'Russo One', sans-serif, cursive;
     font-weight: bold;
-    
 }
 
 /* Main Layout Styling */
@@ -40,18 +39,19 @@ header {
 }
 
 .options {
-    font-size: 20px;
+    font-size: 1.5vw;
     padding-top: 10px;
     display: flex;
 }
 
 .head-title {
+    display: flex;
     margin-right: 20px;
     padding: 10px;
     background: rgba(0, 0, 0, .7);
     align-items: center;
     border-radius: 15px;
-    font-size: 55px;
+    font-size: 4vw;
     width: 100%;
     box-shadow: 10px 5px 10px var(--gray);
     text-decoration: none;
@@ -113,7 +113,7 @@ footer {
     background: var(--gray);
     background: linear-gradient(90deg, var(--neon-blue) 0%, var(--gray) 50%, var(--black) 100%); 
     padding-left: 40vw;
-    font-size: 58px;
+    font-size: 3vw;
 }
 
 /* Home page styling */
@@ -125,7 +125,7 @@ footer {
 }
 
 .homepage-signup-btn {
-    font-size: 5em;
+    font-size: 3.8vw;
     float: right;
     margin-right: 100px;
     margin-top: 100px;
@@ -156,7 +156,7 @@ footer {
 }
 
 .fitness-pal-description {
-    font-size: 22px;
+    font-size: 1vw;
     color: var(--white);
 }
 
@@ -167,7 +167,7 @@ footer {
 }
 
 .section-title {
-    font-size: 26px;
+    font-size: 1vw;
     color: var(--neon-green);
     padding-bottom: 20px;
     text-align: center;
@@ -183,8 +183,8 @@ footer {
 }
 
 .workout-grid-wrapper {
-    font-size: 18px;
     display: flex;
+    flex-wrap: wrap;
     padding: 20px 20px;
     align-items: center;
     margin-bottom: 40px;
@@ -194,17 +194,17 @@ footer {
 .workout-grid-container {
     width: 100%;
     display: grid;
-    grid-template-rows: 30vh;
     grid-template-columns: 20vw 20vw 20vw;
     color: var(--neon-green);
     height: fit-content;
-    grid-gap: 80px;
+    grid-gap: 4%;
 
 }
 
 .workout-1,
 .workout-2,
 .workout-3 {
+    font-size: 1vw;
     border-radius: 15px;
     border: 5px inset var(--neon-green);
     background: rgba(0, 0, 0, .4);
@@ -769,4 +769,222 @@ footer {
     box-shadow: 10px 10px 20px var(--neon-pink);
     padding: 20px;
     margin-top: 50px;
+}
+
+
+
+/* Media Queries */
+
+    /* extra large devices */
+@media only screen and (max-width: 1200px) {
+
+    /* Homepage Styling Start */
+    .flex-row {
+        flex-direction: column;
+    }
+
+    .homepage-signup-btn {
+        width: 25vw;
+        font-size: 5vw;
+        margin-right: 157px;
+    }
+
+    .homepage-text {
+        font-size: inherit;
+        width: 36vw;
+        margin-left: 94px;
+    }
+
+    .fitness-pal-description {
+        font-size: 1.4vw;
+    }
+
+    .section-title {
+        font-size: inherit;
+        margin-left: 27%;
+        width: 78%;
+    }
+
+    .workout-grid-container {
+        grid-gap: 25%;
+        padding-left: 21%;
+        width: 52%;
+    }
+
+    .workout-1, 
+    .workout-2, 
+    .workout-3 {
+        font-size: large;
+        flex-wrap: wrap;
+    }
+    /* Homepage Styling End */
+}
+
+
+    /* large devices */
+@media only screen and (max-width: 992px) {
+
+    /* Homepage Styling Start */
+    .head-title {
+        margin-left: 
+    }
+    .options {
+        width: 40%;
+        font-size: 2vw;
+    }
+
+    .homepage-signup-btn {
+        width: 31vw;
+        font-size: 6.1vw;
+        margin-right: 117px;
+    }
+
+    .homepage-text {
+        font-size: inherit;
+        width: 36vw;
+        margin-left: 94px;
+    }
+
+    .fitness-pal-description {
+        font-size: 1.4vw;
+    }
+
+    .section-title {
+        font-size: inherit;
+        margin-left: 17%;
+        width: 78%;
+    }
+
+    .workout-grid-container {
+        grid-template-columns: 25vw 25vw 25vw;
+        grid-gap: 12%;
+        padding-left: 9%;
+    }
+
+    .workout-1, 
+    .workout-2, 
+    .workout-3 {
+        font-size: medium;
+        flex-wrap: wrap;
+    }
+    /* Homepage Styling End */
+}
+
+
+    /* medium devices */
+@media only screen and (max-width: 768px) {
+
+    /* Homepage Styling Start */
+    .options {
+        width: 40%;
+        font-size: 2vw;
+    }
+
+    .homepage-text {
+        font-size: inherit;
+        width: 36vw;
+    }
+
+    .fitness-pal-description {
+        font-size: 2vw;
+    }
+
+    .homepage-signup-btn {
+        width: 34vw;
+        font-size: 6.8vw;
+        margin-right: 70px;
+    }
+
+    .flex-row {
+        flex: 100%;
+        max-width: 100%;
+    }
+
+    .section-title {
+        font-size: inherit;
+        margin-left: 17%;
+        width: 78%;
+    }
+
+    .workout-grid-container {
+        grid-template-columns: 25vw 25vw 25vw;
+        grid-gap: 8%;
+    }
+
+    .workout-1, 
+    .workout-2, 
+    .workout-3 {
+        font-size: small;
+        flex-wrap: wrap;
+    }
+
+    footer {
+        font-size: x-large;
+    }
+    /* Homepage Styling End */
+}
+
+
+    /* small devices */
+@media only screen and (max-width: 600px) {
+
+    /* Homepage Styling Start */
+    header {
+        flex-direction: column;
+    }
+    .head-title {
+        float: none;
+        font-size: inherit
+    }
+
+    .options {
+        float: none;
+        width: 45%;
+        font-size: inherit;
+        padding-top: 0;
+        padding-left: 18px;
+    }
+
+    .homepage-text {
+        font-size: inherit;
+        width: 36vw;
+    }
+
+    .fitness-pal-description {
+        font-size: 2vw;
+    }
+
+    .homepage-signup-btn {
+        width: 34vw;
+        font-size: 6.8vw;
+        margin-right: 70px;
+    }
+
+    .flex-row {
+        flex: 100%;
+        max-width: 100%;
+    }
+
+    .section-title {
+        font-size: inherit;
+        margin-left: 17%;
+        width: 78%;
+    }
+
+    .workout-grid-container {
+        grid-template-columns: 25vw 25vw 25vw;
+        grid-gap: 8%;
+    }
+
+    .workout-1, 
+    .workout-2, 
+    .workout-3 {
+        font-size: small;
+        flex-wrap: wrap;
+    }
+
+    footer {
+        font-size: x-large;
+    }
+    /* Homepage Styling End */
 }
