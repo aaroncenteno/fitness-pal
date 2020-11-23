@@ -430,7 +430,7 @@ footer {
 /* Create/Edit Profile Styling and */
 /* Create/Edit Exercise styling */
 /* Search Exercise styling */
-.exercise-search-wrapper,
+.exercise-search-jumbotron,
 .edit-profile-jumbotron,
 .create-profile-wrapper,
 .create-exercise-jumbotron,
@@ -451,6 +451,7 @@ footer {
 .generate-workout-jumbotron,
 .generate-workout-form {
     padding-top: 100px;
+    padding-bottom: 100px;
 }
 
 .height-feet,
