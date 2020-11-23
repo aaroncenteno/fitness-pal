@@ -218,7 +218,7 @@ footer {
 .personalExercise-wrapper {
     background: var(--gray);
     background-image: linear-gradient(150deg, rgba(54, 189, 207, .6) 0%, rgba(173, 173, 173, .8) 50%, rgba(199, 248, 86, .6) 100%), url("../imgs/wall_background02.jpg");
-    height: 90vh;
+    height: max-content;
     background-position: 80%;
 }
 
@@ -226,6 +226,7 @@ footer {
 .login-innerWrapper,
 .personalExercise-innerWrapper {
     padding-top: 100px;
+    padding-bottom: 200px;
     position: relative;
 }
 
@@ -337,7 +338,7 @@ footer {
     color: var(--neon-blue);
     font-weight: bold;
     transition: color .1s;
-    margin: 0 0 0 90px;
+    margin: 0 0 0 100px;
 }
 
 .signup-link {
