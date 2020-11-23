@@ -39,7 +39,7 @@ header {
 }
 
 .options {
-    font-size: 1.5vw;
+    font-size: 1.4vw;
     padding-top: 10px;
     display: flex;
 }
@@ -63,7 +63,7 @@ header {
     margin-right: 20px;
     padding: 5px;
     background-color: var(--black);
-    align-items: center;
+    text-align: center;
     border-radius: 15px;
     text-decoration: none;
     color: var(--neon-blue);
@@ -779,6 +779,11 @@ footer {
 @media only screen and (max-width: 1200px) {
 
     /* Homepage Styling Start */
+
+    .options {
+        padding-left: 16px;
+    }
+
     .flex-row {
         flex-direction: column;
     }
@@ -839,6 +844,38 @@ footer {
         margin: 0 0 40px 93px;
     }
     /* Signup Styling End */
+
+
+    /* Dashboard Styling Start */
+    .user-info {
+        padding: 3px 142px 32px;
+        margin-left: 100px;
+    }
+
+    .buddies {
+        margin-left: 100px;
+        height: auto;
+    }
+
+    .buddy-header {
+        margin-left: 116px;
+        font-size: 25px;
+    }
+
+    .suggested-exercise {
+        margin-right: 110px;
+        padding-bottom: 38px;
+    }
+
+    .stats-chart {
+        margin-right: 48px;
+        height: auto;
+    }
+
+    .completed-workouts {
+        width: 63vw;
+        margin-left: 221px;
+    }
 }
 
 
@@ -847,8 +884,13 @@ footer {
 
     /* Homepage Styling Start */
     .options {
-        width: 40%;
-        font-size: 2vw;
+        float: none;
+        width: 56%;
+        font-size: large;
+        padding-top: 0;
+        padding-left: 18px;
+        padding-bottom: 10px;
+        flex-wrap: wrap;
     }
 
     .homepage-signup-btn {
@@ -887,12 +929,14 @@ footer {
     }
     /* Homepage Styling End */
 
+
     /* Login Styling Start */
     .login-btn {
         width: 13vw;
         margin-left: 87px;
     }
     /* Login Styling End */
+
 
     /* Signup Styling Start */
     .signup-innerWrapper {
@@ -907,6 +951,40 @@ footer {
         margin: 0 0 40px 93px;
     }
     /* Signup Styling End */
+
+
+    /* Dashboard Styling Start */
+    .user-info {
+        padding: 3px 142px 32px;
+    }
+
+    .buddies {
+        height: auto;
+    }
+
+    .buddy-header {
+        margin-left: 116px;
+        font-size: 25px;
+    }
+
+    .suggested-exercise {
+        margin-right: 36px;
+        padding-bottom: 38px;
+    }
+
+    .stats-chart {
+        width: 86vw;
+        margin-right: 58px;
+        height: auto;
+    }
+
+    .completed-workouts {
+        width: 67vw;
+        margin-left: 161px;
+    }
+    /* Dashboard Styling End */
+
+
 }
 
 
@@ -915,8 +993,13 @@ footer {
 
     /* Homepage Styling Start */
     .options {
-        width: 40%;
-        font-size: 2vw;
+        float: none;
+        width: 56%;
+        font-size: inherit;
+        padding-top: 0;
+        padding-left: 18px;
+        padding-bottom: 10px;
+        flex-wrap: wrap;
     }
 
     .homepage-text {
@@ -962,12 +1045,14 @@ footer {
     }
     /* Homepage Styling End */
 
+
     /* Login Styling Start */
     .login-btn {
         width: 17vw;
         margin-left: 83px;
     }
     /* Login Styling End */
+
 
     /* Signup Styling Start */
     .signup-innerWrapper {
@@ -982,6 +1067,42 @@ footer {
         margin: 0 0 40px 93px;
     }
     /* Signup Styling End */
+
+
+    /* Dashboard Styling Start */
+    .user-info {
+        padding: 3px 142px 32px;
+        margin-left: 165px;
+    }
+
+    .buddies {
+        height: 40vh;
+        margin-left: 165px;
+        height: auto;
+    }
+
+    .buddy-header {
+        margin-left: 116px;
+        font-size: 25px;
+    }
+
+    .suggested-exercise {
+        margin-right: 182px;
+        padding-bottom: 38px;
+    }
+
+    .stats-chart {
+        width: 86vw;
+        margin-right: 45px;
+        height: auto;
+    }
+
+    .completed-workouts {
+        width: 76vw;
+        margin-left: 93px;
+    }
+    /* Dashboard Styling End */
+
 }
 
 
@@ -999,11 +1120,12 @@ footer {
 
     .options {
         float: none;
-        width: 45%;
+        width: 56%;
         font-size: inherit;
         padding-top: 0;
         padding-left: 18px;
         padding-bottom: 10px;
+        flex-wrap: wrap;
     }
 
     .homepage-text {
@@ -1050,11 +1172,13 @@ footer {
     }
     /* Homepage Styling End */
 
+
     /* Login Styling Start */
     .login-btn {
         width: 17vw;
     }
     /* Login Styling End */
+
 
     /* Signup Styling Start */
     .signup-innerWrapper {
@@ -1069,4 +1193,38 @@ footer {
         margin: 0 0 40px 93px;
     }
     /* Signup Styling End */
+
+
+    /* Dashboard Styling Start */
+    .user-info {
+        padding: 0px 142px 32px;
+        margin-left: 91px;
+    }
+
+    .buddies {
+        height: 40vh;
+        margin-left: 91px;
+        height: auto;
+    }
+
+    .buddy-header {
+        margin-left: 116px;
+        font-size: 25px;
+    }
+
+    .suggested-exercise {
+        margin-right: 92px;
+        padding-bottom: 38px;
+    }
+
+    .stats-chart {
+        width: 86vw;
+        margin-right: 35px;
+        height: auto;
+    }
+
+    .completed-workouts {
+        width: 76vw;
+    }
+    /* Dashboard Styling End */
 }
