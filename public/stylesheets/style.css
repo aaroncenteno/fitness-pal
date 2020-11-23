@@ -465,6 +465,10 @@ footer {
     padding-bottom: 100px;
 }
 
+.create-profile-wrapper {
+    padding: 100px 50px;
+}
+
 .height-feet,
 .height-inches,
 .weight-input {
@@ -499,6 +503,12 @@ footer {
     margin-bottom: 20px;
     text-decoration: none;
     padding: 5px;
+}
+
+.create-profile-btn {
+    width: 40%;
+    margin: auto auto 15px auto;
+
 }
 
 .search-exercises-btn {
@@ -960,6 +970,19 @@ footer {
         margin: auto auto 15px auto;
     }
     /* Create Exercise Styling End */
+
+
+    /* Create User Profile Styling Start */
+    .create-profile-wrapper {
+        padding: 100px 50px;
+    }
+
+    .create-profile-btn {
+        font-size: 2.3vw;
+        width: 33%;
+        margin: auto auto 15px auto;
+    }
+    /* Create User Profile Styling End */
 }
 
 
@@ -1131,6 +1154,19 @@ footer {
         margin: auto auto 15px auto;
     }
     /* Create Exercise Styling End */
+
+
+    /* Create User Profile Styling Start */
+    .create-profile-wrapper {
+        padding: 100px 50px;
+    }
+
+    .create-profile-btn {
+        font-size: 2.5vw;
+        width: 37%;
+        margin: auto auto 15px auto;
+    }
+    /* Create User Profile Styling End */
 }
 
 
@@ -1312,6 +1348,18 @@ footer {
         margin: auto auto 15px auto;
     }
     /* Create Exercise Styling End */
+
+    /* Create User Profile Styling Start */
+    .create-profile-wrapper {
+        padding: 100px 50px;
+    }
+
+    .create-profile-btn {
+        font-size: 3vw;
+        width: 43%;
+        margin: auto auto 15px auto;
+    }
+    /* Create User Profile Styling End */
 }
 
 
@@ -1448,7 +1496,7 @@ footer {
     /* Exercise Search Styling Start */
     .search-exercises-btn,
     .cancel-btn {
-        font-size: 3vw;
+        font-size: 4vw;
     }
 
     .search-exercises-btn {
@@ -1506,4 +1554,17 @@ footer {
         margin: auto auto 15px auto;
     }
     /* Create Exercise Styling End */
+
+
+    /* Create User Profile Styling Start */
+    .create-profile-wrapper {
+        padding: 100px 50px;
+    }
+
+    .create-profile-btn {
+        font-size: 4vw;
+        width: 43%;
+        margin: auto auto 15px auto;
+    }
+    /* Create User Profile Styling End */
 }
