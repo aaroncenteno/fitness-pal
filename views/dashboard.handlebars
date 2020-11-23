@@ -3,7 +3,7 @@
         <div class="asides">
             <aside class="user-info">
                 <h2 class="username">
-                    {{username}} <span class="hide req-session-id">{{id}}</span>
+                    <span class="req-session-username">{{username}}</span> <span class="hide req-session-id">{{id}}</span>
                 </h2>
                 <div class="goals">
                     <ul class="goals-list">
@@ -25,7 +25,7 @@
                 <input type="text" class="add-buddy-input" id="add-buddy-input"><button class="add-buddy-btn" id="add-buddy-btn" type="submit"><i class="fas fa-user-plus"></i></button>
                 <ul class="buddy-list">
                     {{#each friends.buddies as |buddy|}}
-                        <li class="added-buddy">{{buddy.buddy_name}} ID: {{buddy.buddy_id}} <button id="remove-buddy" type="submit" {{!-- data-toggle="modal" data-target="#remove-buddy-modal" --}}><i class="fas fa-user-times"></i></button></li>   
+                        <li class="added-buddy"><button type="button" class="buddyInfo" data-toggle="modal" data-target="#buddy-compare-modal" value="{{buddy.buddy_name}}"">{{buddy.buddy_name}}</button> ID: {{buddy.buddy_id}} <button id="remove-buddy" type="submit" {{!-- data-toggle="modal" data-target="#remove-buddy-modal" --}}><i class="fas fa-user-times"></i></button></li>   
                     {{/each}}
                 </ul>
             </aside>
@@ -73,6 +73,7 @@
 {{> confirm-add-buddy-modal}}
 {{> remove-buddy-modal}}
 {{> delete-weight-modal}}
+{{> buddyCompare-modal}}
 
 
 

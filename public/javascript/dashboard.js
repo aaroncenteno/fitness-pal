@@ -43,10 +43,11 @@ async function addBuddyHandler(event) {
 
 $("#remove-buddy").click(function (event) {
     var parent = $(this).closest('.added-buddy')
-    const buddyName = parent[0].innerHTML.split(" ")[0]
-    const buddyId = parent[0].innerHTML.split(" ")[2]
+    const buddyName = parent[0].innerText.split(" ")[0]
+    const buddyId = parent[0].innerText.split(" ")[2]
     const removeBuddyName = document.querySelector('.remove-buddy-name');
     const removeBuddyId = document.querySelector('.remove-buddy-id');
+    console.log(buddyName)
 
     removeBuddyName.innerHTML = buddyName;
     removeBuddyId.innerHTML = buddyId;
@@ -201,12 +202,158 @@ async function pushWeightChart() {
     })
 }
 
+const buddyWeight = [];
+const buddyDate = [];
+const userWeight = [];
+const userDate = [];
+const buddyBtn = document.querySelector('.buddyInfo');
+
+if (buddyBtn) {
+
+$(".buddyInfo").click( async function() {
+    var buddyName = $(this).val();
+    const response = await fetch('api/users/' + buddyName, {
+        method: 'GET',
+        headers: {
+            'Content-Type': 'application/json'
+        }
+    })
+    .then(response => response.json())
+    .then(data => {
+        const weightData = data.weights;
+        for (i = 0; i < weightData.length; i++) {
+            var formatDate = moment(weightData[i].createdAt).format('MMM Do YY');
+            buddyDate.push(formatDate);
+            buddyWeight.push(weightData[i].weight)
+        }
+    })
+})
+
+$(".buddyInfo").click(async function() {
+    const chartCanvas = document.querySelector("#buddyCompareChart")
+
+    const username = document.querySelector('.req-session-username').innerHTML
+    const response = await fetch('api/users/' + username, {
+    method: 'GET',
+    headers: {
+        'Content-Type': 'application/json'
+    }
+    })
+    .then(response => response.json())
+    .then(data => {
+        const weightData = data.weights;
+        for (i = 0; i < weightData.length; i++) {
+            var formatDate = moment(weightData[i].createdAt).format('MMM Do YY');
+            userDate.push(formatDate);
+            userWeight.push(weightData[i].weight)
+        }
+        const buddyCompareChart = document.createElement('canvas');
+        const chartContainer = document.querySelector("#buddy-chart-container");
+        buddyCompareChart.setAttribute('id', 'buddyCompareChart')
+        buddyCompareChart.classList = "buddyCompareChart"
+        chartContainer.appendChild(buddyCompareChart);
+
+        let ctx = document.getElementById('buddyCompareChart').getContext('2d');
+        let chart = new Chart (ctx, {
+            // The type of chart we want to create
+            type: 'line',
+
+            // The data for our dataset
+            data: {
+                labels: [userDate],
+                datasets: [
+                    {
+                    label: 'Your Weight',
+                    backgroundColor: 'rgba(54, 189, 207, .8)',
+                    borderColor: 'rgba(255, 255, 255, .8)',
+                    data: userWeight
+                    },
+                    {
+                        label: 'Buddy Weight',
+                        backgroundColor: 'rgb(253, 70, 95, .8)',
+                        borderColor: 'rgba(0, 0, 0, .8)',
+                        data: buddyWeight
+                    }
+                ],
+            },
+            options: {
+                responsive: true,
+                scales: {
+                    yAxes: [{
+                        gridLines: {
+                            drawBorder: false,
+                            color: 'black'
+                        },
+                        ticks: {
+                            fontColor: 'black',
+                            fontFamily: 'Russo One',
+                            fontSize: 16,
+                        }
+                    }],
+                    xAxes: [{
+                        gridLines: {
+                            drawBorder: false,
+                            color: 'black'
+                        },
+                        ticks: {
+                            fontColor: 'black',
+                            fontFamily: 'Russo one',
+                            fontSize: 16,
+                        }
+                    }],
+                },
+                legend: {
+                    labels: {
+                        fontColor: 'black',
+                        fontSize: 16,
+                        fontFamily: 'Russo One',
+                    }
+                }
+            }
+        });
+    })
+})
+}
+
+$(document).ready(function() {
+    $(".buddyModalWeight").on("hidden.bs.modal", function() {
+        document.location.reload()
+    });
+});
+
+// async function buddyWeightCompare(event) {
+//     const buddyCompareChartEl = document.querySelector("#buddy-chart-container")
+//     buddyCompareChartEl.innerHTML = ""
+//     const buddyName = document.querySelector('.buddyInfo').value.trim()
+
+//     const response = await fetch('api/users/' + buddyName, {
+//         method: 'GET',
+//         headers: {
+//             'Content-Type': 'application/json'
+//         }
+//     })
+//     .then(response => response.json())
+//     .then(data => {
+//         const weightData = data.weights;
+//         for (i = 0; i < weightData.length; i++) {
+//             var formatDate = moment(weightData[i].createdAt).format('MMM Do YY');
+//             buddyDate.push(formatDate);
+//             buddyWeight.push(weightData[i].weight)
+//         }
+//     })
+// }
+
+// 
+
 document.querySelector('.add-buddy-btn').addEventListener('click', searchBuddyHandler)
 document.querySelector('#add-to-buddy-list').addEventListener('click', addBuddyHandler)
 document.querySelector('#remove-buddy-confirm').addEventListener('click', removeBuddyHandler)
 document.querySelector('#submit-weight-btn').addEventListener('click', addWeightHandler)
 document.querySelector('#delete-weight-confirm').addEventListener('click', deleteWeightHandler)
-setTimeout(() => pushWeightChart(), 3000)
+
+
+
+pushWeightChart()
 
 
 
