@@ -65,10 +65,6 @@ router.get('/', (req, res) => {
         where: whereCondition
 
     })
-
-        // .then(dbExerciseData => {
-        //     console.log(dbExerciseData);
-        // })
         .then(dbExerciseData => {
             // if the search brings back nothing
             if (!dbExerciseData) {
@@ -90,21 +86,7 @@ router.get('/', (req, res) => {
 // search exercises
 router.post('/search', (req, res) => {
 
-    // console.log("The user has searched for: " + req.body);
-
-    // const searchURL = req.params.searchstring;
-
     const whereCondition = {};
-
-    // if (req.query.gym_no_gym) {
-    //     whereCondition.gym_no_gym = req.query.gym_no_gym;
-    // }
-    // if (req.query.upper_lower) {
-    //     whereCondition.upper_lower = req.query.upper_lower;
-    // }
-    // if (req.query.fitness_level) {
-    //     whereCondition.fitness_level = req.query.fitness_level;
-    // }
 
     if (req.body.gym_no_gym) {
         whereCondition.gym_no_gym = req.body.gym_no_gym;
@@ -128,9 +110,8 @@ router.post('/search', (req, res) => {
             }
 
             const results = dbExerciseData.map(result => result.get({ plain: true }));
-            // res.json(results);
-            res.render('exercise-search-results', { results, loggedIn: true });
 
+            res.json(results);
 
         })
         .catch(err => {
