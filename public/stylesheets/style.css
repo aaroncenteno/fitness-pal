@@ -359,12 +359,12 @@ footer {
 /* Search Exercise Styling */
 .exercise-search-form,
 .user-info-form, 
-.create-exercise-form {
+.create-exercise-form,
+.edit-exercise-form {
     font-size: 24px;
     text-align: -webkit-center;
     display: grid;
     margin: 0 auto;
-    padding-top: 500px;
     width: fit-content;
     padding: 40px;
     border-radius: 15px;
@@ -437,7 +437,8 @@ footer {
 .generate-workout-jumbotron,
 .generate-workout-form,
 .create-exercise-wrapper,
-.dashboard-jumbotron {
+.dashboard-jumbotron,
+.edit-exercise-jumbotron {
     background-size: cover;
     background-image:linear-gradient(150deg, rgba(54, 189, 207, .4) 0%, rgba(173, 173, 173, .6) 50%, rgba(199, 248, 86, .4) 100%), url("../imgs/gym.jpg") ;
     height: max-content;
@@ -446,7 +447,6 @@ footer {
 .exercise-search-wrapper,
 .edit-profile-wrapper,
 .create-profile-wrapper,
-.create-exercise-jumbotron,
 .create-exercose-wrapper,
 .generate-workout-jumbotron,
 .generate-workout-form {
@@ -474,7 +474,8 @@ footer {
 .cancel-btn,
 .create-profile-btn,
 .create-exercise-btn,
-.generate-workout-btn {
+.generate-workout-btn,
+.edit-exercise-btn {
     border: 2px var(--neon-blue) solid;
     border-radius: 15px;
     cursor: pointer;
@@ -490,12 +491,13 @@ footer {
 }
 
 .update-btn:hover,
-.cancel-btn:hover,
 .create-profile-btn:hover,
-.create-exercise-btn:hover {
+.create-exercise-btn:hover,
+.edit-exercise-btn:hover {
     border: 2px var(--neon-green) solid;
     border-radius: 15px;
     color: var(--neon-green);
+    text-decoration: none;
 }
 
 .update-btn:focus,
@@ -694,7 +696,8 @@ footer {
     display: inline-block;
 }
 
-#remove-buddy {
+#remove-buddy,
+.delete-exercise-btn {    
     float: right;
     font-size: 16px;
     color: var(--neon-blue);
@@ -708,13 +711,17 @@ footer {
     transition: .4s;
 }
 
-#remove-buddy:hover {
+#remove-buddy:hover,
+.cancel-btn:hover,
+.delete-exercise-btn:hover {
     color: var(--neon-red);
     border: 2px solid var(--neon-red);
+    text-decoration: none;
 }
 
 #remove-buddy:focus,
 .add-buddy-btn:focus,
+.delete-exercise-btn:focus,
 .add-weight:focus {
     outline: none;
 }
@@ -769,4 +776,29 @@ footer {
     box-shadow: 10px 10px 20px var(--neon-pink);
     padding: 20px;
     margin-top: 50px;
+}
+
+.edit-exercise-innerWrapper,
+.create-exercise-innerWrapper {
+    padding: 100px 0px;
+}
+
+.exercise-name-input,
+textarea {
+    background-color: black;
+    color: white;
+}
+
+.exercise-name,
+#gym-list,
+#body-list,
+#exercise-level-list {
+    margin-bottom: 20px;
+}
+
+.delete-exercise-btn {
+    width: fit-content;
+    margin-bottom: 20px;
+    font-size: 28px;
+    margin-left: 270px;
 }
