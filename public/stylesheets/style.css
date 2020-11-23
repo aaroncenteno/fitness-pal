@@ -374,6 +374,10 @@ footer {
     color: var(--neon-green);
 }
 
+.exercise-search-form {
+    font-size: 3.4vw;
+}
+
 .dropdown-check-list:focus{
     outline:0;
 }
@@ -748,7 +752,7 @@ footer {
 }
 
 .personal-exercises-list {
-    margin-left: 550px;
+    margin-left: 20%;
     margin-top: 50px;
     height: 500px;
     /* border: 3px black solid; */
@@ -757,6 +761,9 @@ footer {
     padding: 30px;
     overflow: hidden;
     overflow-y: scroll;
+    display: flex;
+    flex-wrap: wrap;
+    
 }
 
 .created-personal-exercise {
@@ -876,6 +883,53 @@ footer {
         width: 63vw;
         margin-left: 221px;
     }
+    /* Dashboard Styling End */
+
+
+    /* Exercise Search Styling Start */
+    .search-exercises-btn,
+    .cancel-btn {
+        font-size: 3.3vw;
+    }
+
+    .search-exercises-btn {
+        width: 21%;
+        margin: auto auto 15px auto;
+    }
+
+    .exercise-search-wrapper {
+        padding-top: 73px;
+        padding-bottom: 73px;
+    }
+
+    .exercise-search-form {
+        padding: 28px;
+    }
+    /* Exercise Search Styling End */
+
+
+    /* Create Exercise Styling Start */
+    .create-exercise-link {
+        margin-left: 35%;
+    }
+
+    .personal-exercises-list {
+        margin-left: 0;
+        margin-top: 0;
+        height: auto;
+        padding-top: 10px;
+    }
+
+    .created-personal-exercise {
+        margin-top: 28px;
+        margin-left: 254px;
+        width: 55%;
+    }
+
+    .personalExercise-innerWrapper {
+        padding-top: 44px;
+    }
+    /* Create Exercise Styling End */
 }
 
 
@@ -985,6 +1039,50 @@ footer {
     /* Dashboard Styling End */
 
 
+    /* Exercise Search Styling Start */
+    .search-exercises-btn,
+    .cancel-btn {
+        font-size: 3.5vw;
+    }
+
+    .search-exercises-btn {
+        width: 28%;
+        margin: auto auto 15px auto;
+    }
+
+    .exercise-search-wrapper {
+        padding-top: 73px;
+        padding-bottom: 73px;
+    }
+
+    .exercise-search-form {
+        padding: 28px;
+    }
+    /* Exercise Search Styling End */
+
+
+    /* Create Exercise Styling Start */
+    .create-exercise-link {
+        margin-left: 34%;
+    }
+
+    .personal-exercises-list {
+        margin-left: 0;
+        margin-top: 0;
+        height: auto;
+        padding-top: 10px;
+    }
+
+    .created-personal-exercise {
+        margin-top: 28px;
+        margin-left: 206px;
+        width: 55%;
+    }
+
+    .personalExercise-innerWrapper {
+        padding-top: 44px;
+    }
+    /* Create Exercise Styling End */
 }
 
 
@@ -1103,6 +1201,52 @@ footer {
     }
     /* Dashboard Styling End */
 
+
+    /* Exercise Search Styling Start */
+    .search-exercises-btn,
+    .cancel-btn {
+        font-size: 4vw;
+    }
+
+    .search-exercises-btn {
+        width: 28%;
+        margin: auto auto 15px auto;
+    }
+
+    .exercise-search-wrapper {
+        padding-top: 73px;
+        padding-bottom: 73px;
+    }
+
+    .exercise-search-form {
+        padding: 28px;
+    }
+    /* Exercise Search Styling End */
+
+
+    /* Create Exercise Styling Start */
+    .create-exercise-link {
+        margin-left: 29%;
+    }
+
+    .personal-exercises-list {
+        margin-left: 0;
+        margin-top: 0;
+        height: auto;
+        padding-top: 10px;
+    }
+
+    .created-personal-exercise {
+        width: auto;
+        margin-top: 28px;
+        margin-left: 1%;
+    }
+
+    .personalExercise-innerWrapper {
+        padding-top: 44px;
+    }
+    /* Create Exercise Styling End */
+
 }
 
 
@@ -1113,15 +1257,16 @@ footer {
     header {
         flex-direction: column;
     }
+
     .head-title {
         float: none;
-        font-size: inherit
+        font-size: 7vw;
     }
 
     .options {
         float: none;
-        width: 56%;
-        font-size: inherit;
+        width: 68%;
+        font-size: 3vw;
         padding-top: 0;
         padding-left: 18px;
         padding-bottom: 10px;
@@ -1169,6 +1314,11 @@ footer {
     footer {
         font-size: x-large;
         padding-left: 39%;
+        height: auto;
+    }
+
+    main {
+        height: 100%;
     }
     /* Homepage Styling End */
 
@@ -1225,6 +1375,52 @@ footer {
 
     .completed-workouts {
         width: 76vw;
+        margin-left: 75px;
     }
     /* Dashboard Styling End */
+
+
+    /* Exercise Search Styling Start */
+    .search-exercises-btn,
+    .cancel-btn {
+        font-size: 4vw;
+    }
+
+    .search-exercises-btn {
+        width: 28%;
+        margin: auto auto 15px auto;
+    }
+
+    .exercise-search-wrapper {
+        padding-top: 73px;
+        padding-bottom: 73px;
+    }
+
+    .exercise-search-form {
+        padding: 28px;
+    }
+    /* Exercise Search Styling End */
+
+    
+    /*Create Exercise Styling Start */
+    .create-exercise-link {
+        margin-left: 124px;
+    }
+
+    .personal-exercises-list {
+        margin-left: 0;
+        margin-top: 0;
+        height: auto;
+        padding-top: 10px;
+    }
+
+    .created-personal-exercise {
+        width: auto;
+        margin-top: 28px;
+    }
+
+    .personalExercise-innerWrapper {
+        padding-top: 44px;
+    }
+    /* Create Exercise Styling End */
 }
