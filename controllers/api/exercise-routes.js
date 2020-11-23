@@ -270,20 +270,54 @@ router.get('/workout/:id', (req, res) => {
 
 // create a new workout
 router.post('/workout', (req, res) => {
-    Workout.create(
-        {
-            exercise_list: req.body.exercise_list,
-            personal_list: req.body.personal_list,
-            // user_id: req.body.user_id
-            user_id: req.session.user_id
-        }
-    )
-        .then(dbExerciseData => res.json(dbExerciseData))
-        .catch(err => {
-            console.log(err);
-            res.status(500).json(err);
-        });
-});
+    console.log(req.body)
+    Exercise.findAll({ 
+        where: {
+        fitness_level: req.body.level.toLowerCase(),
+        gym_no_gym:req.body.gym.toLowerCase(),
+        upper_lower: req.body.body.toLowerCase()
+    },
+    limit:  parseInt(req.body.numbOfEx)
+
+}).then(function(dbexercise){
+
+        console.log(dbexercise)
+         const newexerciselist = dbexercise.map(exercise => {
+             return exercise.id 
+        })
+
+        console.log(newexerciselist)
+
+        Workout.create({
+            exercise_list: newexerciselist.join(","),
+            user_id:  req.session.user_id
+        }).then(function(response) {
+            res.json(response)
+        })
+     
+    })
+
+
+
+
+
+
+    // Workout.create(
+    //     {
+    //         exercise_list: req.body.exercise_list,
+    //         personal_list: req.body.personal_list,
+    //         // user_id: req.body.user_id
+    //         user_id: req.session.user_id
+    //     }
+    // )
+    //     .then(dbExerciseData => res.json(dbExerciseData))
+    //     .catch(err => {
+    //         console.log(err);
+    //         res.status(500).json(err);
+    //     });
+
+
+    });
 
 // update a workout
 router.put('/workout/:id', (req, res) => {
