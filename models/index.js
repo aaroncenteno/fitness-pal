@@ -4,6 +4,7 @@ const Profile = require('./Profile');
 const Exercise = require('./Exercise');
 const Personal_Exercise = require('./Personal_Exercise');
 const Workout = require('./Workout');
+const Weight = require('./Weight');
 
 // a user can have many buddies
 User.belongsToMany(User, {
@@ -46,5 +47,13 @@ User.hasMany(Workout, {
 Workout.belongsTo(User, {
     foreignKey: 'user_id'
 });
+
+User.hasMany(Weight, {
+    foreignKey: 'user_id'
+})
+
+Weight.belongsTo(User, {
+    foreignKey: 'user_id'
+})
 
 module.exports = { User, Buddy, Profile, Exercise, Personal_Exercise, Workout };
