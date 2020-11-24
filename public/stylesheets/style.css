@@ -218,7 +218,7 @@ footer {
 .personalExercise-wrapper {
     background: var(--gray);
     background-image: linear-gradient(150deg, rgba(54, 189, 207, .6) 0%, rgba(173, 173, 173, .8) 50%, rgba(199, 248, 86, .6) 100%), url("../imgs/wall_background02.jpg");
-    height: 90vh;
+    height: max-content;
     background-position: 80%;
 }
 
@@ -226,6 +226,7 @@ footer {
 .login-innerWrapper,
 .personalExercise-innerWrapper {
     padding-top: 100px;
+    padding-bottom: 200px;
     position: relative;
 }
 
@@ -337,7 +338,7 @@ footer {
     color: var(--neon-blue);
     font-weight: bold;
     transition: color .1s;
-    margin: 0 0 0 90px;
+    margin: 0 0 0 100px;
 }
 
 .signup-link {
@@ -359,12 +360,12 @@ footer {
 /* Search Exercise Styling */
 .exercise-search-form,
 .user-info-form, 
-.create-exercise-form {
+.create-exercise-form,
+.edit-exercise-form {
     font-size: 24px;
     text-align: -webkit-center;
     display: grid;
     margin: 0 auto;
-    padding-top: 500px;
     width: fit-content;
     padding: 40px;
     border-radius: 15px;
@@ -434,14 +435,15 @@ footer {
 /* Create/Edit Profile Styling and */
 /* Create/Edit Exercise styling */
 /* Search Exercise styling */
-.exercise-search-wrapper,
+.exercise-search-jumbotron,
 .edit-profile-jumbotron,
 .create-profile-wrapper,
 .create-exercise-jumbotron,
 .generate-workout-jumbotron,
 .generate-workout-form,
 .create-exercise-wrapper,
-.dashboard-jumbotron {
+.dashboard-jumbotron,
+.edit-exercise-jumbotron {
     background-size: cover;
     background-image:linear-gradient(150deg, rgba(54, 189, 207, .4) 0%, rgba(173, 173, 173, .6) 50%, rgba(199, 248, 86, .4) 100%), url("../imgs/gym.jpg") ;
     height: max-content;
@@ -454,11 +456,11 @@ footer {
 .exercise-search-wrapper,
 .edit-profile-wrapper,
 .create-profile-wrapper,
-.create-exercise-jumbotron,
 .create-exercose-wrapper,
 .generate-workout-jumbotron,
 .generate-workout-form {
     padding-top: 100px;
+    padding-bottom: 100px;
 }
 
 .edit-profile-wrapper {
@@ -490,12 +492,14 @@ footer {
     padding-bottom: 40px;
 }
 
+.exercise-save-btn,
 .search-exercises-btn,
 .update-btn,
 .cancel-btn,
 .create-profile-btn,
 .create-exercise-btn,
-.generate-workout-btn {
+.generate-workout-btn,
+.edit-exercise-btn {
     border: 2px var(--neon-blue) solid;
     border-radius: 15px;
     cursor: pointer;
@@ -527,12 +531,13 @@ footer {
 }
 
 .update-btn:hover,
-.cancel-btn:hover,
 .create-profile-btn:hover,
-.create-exercise-btn:hover {
+.create-exercise-btn:hover,
+.edit-exercise-btn:hover {
     border: 2px var(--neon-green) solid;
     border-radius: 15px;
     color: var(--neon-green);
+    text-decoration: none;
 }
 
 .update-btn:focus,
@@ -605,6 +610,25 @@ footer {
     margin-bottom: 80px;
     padding: 20px;
     width: 45vw;
+    overflow: hidden;
+    overflow-y: scroll;
+}
+
+.exercise-search-results {
+    margin: auto;
+    display: flex;
+    display: block;
+    justify-content: center;
+    height: 600px;
+    color: var(--neon-blue);
+    border: 5px inset var(--neon-green);
+    border-radius:  15px;
+    box-shadow: 10px 10px 40px var(--neon-green);
+    background: rgba(0, 0, 0, .8);
+    margin-top: 100px;
+    margin-bottom: 80px;
+    padding: 20px;
+    width: 80%;
     overflow: hidden;
     overflow-y: scroll;
 }
@@ -713,6 +737,13 @@ footer {
     text-decoration: underline var(--neon-blue) ;
 }
 
+.search-result-title {
+    display: flex;
+    justify-content: center;
+    font-size: 32px;
+}
+
+.exercise-list,
 .buddy-list {
     list-style: none;
     font-size: 20px;
@@ -731,7 +762,8 @@ footer {
     display: inline-block;
 }
 
-#remove-buddy {
+#remove-buddy,
+.delete-exercise-btn {    
     float: right;
     font-size: 16px;
     color: var(--neon-blue);
@@ -745,13 +777,17 @@ footer {
     transition: .4s;
 }
 
-#remove-buddy:hover {
+#remove-buddy:hover,
+.cancel-btn:hover,
+.delete-exercise-btn:hover {
     color: var(--neon-red);
     border: 2px solid var(--neon-red);
+    text-decoration: none;
 }
 
 #remove-buddy:focus,
 .add-buddy-btn:focus,
+.delete-exercise-btn:focus,
 .add-weight:focus {
     outline: none;
 }
@@ -809,6 +845,32 @@ footer {
     box-shadow: 10px 10px 20px var(--neon-pink);
     padding: 20px;
     margin-top: 50px;
+}
+
+
+.edit-exercise-innerWrapper,
+.create-exercise-innerWrapper {
+    padding: 100px 0px;
+}
+
+.exercise-name-input,
+textarea {
+    background-color: black;
+    color: white;
+}
+
+.exercise-name,
+#gym-list,
+#body-list,
+#exercise-level-list {
+    margin-bottom: 20px;
+}
+
+.delete-exercise-btn {
+    width: fit-content;
+    margin-bottom: 20px;
+    font-size: 28px;
+    margin-left: 270px;
 }
 
 
@@ -1631,4 +1693,3 @@ footer {
         margin: auto auto 15px auto;
     }
     /* Edit Profile Styling Start */
-}
