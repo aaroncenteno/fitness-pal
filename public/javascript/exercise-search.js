@@ -53,9 +53,15 @@ async function searchResultsHandler(event) {
             result_section.appendChild(result_div);
         }
 
-        section_html = document.querySelector('.results');
-        section_html.appendChild(result_section);
+        section_container = document.querySelector('#section-results');
+        section_container.setAttribute("class", "exercise-search-results");
 
+        title_container = document.querySelector('.search-result-title');
+        title_container.innerHTML = "Exercise Search Results";
+
+        div_html = document.querySelector('.results');
+        div_html.appendChild(result_section);
+    
     })
 }
 
