@@ -1,41 +1,46 @@
 async function generateWorkoutFormHandler(event) {
     event.preventDefault();
 
+   alert("hi")
+    // const exercise_list_array = Array
+    //     .from(document.querySelectorAll('option'))
+    //     .filter((option) => option.checked)
+    //     .map((option) => option.value);
+    // const exercise_list = exercise_list_array.join(",");
 
-    const exercise_list_array = Array
-        .from(document.querySelectorAll('option'))
-        .filter((option) => option.checked)
-        .map((option) => option.value);
-    const exercise_list = exercise_list_array.join(",");
+    const numbOfEx = document.querySelector("#numbOfEx").value 
+    const level = document.querySelector("#level-list").value
+    const gym = document.querySelector("#gym-list").value 
+    const body = document.querySelector("#body-list").value
+    // const exercises = document.querySelector("user-created").value 
 
-    // const numbOfEx = document.querySelector("#numbOfEx").value.trim();
-    // const level = document.querySelector("#level-list").value.trim();
-    // const gym = document.querySelector("#gym-list").value.trim();
-    // const body = document.querySelector("#body-list").value.trim();
-    // const exercises = document.querySelector("user-created").value.trim();
+    console.log( numbOfEx,
+        level,
+        gym,
+        body)
 
-    if (exercise_list) {
-        console.log(exercise_list);
-        const response = await fetch('/workout', {
+ 
+
+        const response = await fetch('/api/exercises/workout', {
             method: 'POST',
             body: JSON.stringify({
                 numbOfEx,
                 level,
                 gym,
-                body,
-                exercises
+                body
             }),
             headers: {
                 'Content-Type': 'application/json'
             }
         });
 
+        alert("click")
         if(response.ok) {
-            document.location.replace('/workout')
+            document.location.replace('/dashboard')
         } else {
             console.log(response.statusText);
         }
-    }
+  
 }
 
 // jQuery(function ($) {
