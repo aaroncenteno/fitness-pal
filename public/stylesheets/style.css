@@ -16,7 +16,6 @@
 body {
     font-family: 'Russo One', sans-serif, cursive;
     font-weight: bold;
-    
 }
 
 /* Main Layout Styling */
@@ -30,8 +29,8 @@ header {
     background: linear-gradient(90deg, var(--neon-blue) 0%, var(--gray) 50%, var(--black) 100%);
 }
 
-.modal {
-}
+/* .modal {
+} */
 
 .modal-header {
     background: var(--gray);
@@ -40,18 +39,19 @@ header {
 }
 
 .options {
-    font-size: 20px;
+    font-size: 1.4vw;
     padding-top: 10px;
     display: flex;
 }
 
 .head-title {
+    display: flex;
     margin-right: 20px;
     padding: 10px;
     background: rgba(0, 0, 0, .7);
     align-items: center;
     border-radius: 15px;
-    font-size: 55px;
+    font-size: 4vw;
     width: 100%;
     box-shadow: 10px 5px 10px var(--gray);
     text-decoration: none;
@@ -63,7 +63,7 @@ header {
     margin-right: 20px;
     padding: 5px;
     background-color: var(--black);
-    align-items: center;
+    text-align: center;
     border-radius: 15px;
     text-decoration: none;
     color: var(--neon-blue);
@@ -113,7 +113,7 @@ footer {
     background: var(--gray);
     background: linear-gradient(90deg, var(--neon-blue) 0%, var(--gray) 50%, var(--black) 100%); 
     padding-left: 40vw;
-    font-size: 58px;
+    font-size: 3vw;
 }
 
 /* Home page styling */
@@ -125,7 +125,7 @@ footer {
 }
 
 .homepage-signup-btn {
-    font-size: 5em;
+    font-size: 3.8vw;
     float: right;
     margin-right: 100px;
     margin-top: 100px;
@@ -156,7 +156,7 @@ footer {
 }
 
 .fitness-pal-description {
-    font-size: 22px;
+    font-size: 1vw;
     color: var(--white);
 }
 
@@ -167,7 +167,7 @@ footer {
 }
 
 .section-title {
-    font-size: 26px;
+    font-size: 1vw;
     color: var(--neon-green);
     padding-bottom: 20px;
     text-align: center;
@@ -183,8 +183,8 @@ footer {
 }
 
 .workout-grid-wrapper {
-    font-size: 18px;
     display: flex;
+    flex-wrap: wrap;
     padding: 20px 20px;
     align-items: center;
     margin-bottom: 40px;
@@ -194,17 +194,17 @@ footer {
 .workout-grid-container {
     width: 100%;
     display: grid;
-    grid-template-rows: 30vh;
     grid-template-columns: 20vw 20vw 20vw;
     color: var(--neon-green);
     height: fit-content;
-    grid-gap: 80px;
+    grid-gap: 4%;
 
 }
 
 .workout-1,
 .workout-2,
 .workout-3 {
+    font-size: 1vw;
     border-radius: 15px;
     border: 5px inset var(--neon-green);
     background: rgba(0, 0, 0, .4);
@@ -375,6 +375,10 @@ footer {
     color: var(--neon-green);
 }
 
+.exercise-search-form {
+    font-size: 2.4vw;
+}
+
 .dropdown-check-list:focus{
     outline:0;
 }
@@ -445,6 +449,10 @@ footer {
     height: max-content;
 }
 
+.exercise-name-input {
+    color: var(--black);
+}
+
 .exercise-search-wrapper,
 .edit-profile-wrapper,
 .create-profile-wrapper,
@@ -453,6 +461,19 @@ footer {
 .generate-workout-form {
     padding-top: 100px;
     padding-bottom: 100px;
+}
+
+.edit-profile-wrapper {
+    padding: 100px 50px;
+}
+
+
+.exercise-search-wrapper {
+    padding-bottom: 100px;
+}
+
+.create-profile-wrapper {
+    padding: 100px 50px;
 }
 
 .height-feet,
@@ -491,6 +512,22 @@ footer {
     margin-bottom: 20px;
     text-decoration: none;
     padding: 5px;
+}
+
+.update-btn {
+    font-size: 2vw;
+    width: 55%;
+    margin: auto auto 15px auto;
+}
+
+.create-profile-btn {
+    width: 40%;
+    margin: auto auto 15px auto;
+
+}
+
+.search-exercises-btn {
+    margin: auto auto 15px auto;
 }
 
 .update-btn:hover,
@@ -784,7 +821,7 @@ footer {
 }
 
 .personal-exercises-list {
-    margin-left: 550px;
+    margin-left: 20%;
     margin-top: 50px;
     height: 500px;
     /* border: 3px black solid; */
@@ -793,6 +830,9 @@ footer {
     padding: 30px;
     overflow: hidden;
     overflow-y: scroll;
+    display: flex;
+    flex-wrap: wrap;
+    
 }
 
 .created-personal-exercise {
@@ -806,6 +846,7 @@ footer {
     padding: 20px;
     margin-top: 50px;
 }
+
 
 .edit-exercise-innerWrapper,
 .create-exercise-innerWrapper {
@@ -846,3 +887,823 @@ textarea {
 .exercise-save-btn {
     margin-top: 30px;
 }
+
+
+/* Media Queries */
+
+    /* extra large devices */
+@media only screen and (max-width: 1200px) {
+
+    /* Homepage Styling Start */
+
+    .options {
+        padding-left: 16px;
+    }
+
+    .flex-row {
+        flex-direction: column;
+    }
+
+    .homepage-signup-btn {
+        width: 25vw;
+        font-size: 5vw;
+        margin-right: 157px;
+    }
+
+    .homepage-text {
+        font-size: inherit;
+        width: 36vw;
+        margin-left: 94px;
+    }
+
+    .fitness-pal-description {
+        font-size: 1.4vw;
+    }
+
+    .section-title {
+        font-size: inherit;
+        margin-left: 27%;
+        width: 78%;
+    }
+
+    .workout-grid-container {
+        grid-gap: 25%;
+        padding-left: 21%;
+        width: 52%;
+    }
+
+    .workout-1, 
+    .workout-2, 
+    .workout-3 {
+        font-size: large;
+        flex-wrap: wrap;
+    }
+    /* Homepage Styling End */
+
+    /* Login Styling Start */
+    .login-btn {
+        width: 11vw;
+        margin-left: 87px;
+    }
+    /* Login Styling End */
+
+    /* Signup Styling Start */
+    .signup-innerWrapper {
+        padding-top: 1px;
+    }
+
+    .signup-form {
+        margin: 49px auto;
+    }
+
+    .signup-btn {
+        margin: 0 0 40px 93px;
+    }
+    /* Signup Styling End */
+
+
+    /* Dashboard Styling Start */
+    .user-info {
+        padding: 3px 142px 32px;
+        margin-left: 100px;
+    }
+
+    .buddies {
+        margin-left: 100px;
+        height: auto;
+    }
+
+    .buddy-header {
+        margin-left: 116px;
+        font-size: 25px;
+    }
+
+    .suggested-exercise {
+        margin-right: 110px;
+        padding-bottom: 38px;
+    }
+
+    .stats-chart {
+        margin-right: 48px;
+        height: auto;
+    }
+
+    .completed-workouts {
+        width: 63vw;
+        margin-left: 221px;
+    }
+    /* Dashboard Styling End */
+
+
+    /* Exercise Search Styling Start */
+    .search-exercises-btn,
+    .cancel-btn {
+        font-size: 2.3vw;
+    }
+
+    .search-exercises-btn {
+        width: 21%;
+        margin: auto auto 15px auto;
+    }
+
+    .exercise-search-wrapper {
+        padding-top: 73px;
+        padding-bottom: 73px;
+    }
+
+    .exercise-search-form {
+        padding: 28px;
+    }
+    /* Exercise Search Styling End */
+
+
+    /* Personal Exercise Styling Start */
+    .create-exercise-link {
+        margin-left: 35%;
+    }
+
+    .personal-exercises-list {
+        margin-left: 0;
+        margin-top: 0;
+        height: auto;
+        padding-top: 10px;
+    }
+
+    .created-personal-exercise {
+        margin-top: 28px;
+        margin-left: 254px;
+        width: 55%;
+    }
+
+    .personalExercise-innerWrapper {
+        padding-top: 44px;
+    }
+    /* Personal Exercise Styling End */
+
+
+    /* Create Exercise Styling Start */
+    .create-exercise-jumbotron {
+        padding-top: 45px;
+        padding-bottom: 45px;
+    }
+
+    .create-exercise-form {
+        margin: 0 auto;
+    }
+
+    .create-exercise-btn {
+        font-size: 3vw;
+        width: 44%;
+        margin: auto auto 15px auto;
+    }
+    /* Create Exercise Styling End */
+
+
+    /* Create User Profile Styling Start */
+    .create-profile-wrapper {
+        padding: 100px 50px;
+    }
+
+    .create-profile-btn {
+        font-size: 2.3vw;
+        width: 33%;
+        margin: auto auto 15px auto;
+    }
+    /* Create User Profile Styling End */
+
+
+     /* Create User Profile Styling End */
+     .edit-profile-wrapper {
+        padding: 100px 50px;
+    }
+
+    .update-btn {
+        font-size: 2.3vw;
+        width: 42%;
+        margin: auto auto 15px auto;
+    }
+    /* Edit Profile Styling Start */
+}
+
+
+    /* large devices */
+@media only screen and (max-width: 992px) {
+
+    /* Homepage Styling Start */
+    .options {
+        float: none;
+        width: 56%;
+        font-size: large;
+        padding-top: 0;
+        padding-left: 18px;
+        padding-bottom: 10px;
+        flex-wrap: wrap;
+    }
+
+    .homepage-signup-btn {
+        width: 31vw;
+        font-size: 6.1vw;
+        margin-right: 117px;
+    }
+
+    .homepage-text {
+        font-size: inherit;
+        width: 36vw;
+        margin-left: 94px;
+    }
+
+    .fitness-pal-description {
+        font-size: 1.4vw;
+    }
+
+    .section-title {
+        font-size: inherit;
+        margin-left: 17%;
+        width: 78%;
+    }
+
+    .workout-grid-container {
+        grid-template-columns: 25vw 25vw 25vw;
+        grid-gap: 12%;
+        padding-left: 9%;
+    }
+
+    .workout-1, 
+    .workout-2, 
+    .workout-3 {
+        font-size: medium;
+        flex-wrap: wrap;
+    }
+    /* Homepage Styling End */
+
+
+    /* Login Styling Start */
+    .login-btn {
+        width: 13vw;
+        margin-left: 87px;
+    }
+    /* Login Styling End */
+
+
+    /* Signup Styling Start */
+    .signup-innerWrapper {
+        padding-top: 1px;
+    }
+
+    .signup-form {
+        margin: 49px auto;
+    }
+
+    .signup-btn {
+        margin: 0 0 40px 93px;
+    }
+    /* Signup Styling End */
+
+
+    /* Dashboard Styling Start */
+    .user-info {
+        padding: 3px 142px 32px;
+    }
+
+    .buddies {
+        height: auto;
+    }
+
+    .buddy-header {
+        margin-left: 116px;
+        font-size: 25px;
+    }
+
+    .suggested-exercise {
+        margin-right: 36px;
+        padding-bottom: 38px;
+    }
+
+    .stats-chart {
+        width: 86vw;
+        margin-right: 58px;
+        height: auto;
+    }
+
+    .completed-workouts {
+        width: 67vw;
+        margin-left: 161px;
+    }
+    /* Dashboard Styling End */
+
+
+    /* Exercise Search Styling Start */
+    .search-exercises-btn,
+    .cancel-btn {
+        font-size: 2.5vw;
+    }
+
+    .search-exercises-btn {
+        width: 28%;
+        margin: auto auto 15px auto;
+    }
+
+    .exercise-search-wrapper {
+        padding-top: 73px;
+        padding-bottom: 73px;
+    }
+
+    .exercise-search-form {
+        padding: 28px;
+    }
+    /* Exercise Search Styling End */
+
+
+    /* Personal Exercise Styling Start */
+    .create-exercise-link {
+        margin-left: 34%;
+    }
+
+    .personal-exercises-list {
+        margin-left: 0;
+        margin-top: 0;
+        height: auto;
+        padding-top: 10px;
+    }
+
+    .created-personal-exercise {
+        margin-top: 28px;
+        margin-left: 206px;
+        width: 55%;
+    }
+
+    .personalExercise-innerWrapper {
+        padding-top: 44px;
+    }
+    /* Personal Exercise Styling End */
+
+
+    /* Create Exercise Styling Start */
+    .create-exercise-jumbotron {
+        padding-top: 45px;
+        padding-bottom: 45px;
+    }
+
+    .create-exercise-form {
+        margin: 0 auto;
+    }
+
+    .create-exercise-btn {
+        font-size: 4vw;
+        width: 49%;
+        margin: auto auto 15px auto;
+    }
+    /* Create Exercise Styling End */
+
+
+    /* Create User Profile Styling Start */
+    .create-profile-wrapper {
+        padding: 100px 50px;
+    }
+
+    .create-profile-btn {
+        font-size: 2.5vw;
+        width: 37%;
+        margin: auto auto 15px auto;
+    }
+    /* Create User Profile Styling End */
+
+
+    /* Create User Profile Styling End */
+    .edit-profile-wrapper {
+        padding: 100px 50px;
+    }
+
+    .update-btn {
+        font-size: 2.5vw;
+        width: 38%;
+        margin: auto auto 15px auto;
+    }
+    /* Edit Profile Styling Start */
+}
+
+
+    /* medium devices */
+@media only screen and (max-width: 768px) {
+
+    /* Homepage Styling Start */
+    .options {
+        float: none;
+        width: 56%;
+        font-size: inherit;
+        padding-top: 0;
+        padding-left: 18px;
+        padding-bottom: 10px;
+        flex-wrap: wrap;
+    }
+
+    .homepage-text {
+        font-size: inherit;
+        width: 36vw;
+    }
+
+    .fitness-pal-description {
+        font-size: 2vw;
+    }
+
+    .homepage-signup-btn {
+        width: 34vw;
+        font-size: 6.8vw;
+        margin-right: 70px;
+    }
+
+    .flex-row {
+        flex: 100%;
+        max-width: 100%;
+    }
+
+    .section-title {
+        font-size: inherit;
+        margin-left: 17%;
+        width: 78%;
+    }
+
+    .workout-grid-container {
+        grid-template-columns: 25vw 25vw 25vw;
+        grid-gap: 8%;
+    }
+
+    .workout-1, 
+    .workout-2, 
+    .workout-3 {
+        font-size: small;
+        flex-wrap: wrap;
+    }
+
+    footer {
+        font-size: x-large;
+    }
+    /* Homepage Styling End */
+
+
+    /* Login Styling Start */
+    .login-btn {
+        width: 17vw;
+        margin-left: 83px;
+    }
+    /* Login Styling End */
+
+
+    /* Signup Styling Start */
+    .signup-innerWrapper {
+        padding-top: 1px;
+    }
+
+    .signup-form {
+        margin: 49px auto;
+    }
+
+    .signup-btn {
+        margin: 0 0 40px 93px;
+    }
+    /* Signup Styling End */
+
+
+    /* Dashboard Styling Start */
+    .user-info {
+        padding: 3px 142px 32px;
+        margin-left: 165px;
+    }
+
+    .buddies {
+        height: 40vh;
+        margin-left: 165px;
+        height: auto;
+    }
+
+    .buddy-header {
+        margin-left: 116px;
+        font-size: 25px;
+    }
+
+    .suggested-exercise {
+        margin-right: 182px;
+        padding-bottom: 38px;
+    }
+
+    .stats-chart {
+        width: 86vw;
+        margin-right: 45px;
+        height: auto;
+    }
+
+    .completed-workouts {
+        width: 76vw;
+        margin-left: 93px;
+    }
+    /* Dashboard Styling End */
+
+
+    /* Exercise Search Styling Start */
+    .search-exercises-btn,
+    .cancel-btn {
+        font-size: 3vw;
+    }
+
+    .search-exercises-btn {
+        width: 28%;
+        margin: auto auto 15px auto;
+    }
+
+    .exercise-search-wrapper {
+        padding-top: 73px;
+        padding-bottom: 73px;
+    }
+
+    .exercise-search-form {
+        padding: 28px;
+    }
+    /* Exercise Search Styling End */
+
+
+    /* Personal Exercise Styling Start */
+    .create-exercise-link {
+        margin-left: 29%;
+    }
+
+    .personal-exercises-list {
+        margin-left: 0;
+        margin-top: 0;
+        height: auto;
+        padding-top: 10px;
+    }
+
+    .created-personal-exercise {
+        width: auto;
+        margin-top: 28px;
+        margin-left: 1%;
+    }
+
+    .personalExercise-innerWrapper {
+        padding-top: 44px;
+    }
+    /* Personal Exercise Styling End */
+
+
+    /* Create Exercise Styling Start */
+    .create-exercise-jumbotron {
+        padding-top: 45px;
+        padding-bottom: 45px;
+    }
+
+    .create-exercise-form {
+        margin: 0 6%;
+    }
+
+    .create-exercise-btn {
+        font-size: 4vw;
+        width: 49%;
+        margin: auto auto 15px auto;
+    }
+    /* Create Exercise Styling End */
+
+
+    /* Create User Profile Styling Start */
+    .create-profile-wrapper {
+        padding: 100px 50px;
+    }
+
+    .create-profile-btn {
+        font-size: 3vw;
+        width: 43%;
+        margin: auto auto 15px auto;
+    }
+    /* Create User Profile Styling End */
+
+
+    /* Create User Profile Styling End */
+    .edit-profile-wrapper {
+        padding: 100px 50px;
+    }
+
+    .update-btn {
+        font-size: 3vw;
+        width: 35%;
+        margin: auto auto 15px auto;
+    }
+    /* Edit Profile Styling Start */
+}
+
+
+    /* small devices */
+@media only screen and (max-width: 600px) {
+
+    /* Homepage Styling Start */
+    header {
+        flex-direction: column;
+    }
+
+    .head-title {
+        float: none;
+        font-size: 7vw;
+    }
+
+    .options {
+        float: none;
+        width: 68%;
+        font-size: 3vw;
+        padding-top: 0;
+        padding-left: 18px;
+        padding-bottom: 10px;
+        flex-wrap: wrap;
+    }
+
+    .homepage-text {
+        font-size: inherit;
+        width: 36vw;
+    }
+
+    .fitness-pal-description {
+        font-size: 2vw;
+    }
+
+    .homepage-signup-btn {
+        width: 34vw;
+        font-size: 6.8vw;
+        margin-right: 70px;
+    }
+
+    .flex-row {
+        flex: 100%;
+        max-width: 100%;
+    }
+
+    .section-title {
+        font-size: inherit;
+        margin-left: 17%;
+        width: 78%;
+    }
+
+    .workout-grid-container {
+        grid-template-columns: 25vw 25vw 25vw;
+        grid-gap: 8%;
+    }
+
+    .workout-1, 
+    .workout-2, 
+    .workout-3 {
+        font-size: small;
+        flex-wrap: wrap;
+    }
+
+    footer {
+        font-size: x-large;
+        padding-left: 39%;
+        height: auto;
+    }
+
+    main {
+        height: 100%;
+    }
+    /* Homepage Styling End */
+
+
+    /* Login Styling Start */
+    .login-btn {
+        width: 17vw;
+    }
+    /* Login Styling End */
+
+
+    /* Signup Styling Start */
+    .signup-innerWrapper {
+        padding-top: 1px;
+    }
+
+    .signup-form {
+        margin: 49px auto;
+    }
+
+    .signup-btn {
+        margin: 0 0 40px 93px;
+    }
+    /* Signup Styling End */
+
+
+    /* Dashboard Styling Start */
+    .user-info {
+        padding: 0px 142px 32px;
+        margin-left: 91px;
+    }
+
+    .buddies {
+        height: 40vh;
+        margin-left: 91px;
+        height: auto;
+    }
+
+    .buddy-header {
+        margin-left: 116px;
+        font-size: 25px;
+    }
+
+    .suggested-exercise {
+        margin-right: 92px;
+        padding-bottom: 38px;
+    }
+
+    .stats-chart {
+        width: 86vw;
+        margin-right: 35px;
+        height: auto;
+    }
+
+    .completed-workouts {
+        width: 76vw;
+        margin-left: 75px;
+    }
+    /* Dashboard Styling End */
+
+
+    /* Exercise Search Styling Start */
+    .search-exercises-btn,
+    .cancel-btn {
+        font-size: 4vw;
+    }
+
+    .search-exercises-btn {
+        width: 28%;
+        margin: auto auto 15px auto;
+    }
+
+    .exercise-search-wrapper {
+        padding-top: 73px;
+        padding-bottom: 73px;
+    }
+
+    .exercise-search-form {
+        padding: 28px;
+    }
+    /* Exercise Search Styling End */
+
+    
+    /*Personal Exercise Styling Start */
+    .create-exercise-link {
+        margin-left: 124px;
+    }
+
+    .personal-exercises-list {
+        margin-left: 0;
+        margin-top: 0;
+        height: auto;
+        padding-top: 10px;
+    }
+
+    .created-personal-exercise {
+        width: auto;
+        margin-top: 28px;
+    }
+
+    .personalExercise-innerWrapper {
+        padding-top: 44px;
+    }
+    /* Personal Exercise Styling End */
+
+
+    /* Create Exercise Styling Start */
+    .create-exercise-jumbotron {
+        padding-top: 45px;
+        padding-bottom: 45px;
+    }
+
+    .create-exercise-form {
+        margin: 0 6%;
+    }
+
+    .create-exercise-btn {
+        font-size: 4vw;
+        width: 49%;
+        margin: auto auto 15px auto;
+    }
+    /* Create Exercise Styling End */
+
+
+    /* Create User Profile Styling Start */
+    .create-profile-wrapper {
+        padding: 100px 50px;
+    }
+
+    .create-profile-btn {
+        font-size: 4vw;
+        width: 43%;
+        margin: auto auto 15px auto;
+    }
+
+
+
+    /* Create User Profile Styling End */
+    .edit-profile-wrapper {
+        padding: 100px 50px;
+    }
+
+    .update-btn {
+        font-size: 4vw;
+        width: 51%;
+        margin: auto auto 15px auto;
+    }
+
