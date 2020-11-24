@@ -1,6 +1,5 @@
 const router = require('express').Router();
 const { Exercise, Personal_Exercise, Workout } = require('../../models');
-const withAuth = require('../../utils/auth');
 const { route } = require('./user-routes');
 
 // ----------------------------------------------------------------------------------------------------
@@ -32,18 +31,6 @@ router.get('/dashboard/:id', (req, res) => {
             res.status(500).json(err);
         });
 })
-
-// router.get('/suggested', (req, res) => {
-
-//     const suggestedExercise = await Exercise.count({
-//         where: {
-//             id: {
-//                 [Op.gt]: 0
-//             }
-//         }
-//     });
-//     console.log(`There are ${suggestedExercise} exercises in the datbase.`)
-// })
 
 // get all exercises
 router.get('/', (req, res) => {
@@ -200,7 +187,7 @@ router.put('/personal/:id', (req, res) => {
 })
 
 // delete a personal exercise
-router.delete('/personal/:id', withAuth, (req, res) => {
+router.delete('/personal/:id', (req, res) => {
     Personal_Exercise.destroy({
         where: {
             id: req.params.id
@@ -327,7 +314,7 @@ router.put('/workout/:id', (req, res) => {
 })
 
 // delete a workout
-router.delete('/workout/:id', withAuth, (req, res) => {
+router.delete('/workout/:id', (req, res) => {
     Workout.destroy({
         where: {
             id: req.params.id

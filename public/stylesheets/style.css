@@ -873,6 +873,20 @@ textarea {
     margin-left: 270px;
 }
 
+/* Generated Workout Page Styling */
+
+.exercise-name {
+    font-size: 30px;
+    text-decoration: underline;
+}
+
+.exercise-instructions {
+    font-size: 22px;
+}
+
+.exercise-save-btn {
+    margin-top: 30px;
+}
 
 
 /* Media Queries */
@@ -1692,4 +1706,4 @@ textarea {
         width: 51%;
         margin: auto auto 15px auto;
     }
-    /* Edit Profile Styling Start */
+

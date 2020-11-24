@@ -9,7 +9,7 @@ const exerciseData = [
         gym_no_gym: 'no_gym',
         upper_lower: 'upper',
         fitness_level: 'beginner',
-        instructions: 'Start with your knees on the floor, your hands just to the sides of your shoulders, and your arms straight.<br><br>With your back in a straight line, engage your glutes and core, and lower your body until your chest is nearly touching the floor.  Pause for a moment then push your body up to the starting position.  Complete 3x 10 repetitions.'
+        instructions: 'Start with your knees on the floor, your hands just to the sides of your shoulders, and your arms straight.  With your back in a straight line, engage your glutes and core, and lower your body until your chest is nearly touching the floor.  Pause for a moment then push your body up to the starting position.  Complete 3x 10 repetitions.'
     },
     {
         exercise_name: 'Push Ups - Standard',
@@ -150,42 +150,42 @@ const exerciseData = [
         gym_no_gym: 'gym',
         upper_lower: 'lower',
         fitness_level: 'beginner',
-        instructions: 'tbd'
+        instructions: 'Position your body on a leg press machine with your back and head against the padded support.  Please your feet on the foot plate with your feet hip-width apart and your legs at a 90-degree angle.  Push the platform away with your heels, pause, then slowly return the footplate to the starting position.  Complete 3 sets of 10 repeitions.'
     },
     {
         exercise_name: 'Leg Press',
         gym_no_gym: 'gym',
         upper_lower: 'lower',
         fitness_level: 'intermediate',
-        instructions: 'tbd'
+        instructions: 'Position your body on a leg press machine with your back and head against the padded support.  Please your feet on the foot plate with your feet hip-width apart and your legs at a 90-degree angle.  Push the platform away with your heels, pause, then slowly return the footplate to the starting position.  Complete 4 sets of 10 repeitions.'
     },
     {
         exercise_name: 'Leg Press',
         gym_no_gym: 'gym',
         upper_lower: 'lower',
         fitness_level: 'advanced',
-        instructions: 'tbd'
+        instructions: 'Position your body on a leg press machine with your back and head against the padded support.  Please your feet on the foot plate with your feet hip-width apart and your legs at a 90-degree angle.  Push the platform away with your heels, pause, then slowly return the footplate to the starting position.  Complete 5 sets of 10 repeitions.'
     },
     {
         exercise_name: 'Leg Extension',
         gym_no_gym: 'gym',
         upper_lower: 'lower',
         fitness_level: 'beginner',
-        instructions: 'tbd'
+        instructions: 'Position your body on a leg extension machine with the pad just above your ankles.  Lift the weight until your legs are almost straight, pause, then lower the weight back to the starting position.  Complete 3 sets of 10 repeitions.'
     },
     {
         exercise_name: 'Leg Extension',
         gym_no_gym: 'gym',
         upper_lower: 'lower',
         fitness_level: 'intermediate',
-        instructions: 'tbd'
+        instructions: 'Position your body on a leg extension machine with the pad just above your ankles.  Lift the weight until your legs are almost straight, pause, then lower the weight back to the starting position.  Complete 4 sets of 10 repeitions.'
     },
     {
         exercise_name: 'Leg Extension',
         gym_no_gym: 'gym',
         upper_lower: 'lower',
         fitness_level: 'advanced',
-        instructions: 'tbd'
+        instructions: 'Position your body on a leg extension machine with the pad just above your ankles.  Lift the weight until your legs are almost straight, pause, then lower the weight back to the starting position.  Complete 5 sets of 10 repeitions.'
     }
     // ----- GYM END ---------------------------------------------------------------------------- //
 ];

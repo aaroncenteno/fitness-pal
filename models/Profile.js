@@ -4,7 +4,7 @@
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
 
-class Profile extends Model { }
+class Profile extends Model {}
 
 Profile.init(
     {
@@ -43,26 +43,6 @@ Profile.init(
             type: DataTypes.STRING,
             allowNull: true
         },
-        // goal_consistency: {
-        //     type: DataTypes.BOOLEAN,
-        //     allowNull: false
-        // },
-        // goal_getinshape: {
-        //     type: DataTypes.BOOLEAN,
-        //     allowNull: false
-        // },
-        // goal_health: {
-        //     type: DataTypes.BOOLEAN,
-        //     allowNull: false
-        // },
-        // goal_strength: {
-        //     type: DataTypes.BOOLEAN,
-        //     allowNull: false
-        // },
-        // goal_weightloss: {
-        //     type: DataTypes.BOOLEAN,
-        //     allowNull: false
-        // },
         user_id: {
             type: DataTypes.INTEGER,
             allowNull: false,
