@@ -19,6 +19,10 @@
                         <input id="no-gym-option" name="gym-no-gym-option" type="radio" value="no_gym" />
                         <label for="no-gym-option">No Gym</label>
                     </li>
+                    <li>
+                        <input type="radio" id="any-option" name="gym-no-gym-option" value="">
+                        <label for="any-option">Any</label>
+                    </li>
                 </ul>
             </div>
 
@@ -34,6 +38,10 @@
                     <li>
                         <input id="lower-option" name="body-option" type="radio" value="lower" />
                         <label for="lower-option">Lower</label>
+                    </li>
+                    <li>
+                        <input id="both-option" name="body-option" type="radio" value="" />
+                        <label for="both-option">Both</label>
                     </li>
                 </ul>
             </div>
@@ -55,6 +63,10 @@
                         <input id="advanced-option" name="level-option" type="radio" value="advanced" />
                         <label for="advanced-option">Advanced</label>
                     </li>
+                    <li>
+                        <input id="all-option" name="level-option" type="radio" value="" />
+                        <label for="all-option">Both</label>
+                    </li>
                 </ul>
             </div>
 
@@ -63,14 +75,16 @@
 
         </form>
 
-        <section id="section-results">
-        {{!-- <section id="section-results" class="exercise-search-results"> --}}
+        <div>
+            <section id="section-results">
+            {{!-- <section id="section-results" class="exercise-search-results"> --}}
             <div class="search-result-title"></div>
             {{!-- <div class="search-result-title">Exercise Search Results</div> --}}
             <div class="results"></div>
             {{!-- <button type="submit" class="exercise-save-btn">Save!</button> --}}
-        </section>
-
+            </section>
+            <button type="button" class="refresh-exerciseSearch-btn hide">Search For Other Exercises</button>
+        </div>
     </div>
 </div>
 

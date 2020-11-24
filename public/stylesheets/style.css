@@ -306,7 +306,8 @@ footer {
 .signup-btn,
 .login-btn,
 .complete-workout-btn,
-.refresh-search-btn {
+.refresh-search-btn,
+.refresh-exerciseSearch-btn {
     background-color: var(--neon-blue);
     border: 0;
     padding: 1%;
@@ -318,6 +319,9 @@ footer {
     border-radius: 5px;
     margin: 0 0 40px 100px;
     font-family: 'Russo One', sans-serif, cursive;
+}
+.refresh-exerciseSearch-btn {
+    margin-left: 42%;
 }
 
 .login-btn {
@@ -609,7 +613,7 @@ footer {
 
 .completed-workouts {
     display: inline-block;
-    margin-left: 70px;
+    margin-left: 90px;
     height: 400px;
     color: var(--neon-blue);
     border: 5px inset var(--neon-green);
@@ -815,7 +819,8 @@ footer {
 
 #remove-buddy:hover,
 .cancel-btn:hover,
-.delete-exercise-btn:hover {
+.delete-exercise-btn:hover,
+.remove-weight-btn:hover {
     color: var(--neon-red);
     border: 2px solid var(--neon-red);
     text-decoration: none;
@@ -921,7 +926,7 @@ select {
 }
 
 .personal-exercises-list {
-    margin-left: 20%;
+    margin-left: 30%;
     margin-top: 50px;
     height: 500px;
     /* border: 3px black solid; */
@@ -930,7 +935,7 @@ select {
     padding: 30px;
     overflow: hidden;
     overflow-y: scroll;
-    display: flex;
+    display: block;
     flex-wrap: wrap;
     
 }
