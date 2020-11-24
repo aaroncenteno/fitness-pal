@@ -835,6 +835,18 @@ footer {
     
 }
 
+/* Create User Profile Styling End */
+.edit-profile-wrapper {
+    padding: 100px 50px;
+}
+
+.update-btn {
+    font-size: 4vw;
+    width: 51%;
+    margin: auto auto 15px auto;
+}
+ /* Edit Profile Styling Start */
+
 .created-personal-exercise {
     font-size: 20px;
     color: var(--neon-blue);
@@ -872,6 +884,7 @@ textarea {
     font-size: 28px;
     margin-left: 270px;
 }
+
 
 
 
@@ -1679,17 +1692,4 @@ textarea {
         width: 43%;
         margin: auto auto 15px auto;
     }
-
-
-
-    /* Create User Profile Styling End */
-    .edit-profile-wrapper {
-        padding: 100px 50px;
-    }
-
-    .update-btn {
-        font-size: 4vw;
-        width: 51%;
-        margin: auto auto 15px auto;
-    }
-    /* Edit Profile Styling Start */
+}

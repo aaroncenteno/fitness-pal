@@ -1,45 +1,76 @@
 async function generateWorkoutFormHandler(event) {
     event.preventDefault();
 
-   alert("hi")
-    // const exercise_list_array = Array
-    //     .from(document.querySelectorAll('option'))
-    //     .filter((option) => option.checked)
-    //     .map((option) => option.value);
-    // const exercise_list = exercise_list_array.join(",");
-
     const numbOfEx = document.querySelector("#numbOfEx").value 
     const level = document.querySelector("#level-list").value
     const gym = document.querySelector("#gym-list").value 
     const body = document.querySelector("#body-list").value
-    // const exercises = document.querySelector("user-created").value 
+    const generatedWorkoutEl = document.querySelector('.generated-workout');
 
-    console.log( numbOfEx,
-        level,
-        gym,
-        body)
-
- 
-
-        const response = await fetch('/api/exercises/workout', {
-            method: 'POST',
-            body: JSON.stringify({
-                numbOfEx,
-                level,
-                gym,
-                body
-            }),
+        const response = await fetch('/api/exercises/?fitness_level='+ level + '&gym_no_gym=' + gym + '&upper_lower=' + body,{
+            method: 'GET',
             headers: {
                 'Content-Type': 'application/json'
-            }
-        });
+            },
+        })
+        .then(response => response.json())
+        .then(data => {
+        generatedWorkoutEl.classList.remove('hide');
+            const randomNumbers = []
+            // const randomNumber = (max, min) => {
+            //     return Math.floor(Math.random()*(max - min + 0)) + min;
+            // };
+            // console.log(data);
 
-        alert("click")
-        if(response.ok) {
-            document.location.replace('/dashboard')
-        } else {
-            console.log(response.statusText);
-        }
+            for( i =0; i < numbOfEx; i ++) {
+                let generatedNumber = data[Math.floor(Math.random() * data.length)]
+                if (!randomNumbers.includes(generatedNumber)) {
+                    const exercsieEl = document.createElement('div')
+                    const exerciseName = document.createElement('div')
+                    const exerciseInstructions = document.createElement('div')
+                    console.log(generatedNumber)
+                    console.log(randomNumbers);
+                    randomNumbers.push(generatedNumber)
+    
+                    exercsieEl.setAttribute('class', 'generatedExercise')
+                    exerciseName.setAttribute('class', 'generated-exercise-name')
+                    exerciseInstructions.setAttribute('class', 'generated-exercise-instructions')
+    
+                    exerciseName.innerHTML = generatedNumber.exercise_name
+                    exerciseInstructions.innerHTML = generatedNumber.instructions
+                    
+                    exercsieEl.appendChild(exerciseName);
+                    exercsieEl.appendChild(exerciseInstructions);
+                    generatedWorkoutEl.appendChild(exercsieEl);
+                } else {
+                    let generatedNumber = data[Math.floor(Math.random() * data.length)]
+                    const exercsieEl = document.createElement('div')
+                    const exerciseName = document.createElement('div')
+                    const exerciseInstructions = document.createElement('div')
+                    console.log(generatedNumber)
+                    console.log(randomNumbers);
+                    randomNumbers.push(generatedNumber)
+    
+                    exercsieEl.setAttribute('class', 'generatedExercise')
+                    exerciseName.setAttribute('class', 'generated-exercise-name')
+                    exerciseInstructions.setAttribute('class', 'generated-exercise-instructions')
+    
+                    exerciseName.innerHTML = generatedNumber.exercise_name
+                    exerciseInstructions.innerHTML = generatedNumber.instructions
+                    
+                    exercsieEl.appendChild(exerciseName);
+                    exercsieEl.appendChild(exerciseInstructions);
+                    generatedWorkoutEl.appendChild(exercsieEl);
+                }
+            }
+            // console.log(data)
+        })
+        
+        // if(response.ok) {
+        //     document.location.replace('/dashboard')
+        // } else {
+        //     console.log(response.statusText);
+        // }
   
 }
 

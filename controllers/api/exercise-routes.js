@@ -61,9 +61,7 @@ router.get('/', (req, res) => {
     }
 
     Exercise.findAll({
-
         where: whereCondition
-
     })
         .then(dbExerciseData => {
             // if the search brings back nothing
@@ -78,9 +76,7 @@ router.get('/', (req, res) => {
         .catch(err => {
             console.log(err);
             res.status(500).json(err);
-        })
-        ;
-
+        });
 })
 
 // search exercises
@@ -249,7 +245,7 @@ router.get('/workout/:id', (req, res) => {
 })
 
 // create a new workout
-router.post('/workout', (req, res) => {
+router.get('/workout/:fitness_level?/:gym_no_gym?/:upper_lower?', (req, res) => {
     console.log(req.body)
     Exercise.findAll({ 
         where: {

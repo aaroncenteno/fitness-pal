@@ -22,33 +22,36 @@ Include CSS classes for styling at a later time
                     <option id="three">3</option>
                     <option id="four">4</option>
                     <option id="five">5</option>
-                    <option id="six">6</option>
+                    {{!-- <option id="six">6</option>
                     <option id="seven">7</option>
                     <option id="eight">8</option>
                     <option id="nine">9</option>
-                    <option id="ten">10</option>
+                    <option id="ten">10</option> --}}
                 </select>
             </div>
             <div  class="dropdown-check-list" tabindex="100">
                 <label class="dropbtn">What level of workout is this?</label>
                 <select id="level-list" class="items">
-                    <option id="levels" name="typeOfLevel" value="Beginner" for="beginner">Beginner</option>
-                    <option id="levelsOne" name="typeOfLevel" value="Intermediate" for="intermediate">Intermediate</option>
-                    <option id="levels" name="typeOfLevel" value="Advanced" for="advanced">Advanced</option>
+                    <option id="levels" name="typeOfLevel" value="beginner" for="beginner">Beginner</option>
+                    <option id="levelsOne" name="typeOfLevel" value="intermediate" for="intermediate">Intermediate</option>
+                    <option id="levels" name="typeOfLevel" value="advanced" for="advanced">Advanced</option>
+                    <option id="levels" name="typeOfLevel" value ="">Any</option>
                 </select>
             </div>
             <div  class="dropdown-check-list" tabindex="100">
                 <label class="dropbtn">Is this workout done inside a gym or at home?</label>
                 <select id="gym-list" class="items">
-                    <option id="gym" name="gym-no-gym" value="Gym"for="gym">Gym</option>
-                    <option id="no-gym" name="gym-no-gym" value="At home" for="no-gym">At home</option>
+                    <option id="gym" name="gym-no-gym" value="gym"for="gym">Gym</option>
+                    <option id="no-gym" name="gym-no-gym" value="no_gym" for="no-gym">At home</option>
+                    <option id="no-gym" name="gym-no-gym" for="no-gym" value="">Any</option>
                 </select>
             </div>
             <div  class="dropdown-check-list" tabindex="100">
                 <label class="dropbtn">Is this workout for the upper or the lower body?</label>
                 <select id="body-list" class="items">
-                    <option id="upper" name="upper-lower" value="Upper" for="upper">Upper Body</option>
-                    <option id="lower" name="upper-lower" value="Lower" for="lower">Lower Body</option>
+                    <option id="upper" name="upper-lower" value="upper" for="upper">Upper Body</option>
+                    <option id="lower" name="upper-lower" value="lower" for="lower">Lower Body</option>
+                    <option id="any" name="upper-lower" value ="">Any</option>
                 </select>
             </div>
             {{!-- Optional way of generating the exercises for workout
@@ -68,6 +71,9 @@ Include CSS classes for styling at a later time
             <button type="submit"  class="generate-workout-btn">Generate Workout!</button>
             <a href="/dashboard" class="cancel-btn">Cancel</a>
         </form>
+    </div>
+    <div class="generated-workout hide" id="generated-workout">
+        
     </div>
 </div>
 
