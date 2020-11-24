@@ -4,7 +4,6 @@ async function searchResultsHandler(event) {
     const gym_no_gym = document.querySelector('input[name="gym-no-gym-option"]:checked').value;
     const upper_lower = document.querySelector('input[name="body-option"]:checked').value;
     const fitness_level = document.querySelector('input[name="level-option"]:checked').value;
-    const date_time = new Date();
 
     const response = await fetch('api/exercises/search/', {
         method: 'POST',
@@ -65,22 +64,23 @@ async function saveWorkoutHandler(event) {
 
     console.log("save was clicked");
 
-    // const nodesArray = Array.prototype.slice.call(document.querySelectorAll('.result-section'));
-
-    // const date_time = new Date();
-    // console.log(date_time);
-
-    const exercise_list = null;
+    const nodesArray = Array.prototype.slice.call(document.querySelectorAll('.result-div'));
+    console.log(nodesArray);
+    console.log(nodesArray[0].getAttribute("id"));
+    
+    // const exercise_list = null;
     const personal_list = null;
-    // const exercise_list = [];
+    const exerciseListArray = [];
 
-    // console.log(nodesArray);
-    // saved_results.forEach(function(each_exercise) {
-    //     const each = JSON.stringify(each_exercise);
-    //     exercise_list.push(each_exercise);
-    // })
+    for (i = 0; i < nodesArray.length; i++) {
+        const exerciseResult = nodesArray[i].getAttribute("id");
+        exerciseListArray.push(exerciseResult);
+    }
 
-    // console.log(exercise_list);
+    console.log(exerciseListArray);
+    const exercise_list = exerciseListArray.join(', ');
+    console.log(exercise_list);
+    
 
     const workoutResponse = await fetch('/api/exercises/workout', {
         method: 'POST',
