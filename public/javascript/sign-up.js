@@ -22,23 +22,6 @@ async function signupFormHandler(event) {
         if (response.ok) {
             document.location.replace('/profile');
         }
-        // get all users and compare username email
-        // const getUsers = await fetch('/api/users').then(
-        //     function (response) {
-        //         response.json().then(function (data) {
-        //             let ifTakenUsername = false;
-        //             let ifTakenEmail = false;
-        //             for (let i = 0; i < data.length; i++) {
-        //                 if (username === data[i].username) {
-        //                     takenUsername.classList.remove('hide');
-        //                     return ifTakenUsername = true;
-        //                 } else if (email === data[i].email) {
-        //                     takenEmail.classList.remove('hide');
-        //                     return ifTakenEmail = true;
-        //                 }
-        //             }
-        //         })
-        //     });
     }
 }
 

@@ -59,45 +59,38 @@ async function searchResultsHandler(event) {
     })
 }
 
-async function saveWorkoutHandler(event) {
-    event.preventDefault();
+// async function saveWorkoutHandler(event) {
+//     event.preventDefault();
 
-    console.log("save was clicked");
-
-    const nodesArray = Array.prototype.slice.call(document.querySelectorAll('.result-div'));
-    console.log(nodesArray);
-    console.log(nodesArray[0].getAttribute("id"));
+//     const nodesArray = Array.prototype.slice.call(document.querySelectorAll('.result-div'));
     
-    // const exercise_list = null;
-    const personal_list = null;
-    const exerciseListArray = [];
+//     // const exercise_list = null;
+//     const personal_list = null;
+//     const exerciseListArray = [];
 
-    for (i = 0; i < nodesArray.length; i++) {
-        const exerciseResult = nodesArray[i].getAttribute("id");
-        exerciseListArray.push(exerciseResult);
-    }
+//     for (i = 0; i < nodesArray.length; i++) {
+//         const exerciseResult = nodesArray[i].getAttribute("id");
+//         exerciseListArray.push(exerciseResult);
+//     }
 
-    console.log(exerciseListArray);
-    const exercise_list = exerciseListArray.join(', ');
-    console.log(exercise_list);
-    
+//     const exercise_list = exerciseListArray.join(', ');
 
-    const workoutResponse = await fetch('/api/exercises/workout', {
-        method: 'POST',
-        body: JSON.stringify({
-            exercise_list,
-            personal_list
-        }),
-        headers: {
-            'Content-Type': 'application/json'
-        }
-    })
-    if(workoutResponse.ok) {
-        console.log('data was saved');
-        document.location.replace('/dashboard');
-    }
+//     const response = await fetch('/api/exercises/workout', {
+//         method: 'POST',
+//         body: JSON.stringify({
+//             exercise_list,
+//             personal_list
+//         }),
+//         headers: {
+//             'Content-Type': 'application/json'
+//         }
+//     })
+//     if(response.ok) {
+//         console.log('data was saved');
+//         document.location.replace('/dashboard/workout');
+//     }
 
-}    
+// }    
 
 jQuery(function ($) {
     var checkList = $('.dropdown-check-list');
@@ -114,4 +107,4 @@ jQuery(function ($) {
 });
 
 document.querySelector('.exercise-search-form').addEventListener('submit', searchResultsHandler);
-document.querySelector('.exercise-save-btn').addEventListener('click', saveWorkoutHandler);
+// document.querySelector('.exercise-save-btn').addEventListener('click', saveWorkoutHandler);

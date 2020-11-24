@@ -596,6 +596,25 @@ footer {
     overflow-y: scroll;
 }
 
+.exercise-search-results {
+    margin: auto;
+    display: flex;
+    display: block;
+    justify-content: center;
+    height: 600px;
+    color: var(--neon-blue);
+    border: 5px inset var(--neon-green);
+    border-radius:  15px;
+    box-shadow: 10px 10px 40px var(--neon-green);
+    background: rgba(0, 0, 0, .8);
+    margin-top: 100px;
+    margin-bottom: 80px;
+    padding: 20px;
+    width: 80%;
+    overflow: hidden;
+    overflow-y: scroll;
+}
+
 .user-info,
 .buddies {
     color: var(--neon-blue);
@@ -830,4 +849,19 @@ textarea {
     margin-bottom: 20px;
     font-size: 28px;
     margin-left: 270px;
+}
+
+/* Generated Workout Page Styling */
+
+.exercise-name {
+    font-size: 30px;
+    text-decoration: underline;
+}
+
+.exercise-instructions {
+    font-size: 22px;
+}
+
+.exercise-save-btn {
+    margin-top: 30px;
 }
