@@ -885,6 +885,20 @@ textarea {
     margin-left: 270px;
 }
 
+/* Generated Workout Page Styling */
+
+.exercise-name {
+    font-size: 30px;
+    text-decoration: underline;
+}
+
+.exercise-instructions {
+    font-size: 22px;
+}
+
+.exercise-save-btn {
+    margin-top: 30px;
+}
 
 
 
@@ -1690,6 +1704,19 @@ textarea {
     .create-profile-btn {
         font-size: 4vw;
         width: 43%;
+        margin: auto auto 15px auto;
+    }
+
+
+
+    /* Create User Profile Styling End */
+    .edit-profile-wrapper {
+        padding: 100px 50px;
+    }
+
+    .update-btn {
+        font-size: 4vw;
+        width: 51%;
         margin: auto auto 15px auto;
     }
 }

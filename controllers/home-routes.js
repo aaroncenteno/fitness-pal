@@ -1,4 +1,5 @@
 const router = require('express').Router();
+const withAuth = require('../utils/auth');
 
 // route to home
 router.get('/', (req, res) => {
@@ -27,14 +28,14 @@ router.get('/signup', (req, res) => {
 });
 
 // route to display create-profile page
-router.get('/profile', (req, res) => {
+router.get('/profile', withAuth, (req, res) => {
     res.render('create-user-profile', {
         loggedIn: req.session.loggedIn
     });
 });
 
 // display exercise search
-router.get('/exercise-search', (req, res) => {
+router.get('/exercise-search', withAuth, (req, res) => {
     if (req.session.loggedIn) {
         res.render('exercise-search', {
             loggedIn: req.session.loggedIn
@@ -45,7 +46,7 @@ router.get('/exercise-search', (req, res) => {
 });
 
 // display exercise search results
-router.get('/exercise-search/results', (req, res) => {
+router.get('/exercise-search/results', withAuth, (req, res) => {
     if (req.session.loggedIn) {
         res.render('exercise-search-results', {
             loggedIn: req.session.loggedIn
