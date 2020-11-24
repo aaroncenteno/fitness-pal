@@ -1,3 +1,6 @@
+const completeBtn = document.querySelector('.complete-workout-btn');
+const refreshBtn = document.querySelector('.refresh-search-btn');
+
 async function generateWorkoutFormHandler(event) {
     event.preventDefault();
 
@@ -6,6 +9,7 @@ async function generateWorkoutFormHandler(event) {
     const gym = document.querySelector("#gym-list").value 
     const body = document.querySelector("#body-list").value
     const generatedWorkoutEl = document.querySelector('.generated-workout');
+
 
         const response = await fetch('/api/exercises/?fitness_level='+ level + '&gym_no_gym=' + gym + '&upper_lower=' + body,{
             method: 'GET',
@@ -16,11 +20,10 @@ async function generateWorkoutFormHandler(event) {
         .then(response => response.json())
         .then(data => {
         generatedWorkoutEl.classList.remove('hide');
+        completeBtn.classList.remove('hide');
+        refreshBtn.classList.remove('hide');
             const randomNumbers = []
-            // const randomNumber = (max, min) => {
-            //     return Math.floor(Math.random()*(max - min + 0)) + min;
-            // };
-            // console.log(data);
+
 
             for( i =0; i < numbOfEx; i ++) {
                 let generatedNumber = data[Math.floor(Math.random() * data.length)]
@@ -28,8 +31,6 @@ async function generateWorkoutFormHandler(event) {
                     const exercsieEl = document.createElement('div')
                     const exerciseName = document.createElement('div')
                     const exerciseInstructions = document.createElement('div')
-                    console.log(generatedNumber)
-                    console.log(randomNumbers);
                     randomNumbers.push(generatedNumber)
     
                     exercsieEl.setAttribute('class', 'generatedExercise')
@@ -63,17 +64,30 @@ async function generateWorkoutFormHandler(event) {
                     generatedWorkoutEl.appendChild(exercsieEl);
                 }
             }
-            // console.log(data)
         })
-        
-        // if(response.ok) {
-        //     document.location.replace('/dashboard')
-        // } else {
-        //     console.log(response.statusText);
-        // }
-  
 }
 
+async function completeWorkoutHandler(event) {
+    event.preventDefault();
+
+    const response = await fetch('/api/exercises/workout', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+    })
+    
+    if(response.ok) {
+        document.location.replace('/dashboard')
+        console.log('workout Stored!')
+    }
+}
+
+function refreshWorkoutPage(event) {
+    event.preventDefault();
+
+    document.location.reload();
+}
 // jQuery(function ($) {
 //     var checkList = $('.dropdown-check-list');
 //     checkList.on('click', 'span.anchor', function(event) {
@@ -89,3 +103,7 @@ async function generateWorkoutFormHandler(event) {
 // });
 
 document.querySelector('.generate-workout-form').addEventListener('submit', generateWorkoutFormHandler);
+if(completeBtn) {
+    document.querySelector('.complete-workout-btn').addEventListener('click', completeWorkoutHandler);
+    document.querySelector('.refresh-search-btn').addEventListener('click', refreshWorkoutPage);
+}

@@ -182,6 +182,11 @@ footer {
     padding: 0 20px 0 20px;
 }
 
+.exercise-title {
+    color: var(--neon-pink);
+    font-size: 2vw;
+}
+
 .workout-grid-wrapper {
     display: flex;
     flex-wrap: wrap;
@@ -196,7 +201,7 @@ footer {
     display: grid;
     grid-template-columns: 20vw 20vw 20vw;
     color: var(--neon-green);
-    height: fit-content;
+    height: 35vh;
     grid-gap: 4%;
 
 }
@@ -210,6 +215,9 @@ footer {
     background: rgba(0, 0, 0, .4);
     box-shadow: 10px 10px 40px var(--neon-green);
     padding: 20px 20px 0 20px;
+    height: 40vh;
+    overflow: hidden;
+    overflow-y: scroll;
 }
 
 /* Sign-Up/Login Styling */
@@ -296,7 +304,9 @@ footer {
 }
 
 .signup-btn,
-.login-btn {
+.login-btn,
+.complete-workout-btn,
+.refresh-search-btn {
     background-color: var(--neon-blue);
     border: 0;
     padding: 1%;
@@ -614,6 +624,19 @@ footer {
     overflow-y: scroll;
 }
 
+.completed-title {
+    font-size: 4vh;
+}
+
+.workouts-ol {
+    list-style-type: none;
+    font-size: 1vw;
+}
+
+.workouts-ol li {
+    margin-bottom: 25px;
+}
+
 .exercise-search-results {
     margin: auto;
     display: flex;
@@ -685,6 +708,18 @@ footer {
     overflow-y: scroll;
 }
 
+.buddyInfo {
+    background-color: black;
+    border: 1px solid var(--neon-blue);
+    border-radius: 10px;
+    transition: .4s;
+}
+
+.buddyInfo:focus {
+    outline: none;
+}
+
+
 .add-buddy-btn,
 .add-weight,
 .remove-weight-btn,
@@ -703,6 +738,7 @@ footer {
 }
 
 .add-buddy-btn:hover,
+.buddyInfo:hover,
 .add-weight:hover,
 .create-exercise-link:hover,
 .edit-exercise-link:hover {
@@ -802,6 +838,47 @@ footer {
     border: 5px inset var(--neon-blue);
     background: rgba(0, 0, 0, .4);
     box-shadow: 10px 10px 40px var(--neon-blue);
+    color: var(--neon-blue);
+    font-size: 18px;
+    margin-bottom: 80px;
+}
+
+.generated-workout {
+    margin: 0 auto;
+    display: flex;
+    width: fit-content;
+    padding: 30px;
+    border-radius: 15px;
+    border: 5px inset var(--neon-green);
+    background: rgba(0, 0, 0, .4);
+    box-shadow: 10px 10px 40px var(--neon-blue);
+    color: var(--neon-blue);
+    font-size: 18px;
+}
+
+.generatedExercise {
+    padding: 20px;
+    border-radius: 15px;
+    border: 5px inset var(--neon-blue);
+    background: rgba(0, 0, 0, .9);
+    width: 15vw;
+    margin: 10px;
+}
+
+.generated-exercise-name {
+    font-size: 24px;
+}
+
+.generated-exercise-instructions {
+    color: var(--neon-green);
+}
+
+select {
+    background-color: black;
+}
+
+.workout-options {
+    margin-bottom: 20px;
 }
 
 .found-user {
@@ -809,6 +886,29 @@ footer {
     padding-left: 20px;
 }
 
+.workout-btns {
+    margin: 60px 0 40px 550px;
+}
+
+.complete-workout-btn,
+.refresh-search-btn {
+    background-color: var(--neon-blue);
+    border: 0;
+    padding: 1%;
+    color: var(--black);
+    font-weight: bold;
+    font-size: 20px;
+    transition: background-color .1s;
+    cursor: pointer;
+    border-radius: 5px;
+    font-family: 'Russo One', sans-serif, cursive;
+}
+
+.complete-workout-btn:hover,
+.refresh-search-btn:hover {
+    background-color: var(--neon-green);
+    transition: .3s;
+}
 /* Personal Exercise Page Styling */
 
 .create-exercise-link {

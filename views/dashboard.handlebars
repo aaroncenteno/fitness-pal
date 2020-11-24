@@ -24,8 +24,8 @@
                 <h2 class="buddy-header">Buddy List</h2>
                 <input type="text" class="add-buddy-input" id="add-buddy-input"><button class="add-buddy-btn" id="add-buddy-btn" type="submit"><i class="fas fa-user-plus"></i></button>
                 <ul class="buddy-list">
-                    {{#each friends.buddies as |buddy|}}
-                        <li class="added-buddy"><button type="button" class="buddyInfo" data-toggle="modal" data-target="#buddy-compare-modal" value="{{buddy.buddy_name}}"">{{buddy.buddy_name}}</button> ID: {{buddy.buddy_id}} <button id="remove-buddy" type="submit" {{!-- data-toggle="modal" data-target="#remove-buddy-modal" --}}><i class="fas fa-user-times"></i></button></li>   
+                    {{#each data.buddies as |buddy|}}
+                        <li class="added-buddy"><button type="button" class="buddyInfo" data-toggle="modal" data-target="#buddy-compare-modal" value="{{buddy.buddy_name}}">{{buddy.buddy_name}}</button> ID: {{buddy.buddy_id}} <button id="remove-buddy" type="submit" {{!-- data-toggle="modal" data-target="#remove-buddy-modal" --}}><i class="fas fa-user-times"></i></button></li>   
                     {{/each}}
                 </ul>
             </aside>
@@ -49,20 +49,20 @@
             <button class="remove-weight-btn" data-toggle="modal" data-target="#delete-weight-modal"><i><i class="fas fa-trash-alt"></i></i> Delete All Weight</button>
         </div>
 
-        {{!-- {{#if workouts.length }} --}}
+        {{#if workouts.length }}
         <section class="completed-workouts">
             <div class="completed-title">
                 <p>Your Completed Workouts</p>
             </div>
-            <ol>
-                {{!-- {{#each workouts as |workout|}} --}}
+            <ol class="workouts-ol">
+                {{#each data.workouts as |workout|}}
                 <li class="completed-workout">
-                    {{!-- {{> workout-info workout}} --}}
+                    Workout {{workout.id}} Completed On: {{exercise_date workout.createdAt}}
                 </li>
-                {{!-- {{/each}} --}}
+                {{/each}}
             </ol>
         </section>
-        {{!-- {{/if}} --}}
+        {{/if}}
     </div>  
 </div>
 
