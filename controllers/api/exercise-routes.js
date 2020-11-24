@@ -48,9 +48,7 @@ router.get('/', (req, res) => {
     }
 
     Exercise.findAll({
-
         where: whereCondition
-
     })
         .then(dbExerciseData => {
             // if the search brings back nothing
@@ -65,9 +63,7 @@ router.get('/', (req, res) => {
         .catch(err => {
             console.log(err);
             res.status(500).json(err);
-        })
-        ;
-
+        });
 })
 
 // search exercises
@@ -236,7 +232,7 @@ router.get('/workout/:id', (req, res) => {
 })
 
 // create a new workout
-router.post('/workout', (req, res) => {
+router.get('/workout/:fitness_level?/:gym_no_gym?/:upper_lower?', (req, res) => {
     console.log(req.body)
     Exercise.findAll({ 
         where: {
@@ -263,28 +259,19 @@ router.post('/workout', (req, res) => {
         })
      
     })
+});
 
+router.post('/workout', (req, res) => {
+    Workout.create({
+            user_id: req.session.user_id
+        })
+        .then(dbExerciseData => res.json(dbExerciseData))
+        .catch(err => {
+            console.log(err);
+            res.status(500).json(err);
+        });
+})
 
-
-
-
-
-    // Workout.create(
-    //     {
-    //         exercise_list: req.body.exercise_list,
-    //         personal_list: req.body.personal_list,
-    //         // user_id: req.body.user_id
-    //         user_id: req.session.user_id
-    //     }
-    // )
-    //     .then(dbExerciseData => res.json(dbExerciseData))
-    //     .catch(err => {
-    //         console.log(err);
-    //         res.status(500).json(err);
-    //     });
-
-
-    });
 
 // update a workout
 router.put('/workout/:id', (req, res) => {

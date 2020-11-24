@@ -17,14 +17,14 @@ Workout.init(
             primaryKey: true,
             autoIncrement: true
         },
-        exercise_list: {
-            type: DataTypes.STRING,
-            allowNull: true
-        },
-        personal_list: {
-            type: DataTypes.STRING,
-            allowNull: true
-        },
+        // exercise_list: {
+        //     type: DataTypes.STRING,
+        //     allowNull: true
+        // },
+        // personal_list: {
+        //     type: DataTypes.STRING,
+        //     allowNull: true
+        // },
         user_id: {
             type: DataTypes.INTEGER,
             references: {

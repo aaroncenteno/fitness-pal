@@ -33,12 +33,12 @@ router.get('/', withAuth, (req, res) => {
             },
             {
                 model: Workout,
-                attributes: ['id', 'exercise_list', 'personal_list']
+                attributes: ['id', 'createdAt']
             }
         ]
     })
         .then(dbUserData => {
-            const friends = dbUserData.get({ plain: true });
+            const data = dbUserData.get({ plain: true });
             const username = req.session.username;
             const profile_id = dbUserData.profile.id;
             const joinDate = dbUserData.createdAt;
@@ -47,13 +47,15 @@ router.get('/', withAuth, (req, res) => {
             const personalExercises = dbUserData.personal_exercises
             const id = req.session.user_id
 
+            console.log(data)
+
             res.render('dashboard', {
                 loggedIn: true,
                 username,
                 profile_id,
                 joinDate,
                 goals,
-                friends,
+                data,
                 workouts,
                 personalExercises,
                 id
@@ -67,9 +69,25 @@ router.get('/', withAuth, (req, res) => {
 
 
 
-router.get('/generateworkout', (req, res) => {
-    res.render("generate-workout")
-})
+router.get('/generateworkout', withAuth, (req, res) => {
+    User.findOne({
+        where: {
+            id: req.session.user_id
+        }
+    })
+    .then(dbUserData => {
+        const user_id = req.session.user_id
+        res.render("generate-workout",
+        {
+            loggedIn: true,
+            user_id
+        })
+    })
+    .catch(err => {
+        console.log(err);
+        res.status(500).json(err);
+    });
+});
 
 // display edit-profile form and data
 router.get('/profile/:id', (req, res) => {

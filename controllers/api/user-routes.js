@@ -52,7 +52,7 @@ router.get('/:usersearch', (req, res) => {
             },
             {
                 model: Workout,
-                attributes: ['id', 'exercise_list', 'personal_list']
+                attributes: ['id', 'createdAt']
             },
             {
                 model: Weight,
@@ -297,7 +297,7 @@ router.get('/profile/:id', (req, res) => {
 })
 
 // create a user's profile
-router.post('/profile', withAuth, (req, res) => {
+router.post('/profile', (req, res) => {
     Profile.create(
         {
             height_ft: req.body.height_ft,
