@@ -8,7 +8,6 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css">
   <link rel="preconnect" href="https://fonts.gstatic.com">
   <link href="https://fonts.googleapis.com/css2?family=Russo+One&display=swap" rel="stylesheet">  
-  <link href="http://fonts.cdnfonts.com/css/trample-over-beauty" rel="stylesheet">
   <link rel="stylesheet" href="/bootstrap/css/bootstrap.min.css">
   <link rel="stylesheet" href="/stylesheets/style.css">
 </head>
@@ -23,7 +22,7 @@
         <a href="/" class="nav-link">Home</a>
         {{#if loggedIn}}
         <a href="/dashboard" class="dash nav-link">Dashboard</a>
-        <a href="/dashboard/workout" class="dash nav-link">Daily Workout</a>
+        <a href="/dashboard/generateworkout" class="dash nav-link">Daily Workout</a>
         <a href="/exercise-search" class="dash nav-link">Exercise Search</a>
         <a href="/dashboard/personal-exercise" class="dash nav-link">Personal Exercises</a>
         <button id="logout" class="btn-no-style nav-link">Logout</button>
@@ -44,6 +43,8 @@
   {{#if loggedIn}}
   <script src="/javascript/logout.js"></script>
   {{/if}}
+
+
 </body>
 
 </html>

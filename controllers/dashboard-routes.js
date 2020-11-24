@@ -1,8 +1,9 @@
 const router = require('express').Router();
 const { Profile, User, Personal_Exercise, Workout, Buddy } = require('../models')
+const withAuth = require('../utils/auth');
 
 // route to dashboard
-router.get('/', (req, res) => {
+router.get('/', withAuth, (req, res) => {
     User.findOne({
         where: {
             id: req.session.user_id
@@ -32,28 +33,32 @@ router.get('/', (req, res) => {
             },
             {
                 model: Workout,
-                attributes: ['id', 'exercise_list', 'personal_list']
+                attributes: ['id', 'createdAt']
             }
         ]
     })
         .then(dbUserData => {
-            const friends = dbUserData.get({plain: true});
+            const data = dbUserData.get({ plain: true });
             const username = req.session.username;
-            const profile_id = dbUserData.profile.id; 
+            const profile_id = dbUserData.profile.id;
             const joinDate = dbUserData.createdAt;
             const goals = dbUserData.profile.goal.split(",");
             const workouts = dbUserData.workouts
             const personalExercises = dbUserData.personal_exercises
-  
+            const id = req.session.user_id
+
+            console.log(data)
+
             res.render('dashboard', {
                 loggedIn: true,
                 username,
                 profile_id,
                 joinDate,
                 goals,
-                friends,
+                data,
                 workouts,
-                personalExercises
+                personalExercises,
+                id
             });
         })
         .catch(err => {
@@ -64,9 +69,25 @@ router.get('/', (req, res) => {
 
 
 
-router.get('/generateworkout', (req, res) => {
-     res.render("generate-workout")    
-})
+router.get('/generateworkout', withAuth, (req, res) => {
+    User.findOne({
+        where: {
+            id: req.session.user_id
+        }
+    })
+    .then(dbUserData => {
+        const user_id = req.session.user_id
+        res.render("generate-workout",
+        {
+            loggedIn: true,
+            user_id
+        })
+    })
+    .catch(err => {
+        console.log(err);
+        res.status(500).json(err);
+    });
+});
 
 // display edit-profile form and data
 router.get('/profile/:id', (req, res) => {
@@ -96,9 +117,9 @@ router.get('/profile/:id', (req, res) => {
             }
 
             const profile = dbProfileData.get({ plain: true });
-            profile.advanced = (profile.fitness_level === 'Advanced') ? 'checked' : null
-            profile.beginner = (profile.fitness_level === 'Beginner') ? 'checked' : null
-            profile.intermediate = (profile.fitness_level === 'Intermediate') ? 'checked' : null
+            profile.advanced = (profile.fitness_level === 'advanced') ? 'checked' : null
+            profile.beginner = (profile.fitness_level === 'beginner') ? 'checked' : null
+            profile.intermediate = (profile.fitness_level === 'intermediate') ? 'checked' : null
 
             const temp = profile.goal.split(",")
 
@@ -118,15 +139,6 @@ router.get('/profile/:id', (req, res) => {
         .catch(err => {
             res.status(500).json(err);
         });
-    // check for a session and redirect to the homepage if one exists
-    // if (req.session.loggedIn) {
-    //     res.render('edit-user-profile', {
-    //         profile,
-    //         loggedIn: req.session.loggedIn
-    //     });
-    //     return;
-    // }
-    // res.render('login');
 });
 
 // display personal exercise form and data for edit
@@ -152,6 +164,21 @@ router.get('/edit-personal/:id', (req, res) => {
 
             // serialize the data
             const personal_exercise = dbExerciseData.get({ plain: true });
+            console.log(personal_exercise)
+            // fitness level of exercise marked
+            personal_exercise.beginner = (personal_exercise.fitness_level === 'beginner') ? 'checked' : null
+            personal_exercise.intermediate = (personal_exercise.fitness_level === 'intermediate') ? 'checked' : null
+            personal_exercise.advanced = (personal_exercise.fitness_level === 'advanced') ? 'checked' : null
+
+            // Body Part Marked
+            personal_exercise.upper = (personal_exercise.upper_lower === 'upper') ? 'checked' : null
+            personal_exercise.lower = (personal_exercise.upper_lower === 'lower') ? 'checked' : null
+
+            // Gym or no gym marked
+            personal_exercise.gym = (personal_exercise.gym_no_gym === 'gym') ? 'checked' : null
+            personal_exercise.no_gym = (personal_exercise.gym_no_gym === 'no_gym') ? 'checked' : null
+
+
 
             // pass data to template
             // pass a session variable to the template
@@ -162,6 +189,17 @@ router.get('/edit-personal/:id', (req, res) => {
             res.status(500).json(err);
         });
 });
+
+// Create exercise page
+router.get('/create-personal-exercise', (req, res) => {
+    if (req.session.loggedIn) {
+        res.render('create-exercise', {
+            loggedIn: true
+        });
+        return;
+    }
+    res.redirect('/');
+})
 
 // display daily workout
 router.get('/workout', (req, res) => {
@@ -174,39 +212,45 @@ router.get('/workout', (req, res) => {
     res.redirect('/');
 });
 
-// display exercise search
-// router.get('/exercise-search', (req, res) => {
-//     if (req.session.loggedIn) {
-//         res.render('exercise-search', {
-//             loggedIn: req.session.loggedIn
-//         });
-//         return;
-//     }
-//     res.redirect('/');
-// });
-
-// display exercise search results
-// router.get('/exercise-search/results', (req, res) => {
-//     if (req.session.loggedIn) {
-//         res.render('exercise-search-results', {
-//             loggedIn: req.session.loggedIn
-//         });
-//         return;
-//     }
-//     res.redirect('/');
-// });
-
 // display personal exercises page
 router.get('/personal-exercise', (req, res) => {
-    if (req.session.loggedIn) {
-        res.render('personal-exercise', {
-            loggedIn: req.session.loggedIn
-        });
-        return;
-    }
-    res.redirect('/');
+    User.findOne({
+        where: {
+            id: req.session.user_id
+        },
+        attributes: { exclude: ['password'] },
+        include: [
+            {
+                model: Personal_Exercise,
+                attributes: ['id', 'exercise_name', 'gym_no_gym', 'upper_lower', 'fitness_level', 'instructions']
+            }
+        ]
+    })
+        .then(dbUserData => {
+            const results = dbUserData.get({ plain: true });
+            const personal_exercises = results.personal_exercises
+            console.log(personal_exercises)
+            if (req.session.loggedIn) {
+                res.render('personal-exercise', {
+                    loggedIn: req.session.loggedIn,
+                    personal_exercises
+                });
+                return;
+            }
+            res.redirect('/');
+        })
+        .then(dbUserData => {
+            const personal_exercises = dbUserData.personal_exercises
+            if (req.session.loggedIn) {
+                res.render('personal-exercise', {
+                    loggedIn: req.session.loggedIn,
+                    personal_exercises
+                });
+                return;
+            }
+            res.redirect('/');
+        })
 });
-
 
 // display workout form and data for edit
 router.get('/edit-workout/:id', (req, res) => {

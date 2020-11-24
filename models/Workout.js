@@ -17,34 +17,20 @@ Workout.init(
             primaryKey: true,
             autoIncrement: true
         },
-        exercise_list: {
-            type: DataTypes.STRING,
-            allowNull: true
-        },
-        personal_list: {
-            type: DataTypes.STRING,
-            allowNull: true
-        },
+        // exercise_list: {
+        //     type: DataTypes.STRING,
+        //     allowNull: true
+        // },
+        // personal_list: {
+        //     type: DataTypes.STRING,
+        //     allowNull: true
+        // },
         user_id: {
             type: DataTypes.INTEGER,
             references: {
                 model: 'user',
                 key: 'id'
             }
-        // },
-        // exercise_id: {
-        //     type: DataTypes.INTEGER,
-        //     references: {
-        //         model: 'exercise',
-        //         key: 'id'
-        //     }
-        // },
-        // personal_exercise_id: {
-        //     type: DataTypes.INTEGER,
-        //     references: {
-        //         model: 'personal_exercise',
-        //         key: 'id'
-        //     }
         }
     },
     // second argument: configures certain options for the table.
@@ -52,7 +38,7 @@ Workout.init(
         // pass in our imported sequelize connection (the direct connection to our database)
         sequelize,
         // don't automatically create createdAt/updatedAt timestamp fields
-        timestamps: false,
+        timestamps: true,
         // don't pluralize name of database table
         freezeTableName: true,
         // use underscores instead of camel-casing (i.e. `comment_text` and not `commentText`)

@@ -1,28 +1,39 @@
 <div class="create-exercise-jumbotron">
-    <div class="create-profile-jumbotron">
+    <div class="create-exercise-innerWrapper">
         <form class="create-exercise-form">
+            <div id="exercise-name" class="exercise-name">
+                What is the name of the exercise? <input type="text" name="exercise-name"class="exercise-name-input">
+            </div>
             <div id="gym-list" class="dropdown-check-list" tabindex="100">
                 <span class="anchor">Is this exercise done in a gym?</span>
                 <ul class="items">
-                    <li><input id="gym" name="gym-no-gym" type="checkbox" value="Gym"/><label for="gym">Gym</label></li>
-                    <li><input id="no-gym" name="gym-no-gym" type="checkbox" value="No gym"/><label for="no-gym">No gym</label></li>
+                    <li><input id="gym-no-gym gym" name="gym-no-gym" type="radio" value="gym"/><label for="#gym">Gym</label></li>
+                    <li><input id="gym-no-gym no-gym" name="gym-no-gym" type="radio" value="no_gym"/><label for="#no-gym">No gym</label></li>
                 </ul>
             </div>
             <div id="body-list" class="dropdown-check-list" tabindex="100">
                 <span class="anchor">Is this exercise for the upper or lower body?</span>
                 <ul class="items">
-                    <li><input id="upper" name="upper-lower" type="checkbox" value="Upper Body"/><label for="upper">Upper Body</label></li>
-                    <li><input id="lower" name="upper-lower" type="checkbox" value="Lower Body"/><label for="lower">Lower Body</label></li>
+                    <li><input id="upper-lower" name="upper-lower-body" type="radio" value="upper"/><label for="upper-lower-body">Upper Body</label></li>
+                    <li><input id="lower-lower" name="upper-lower-body" type="radio" value="lower"/><label for="upper-lower-body">Lower Body</label></li>
                 </ul>
             </div>
-            <div class="sets">
-                <p>How many sets did you do for this exercise? <input type="text" class="sets" id="sets-number"> Sets </p>
+            <div id="exercise-level-list" class="dropdown-check-list" tabindex="100">
+                <span class="anchor">What is the fitness level of this exercise?</span>
+                <ul class="items">
+                    <li><input id="fitness-level" name="levels" type="radio" value="beginner"/><label for="levels">Beginner</label></li>
+                    <li><input id="fitness-level" name="levels" type="radio" value="intermediate"/><label for="levels">Intermediate</label></li>
+                    <li><input id="fitness-level" name="levels" type="radio" value="advanced"/><label for="levels">Advanced</label></li>
+                </ul>
             </div>
-            <div class="reps">
-                <p>How many reps was this exercise? <input type="text" class="reps" id="reps-number"> Reps </p>
+            <div class="exercise-instructions">
+                What are the instructions for this exercise?
+                <div>
+                    <textarea name="exercise-instructions" id="exercise-instruction-input" class="exercise-name-input" cols="30" rows="4"></textarea>
+                </div>
             </div>
             <button type="submit" class="create-exercise-btn">Create Exercise!</button>
-            <a href="/dashboard" class="cancel-btn">Cancel</a>
+            <a href="/dashboard/personal-exercise" class="cancel-btn">Cancel</a>
         </form>
     </div>
 </div>

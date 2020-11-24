@@ -1,6 +1,5 @@
 const router = require('express').Router();
 const { Exercise, Personal_Exercise, Workout } = require('../../models');
-const withAuth = require('../../utils/auth');
 const { route } = require('./user-routes');
 
 // ----------------------------------------------------------------------------------------------------
@@ -33,18 +32,6 @@ router.get('/dashboard/:id', (req, res) => {
         });
 })
 
-// router.get('/suggested', (req, res) => {
-
-//     const suggestedExercise = await Exercise.count({
-//         where: {
-//             id: {
-//                 [Op.gt]: 0
-//             }
-//         }
-//     });
-//     console.log(`There are ${suggestedExercise} exercises in the datbase.`)
-// })
-
 // get all exercises
 router.get('/', (req, res) => {
 
@@ -61,9 +48,7 @@ router.get('/', (req, res) => {
     }
 
     Exercise.findAll({
-
         where: whereCondition
-
     })
         .then(dbExerciseData => {
             // if the search brings back nothing
@@ -78,29 +63,13 @@ router.get('/', (req, res) => {
         .catch(err => {
             console.log(err);
             res.status(500).json(err);
-        })
-        ;
-
+        });
 })
 
 // search exercises
 router.post('/search', (req, res) => {
 
-    console.log("In the GET route.");
-    console.log(req.body);
-    // const searchURL = req.params.searchstring;
-
     const whereCondition = {};
-
-    // if (req.query.gym_no_gym) {
-    //     whereCondition.gym_no_gym = req.query.gym_no_gym;
-    // }
-    // if (req.query.upper_lower) {
-    //     whereCondition.upper_lower = req.query.upper_lower;
-    // }
-    // if (req.query.fitness_level) {
-    //     whereCondition.fitness_level = req.query.fitness_level;
-    // }
 
     if (req.body.gym_no_gym) {
         whereCondition.gym_no_gym = req.body.gym_no_gym;
@@ -123,16 +92,10 @@ router.post('/search', (req, res) => {
                 return;
             }
 
-            // ADD CODE HERE TO SEND BACK THE DATA AND RENDER OF THE EXERCISE SEARCH RESULTS PAGE
-            
+            const results = dbExerciseData.map(result => result.get({ plain: true }));
 
+            res.json(results);
 
-
-
-
-
-            // otherwise, send back the data
-            res.json(dbExerciseData);
         })
         .catch(err => {
             console.log(err);
@@ -140,7 +103,7 @@ router.post('/search', (req, res) => {
         })
         ;
 
-})
+});
 
 // ----------------------------------------------------------------------------------------------------
 // ----- EXERCISE ROUTES END -----
@@ -220,7 +183,7 @@ router.put('/personal/:id', (req, res) => {
 })
 
 // delete a personal exercise
-router.delete('/personal/:id', withAuth, (req, res) => {
+router.delete('/personal/:id', (req, res) => {
     Personal_Exercise.destroy({
         where: {
             id: req.params.id
@@ -251,11 +214,11 @@ router.delete('/personal/:id', withAuth, (req, res) => {
 
 // get all of a single user's workouts
 router.get('/workout/:id', (req, res) => {
- 
+
     Workout.findAll(
         {
             where: {
-                user_id:  req.params.id
+                user_id: req.params.id
             }
         }
     )
@@ -269,21 +232,46 @@ router.get('/workout/:id', (req, res) => {
 })
 
 // create a new workout
+router.get('/workout/:fitness_level?/:gym_no_gym?/:upper_lower?', (req, res) => {
+    console.log(req.body)
+    Exercise.findAll({ 
+        where: {
+        fitness_level: req.body.level.toLowerCase(),
+        gym_no_gym:req.body.gym.toLowerCase(),
+        upper_lower: req.body.body.toLowerCase()
+    },
+    limit:  parseInt(req.body.numbOfEx)
+
+}).then(function(dbexercise){
+
+        console.log(dbexercise)
+         const newexerciselist = dbexercise.map(exercise => {
+             return exercise.id 
+        })
+
+        console.log(newexerciselist)
+
+        Workout.create({
+            exercise_list: newexerciselist.join(","),
+            user_id:  req.session.user_id
+        }).then(function(response) {
+            res.json(response)
+        })
+     
+    })
+});
+
 router.post('/workout', (req, res) => {
-    Workout.create(
-        {
-            exercise_list: req.body.exercise_list,
-            personal_list: req.body.personal_list,
-            // user_id: req.body.user_id
+    Workout.create({
             user_id: req.session.user_id
-        }
-    )
+        })
         .then(dbExerciseData => res.json(dbExerciseData))
         .catch(err => {
             console.log(err);
             res.status(500).json(err);
         });
-});
+})
+
 
 // update a workout
 router.put('/workout/:id', (req, res) => {
@@ -313,7 +301,7 @@ router.put('/workout/:id', (req, res) => {
 })
 
 // delete a workout
-router.delete('/workout/:id', withAuth, (req, res) => {
+router.delete('/workout/:id', (req, res) => {
     Workout.destroy({
         where: {
             id: req.params.id

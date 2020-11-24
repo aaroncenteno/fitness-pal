@@ -1,6 +1,6 @@
 const router = require('express').Router();
 const { User, Buddy, Profile, Personal_Exercise, Workout } = require('../../models');
-
+const Weight = require('../../models/Weight');
 const withAuth = require('../../utils/auth');
 
 // ----------------------------------------------------------------------------------------------------
@@ -52,7 +52,11 @@ router.get('/:usersearch', (req, res) => {
             },
             {
                 model: Workout,
-                attributes: ['id', 'exercise_list', 'personal_list']
+                attributes: ['id', 'createdAt']
+            },
+            {
+                model: Weight,
+                attributes: ['weight', 'user_id', 'createdAt']
             }
         ]
     })
@@ -171,38 +175,38 @@ router.get('/:id/buddy', (req, res) => {
         }
 
     })
-    .then(dbBuddyData => {
-        if (!dbBuddyData) {
-            res.status(404).json({ message: 'No buddy list found with this id' });
-            return;
-        }
-        res.json(dbBuddyData);
-    })
-    .catch(err => {
-        console.log(err);
-        res.status(500).json(err);
-    });
+        .then(dbBuddyData => {
+            if (!dbBuddyData) {
+                res.status(404).json({ message: 'No buddy list found with this id' });
+                return;
+            }
+            res.json(dbBuddyData);
+        })
+        .catch(err => {
+            console.log(err);
+            res.status(500).json(err);
+        });
 })
 
 // add a buddy to a user's buddy list
 router.post('/buddy/:id', withAuth, (req, res) => {
 
-    Buddy.create( 
+    Buddy.create(
         {
             buddy_id: req.params.id,
             // user_id: req.body.user_id
             user_id: req.session.user_id
         }
     )
-    .then(dbBuddyData => res.json(dbBuddyData))
-    .catch(err => {
-        console.log(err);
-        res.status(500).json(err);
-    });
+        .then(dbBuddyData => res.json(dbBuddyData))
+        .catch(err => {
+            console.log(err);
+            res.status(500).json(err);
+        });
 });
 
 // delete a buddy
-router.delete('/buddy/:buddy_id', withAuth, (req, res) => {
+router.delete('/buddy/:buddy_id', (req, res) => {
     Buddy.destroy({
         where: {
             buddy_id: req.params.buddy_id
@@ -222,7 +226,7 @@ router.delete('/buddy/:buddy_id', withAuth, (req, res) => {
 });
 
 // delete a user
-router.delete('/:id', withAuth, (req, res) => {
+router.delete('/:id', (req, res) => {
     User.destroy({
         where: {
             id: req.params.id
@@ -262,18 +266,6 @@ router.post('/logout', (req, res) => {
 // ----- USER PROFILE ROUTES START -----
 // ----------------------------------------------------------------------------------------------------
 
-// weird bug with get all profiles.  will figure it out later.
-// get all profiles
-// router.get('/profile', (req, res) => {
-//     Profile.findAll({
-//     })
-//         .then(dbProfileData => res.json(dbProfileData))
-//         .catch(err => {
-//             console.log(err);
-//             res.status(500).json(err);
-//         });
-// })
-
 // get single profile
 router.get('/profile/:id', (req, res) => {
     Profile.findOne({
@@ -305,7 +297,7 @@ router.get('/profile/:id', (req, res) => {
 })
 
 // create a user's profile
-router.post('/profile', withAuth, (req, res) => {
+router.post('/profile', (req, res) => {
     Profile.create(
         {
             height_ft: req.body.height_ft,
@@ -313,12 +305,6 @@ router.post('/profile', withAuth, (req, res) => {
             weight: req.body.weight,
             fitness_level: req.body.fitness_level,
             goal: req.body.goal,
-            // goal_consistency: req.body.goal_consistency,
-            // goal_getinshape: req.body.goal_getinshape,
-            // goal_health: req.body.goal_health,
-            // goal_strength: req.body.goal_strength,
-            // goal_weightloss: req.body.goal_weightloss,
-            // user_id: req.body.user_id
             user_id: req.session.user_id
         })
         .then(dbProfileData => res.json(dbProfileData))
@@ -339,11 +325,6 @@ router.put('/profile/:id', withAuth, (req, res) => {
             weight: req.body.weight,
             fitness_level: req.body.fitness_level,
             goal: req.body.goal
-            // goal_consistency: req.body.goal_consistency,
-            // goal_getinshape: req.body.goal_getinshape,
-            // goal_health: req.body.goal_health,
-            // goal_strength: req.body.goal_strength,
-            // goal_weightloss: req.body.goal_weightloss
         },
         {
             where: {
@@ -368,5 +349,51 @@ router.put('/profile/:id', withAuth, (req, res) => {
 // ----------------------------------------------------------------------------------------------------
 // ----- USER PROFILE ROUTES END -----
 // ----------------------------------------------------------------------------------------------------
+
+// Add Weight Route 
+router.get('/weight/:user_id', (req, res) => {
+    Weight.findAll({
+        where: {
+            user_id: req.params.user_id
+        }
+    })
+        .then(dbWeightData => {
+            res.json(dbWeightData);
+        })
+        .catch(err => {
+            console.log(err);
+            res.status(500).json(err);
+        })
+})
+
+router.post('/weight', (req, res) => {
+    Weight.create({
+        weight: req.body.weight,
+        user_id: req.session.user_id
+    })
+        .then(dbWeightData => {
+            res.json(dbWeightData)
+        })
+        .catch(err => {
+            console.log(err);
+            res.status(500).json(err);
+        })
+});
+
+router.delete('/weight/:user_id', (req, res) => {
+    Weight.destroy({
+        where: {
+            user_id: req.params.user_id
+        }
+    })
+        .then(dbWeightData => {
+            res.json(dbWeightData);
+        })
+        .catch(err => {
+            console.log(err);
+            res.status(500).json(err);
+        })
+})
+
 
 module.exports = router;
