@@ -319,7 +319,7 @@ const exerciseData = [
         exercise_name: 'Single Leg Glute Bridge',
         gym_no_gym: 'no_gym',
         upper_lower: 'lower',
-        fitness_level: 'intermediate',
+        fitness_level: 'advanced',
         instructions:  'Laying on your back, place your feet at a distance where your legs form a 45 degree angle. Lift one leg up, then putting pressure in your lowered legs heel, lift your upper body till only your shoulder blades touch the ground. Engage the glutes. Return to lower position. Repeat 5 sets of 18 reps(per leg).'
     },
     {
