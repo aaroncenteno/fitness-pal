@@ -15,7 +15,7 @@ Badges hosted by [shields.io](https://shields.io/).
 
 ## Description 
 
-Fitness Pal allows you to connect with your buddies, track your weight journey, and generate daily workouts for those that want to stay in shape during COVID and keep track of their progress.
+Fitness Pal allows you to connect with your buddies, track your weight journey, and generate daily workouts for those that want to stay in shape during COVID and easily keep track of their progress.
 
 ### Built with
 
