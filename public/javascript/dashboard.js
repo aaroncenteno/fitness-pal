@@ -41,13 +41,13 @@ async function addBuddyHandler(event) {
     }
 }
 
-$("#remove-buddy").click(function (event) {
+$(".added-buddy").click(function (event) {
     var parent = $(this).closest('.added-buddy')
     const buddyName = parent[0].innerText.split(" ")[0]
     const buddyId = parent[0].innerText.split(" ")[2]
     const removeBuddyName = document.querySelector('.remove-buddy-name');
     const removeBuddyId = document.querySelector('.remove-buddy-id');
-    console.log(buddyName)
+    console.log(buddyId)
 
     removeBuddyName.innerHTML = buddyName;
     removeBuddyId.innerHTML = buddyId;
