@@ -51,7 +51,7 @@ header {
     background: rgba(0, 0, 0, .7);
     align-items: center;
     border-radius: 15px;
-    font-size: 4vw;
+    font-size: 3.3vw;
     width: 100%;
     box-shadow: 10px 5px 10px var(--gray);
     text-decoration: none;
@@ -60,7 +60,7 @@ header {
 }
 
 .nav-link {
-    margin-right: 20px;
+    margin-right: 3vh;
     padding: 5px;
     background-color: var(--black);
     text-align: center;
@@ -1296,6 +1296,10 @@ textarea {
 @media only screen and (max-width: 992px) {
 
     /* Homepage Styling Start */
+    .head-title {
+        font-size: 4.6vw;
+    }
+    
     .options {
         float: none;
         width: 56%;
@@ -1530,6 +1534,10 @@ textarea {
 @media only screen and (max-width: 768px) {
 
     /* Homepage Styling Start */
+    .head-title {
+        font-size: 4.6vw;
+    }
+
     .options {
         float: none;
         width: 56%;
@@ -1851,6 +1859,14 @@ textarea {
     .head-title {
         float: none;
         font-size: 7vw;
+    }
+
+    .nav-link {
+        margin: 6px;
+    }
+
+    #logout {
+        margin-left: 37%;
     }
 
     .options {
