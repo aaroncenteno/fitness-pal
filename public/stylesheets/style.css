@@ -549,6 +549,10 @@ footer {
     padding: 5px;
 }
 
+.edit-exercise-btn {
+    margin-left: 32%;
+}
+
 .update-btn {
     font-size: 2vw;
     width: 55%;
@@ -607,7 +611,7 @@ footer {
 }
 
 .stats-chart {
-    height: 60vh;
+    height: auto;
     width: 45vw;
     float: right;
     margin-right: 125px;
@@ -1030,10 +1034,10 @@ textarea {
 }
 
 .delete-exercise-btn {
-    width: fit-content;
+    width: 21%;
     margin-bottom: 20px;
-    font-size: 28px;
-    margin-left: 270px;
+    font-size: 1.7vw;
+    margin-left: 39%;
 }
 
 /* Generated Workout Page Styling */
@@ -1984,6 +1988,13 @@ textarea {
     .completed-workouts {
         width: 76vw;
         margin-left: 75px;
+    }
+
+    .completed-title {
+        font-size: 4vw;
+    }
+    .completed-workout {
+        font-size: 2vw;
     }
     /* Dashboard Styling End */
 
