@@ -51,7 +51,7 @@ header {
     background: rgba(0, 0, 0, .7);
     align-items: center;
     border-radius: 15px;
-    font-size: 4vw;
+    font-size: 3.3vw;
     width: 100%;
     box-shadow: 10px 5px 10px var(--gray);
     text-decoration: none;
@@ -60,7 +60,7 @@ header {
 }
 
 .nav-link {
-    margin-right: 20px;
+    margin-right: 3vh;
     padding: 5px;
     background-color: var(--black);
     text-align: center;
@@ -319,6 +319,7 @@ footer {
     margin: 0 0 40px 100px;
     font-family: 'Russo One', sans-serif, cursive;
 }
+
 .refresh-exerciseSearch-btn {
     margin-left: 42%;
 }
@@ -536,7 +537,7 @@ footer {
     border: 2px var(--neon-blue) solid;
     border-radius: 15px;
     cursor: pointer;
-    font-size: 34px;
+    font-size: 2vw;
     font-family: 'Russo One',sans-serif, cursive;
     transition: .4s;
     color: var(--neon-blue);
@@ -855,7 +856,7 @@ footer {
 
 /*Generate workout styling*/
 .generate-workout-form {
-    margin: 0 23%;
+    margin: 0 29%;
     width: fit-content;
     padding: 40px;
     border-radius: 15px;
@@ -886,7 +887,6 @@ footer {
 
 .dropbtn {
     color: var(--neon-blue);
-=======
     color: var(--neon-blue);
     font-size: 18px;
     margin-bottom: 80px;
@@ -936,7 +936,7 @@ select {
 }
 
 .workout-btns {
-    margin: 60px 0 40px 550px;
+    margin: 60px 0 40px 30%;
 }
 
 .complete-workout-btn,
@@ -946,7 +946,8 @@ select {
     padding: 1%;
     color: var(--black);
     font-weight: bold;
-    font-size: 20px;
+    font-size: 1.3vw;
+    margin-left: 4%;
     transition: background-color .1s;
     cursor: pointer;
     border-radius: 5px;
@@ -1047,6 +1048,11 @@ textarea {
 
 .exercise-save-btn {
     margin-top: 30px;
+}
+
+.dropdown-content,
+.items {
+    color: var(--neon-blue);
 }
 
 
@@ -1251,7 +1257,7 @@ textarea {
 
     /* Generate Workout Styling Start */
     .generate-workout-form {
-        margin: 0 10%;
+        margin: 0 16%;
     }
 
     .generate-workout-jumbotron {
@@ -1272,6 +1278,16 @@ textarea {
         padding: 10px;
         font-size: 2.2vw;
     }
+
+    .workout-btns {
+        margin: 60px 0 40px 19%;
+    }
+
+    .complete-workout-btn,
+    .refresh-search-btn {
+        font-size: 1.6vw;
+        margin-left: 10%
+    }
     /* Generate Workout Styling End */
 }
 
@@ -1280,6 +1296,10 @@ textarea {
 @media only screen and (max-width: 992px) {
 
     /* Homepage Styling Start */
+    .head-title {
+        font-size: 4.6vw;
+    }
+    
     .options {
         float: none;
         width: 56%;
@@ -1496,6 +1516,16 @@ textarea {
         padding: 10px;
         font-size: 2.2vw;
     }
+
+    .complete-workout-btn,
+    .refresh-search-btn {
+        font-size: 2vw;
+        margin-left: 6%
+    }
+
+    .generatedExercise {
+        width: auto;
+    }
     /* Generate Workout Styling End */
 }
 
@@ -1504,6 +1534,10 @@ textarea {
 @media only screen and (max-width: 768px) {
 
     /* Homepage Styling Start */
+    .head-title {
+        font-size: 4.6vw;
+    }
+
     .options {
         float: none;
         width: 56%;
@@ -1729,6 +1763,10 @@ textarea {
         padding: 10px;
         font-size: 2.2vw;
     }
+
+    .generated-workout {
+        width: 90%;
+    }
     /* Generate Workout Styling End */
 }
 
@@ -1821,6 +1859,14 @@ textarea {
     .head-title {
         float: none;
         font-size: 7vw;
+    }
+
+    .nav-link {
+        margin: 6px;
+    }
+
+    #logout {
+        margin-left: 37%;
     }
 
     .options {
@@ -2051,6 +2097,24 @@ textarea {
 
     .dropdown-check-list {
         font-size: 3vw;
+    }
+
+    .complete-workout-btn,
+    .refresh-search-btn {
+        font-size: 3vw;
+        margin-left: 0%
+    }
+
+    .workout-btns {
+        margin: 60px 0 40px 15%
+    }
+
+    .generatedExercise {
+        width: auto;
+    }
+
+    .generated-workout {
+        width: 99%
     }
     /* Generate Workout Styling End */
 }
