@@ -1,3 +1,5 @@
+const refreshBtn = document.querySelector('.refresh-exerciseSearch-btn')
+const exerciseSearchForm = document.querySelector('.exercise-search-form')
 async function searchResultsHandler(event) {
     event.preventDefault();
 
@@ -20,6 +22,8 @@ async function searchResultsHandler(event) {
     .then(response => response.json())
     .then(result => {
         console.log(result);
+        refreshBtn.classList.remove('hide')
+        exerciseSearchForm.classList.add('hide')
 
         // section container for all results
         const result_section = document.createElement('section');
@@ -98,6 +102,10 @@ async function searchResultsHandler(event) {
 
 // }    
 
+refreshExerciseSearch = function(event) {
+    document.location.reload()
+}
+
 jQuery(function ($) {
     var checkList = $('.dropdown-check-list');
     checkList.on('click', 'span.anchor', function (event) {
@@ -113,4 +121,7 @@ jQuery(function ($) {
 });
 
 document.querySelector('.exercise-search-form').addEventListener('submit', searchResultsHandler);
+if(refreshBtn) {
+    document.querySelector('.refresh-exerciseSearch-btn').addEventListener('click', refreshExerciseSearch);
+}
 // document.querySelector('.exercise-save-btn').addEventListener('click', saveWorkoutHandler);

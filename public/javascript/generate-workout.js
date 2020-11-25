@@ -1,5 +1,6 @@
 const completeBtn = document.querySelector('.complete-workout-btn');
 const refreshBtn = document.querySelector('.refresh-search-btn');
+const generateForm = document.querySelector('.generate-workout-form')
 
 async function generateWorkoutFormHandler(event) {
     event.preventDefault();
@@ -22,6 +23,7 @@ async function generateWorkoutFormHandler(event) {
         generatedWorkoutEl.classList.remove('hide');
         completeBtn.classList.remove('hide');
         refreshBtn.classList.remove('hide');
+        generateForm.classList.add('hide');
             const randomNumbers = []
 
 

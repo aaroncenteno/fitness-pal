@@ -51,7 +51,7 @@ header {
     background: rgba(0, 0, 0, .7);
     align-items: center;
     border-radius: 15px;
-    font-size: 4vw;
+    font-size: 3.3vw;
     width: 100%;
     box-shadow: 10px 5px 10px var(--gray);
     text-decoration: none;
@@ -60,7 +60,7 @@ header {
 }
 
 .nav-link {
-    margin-right: 20px;
+    margin-right: 3vh;
     padding: 5px;
     background-color: var(--black);
     text-align: center;
@@ -226,7 +226,7 @@ footer {
 .personalExercise-wrapper {
     background: var(--gray);
     background-image: linear-gradient(150deg, rgba(54, 189, 207, .6) 0%, rgba(173, 173, 173, .8) 50%, rgba(199, 248, 86, .6) 100%), url("../imgs/wall_background02.jpg");
-    height: max-content;
+    height: 90vh;
     background-position: 80%;
 }
 
@@ -234,7 +234,6 @@ footer {
 .login-innerWrapper,
 .personalExercise-innerWrapper {
     padding-top: 100px;
-    padding-bottom: 200px;
     position: relative;
 }
 
@@ -306,7 +305,8 @@ footer {
 .signup-btn,
 .login-btn,
 .complete-workout-btn,
-.refresh-search-btn {
+.refresh-search-btn,
+.refresh-exerciseSearch-btn {
     background-color: var(--neon-blue);
     border: 0;
     padding: 1%;
@@ -320,10 +320,14 @@ footer {
     font-family: 'Russo One', sans-serif, cursive;
 }
 
+.refresh-exerciseSearch-btn {
+    margin-left: 42%;
+}
+
 .login-btn {
     font-size: 25px;
-    padding: 10px;
-    width: 5vw;
+    padding: 3%;
+    width: 7vw;
 }
 
 .signup-btn:hover,
@@ -385,6 +389,20 @@ footer {
     color: var(--neon-green);
 }
 
+.create-exercise-form {
+    margin: 0 auto;
+}
+
+.create-exercise-jumbotron {
+    padding-bottom: 110px;
+}
+
+.create-exercise-btn {
+    font-size: 4vw;
+    width: 49%;
+    margin: auto auto 15px auto;
+}
+
 .exercise-search-form {
     font-size: 2.4vw;
 }
@@ -392,6 +410,7 @@ footer {
 .dropdown-check-list:focus{
     outline:0;
 }
+
 .dropdown-check-list .anchor {
     width: 100%;
     position: relative;
@@ -402,6 +421,7 @@ footer {
     padding-bottom:5px;
     border:1px #ccc solid;
 }
+
 .dropdown-check-list .anchor:after {
     position: absolute;
     content: "";
@@ -420,6 +440,7 @@ footer {
     right: 8px;
     top: 21%;
 }
+
 .dropdown-check-list ul.items {
     padding: 2px;
     display: none;
@@ -427,12 +448,15 @@ footer {
     border: 1px solid #ccc;
     border-top: none;
 }
+
 .dropdown-check-list ul.items li {
     list-style: none;
 }
+
 .dropdown-check-list.visible .anchor {
     color: #0094ff;
 }
+
 .dropdown-check-list.visible .items {
     display: block;
 }
@@ -466,11 +490,11 @@ footer {
 .exercise-search-wrapper,
 .edit-profile-wrapper,
 .create-profile-wrapper,
+.create-exercise-jumbotron,
 .create-exercose-wrapper,
 .generate-workout-jumbotron,
 .generate-workout-form {
     padding-top: 100px;
-    padding-bottom: 100px;
 }
 
 .edit-profile-wrapper {
@@ -513,7 +537,7 @@ footer {
     border: 2px var(--neon-blue) solid;
     border-radius: 15px;
     cursor: pointer;
-    font-size: 34px;
+    font-size: 2vw;
     font-family: 'Russo One',sans-serif, cursive;
     transition: .4s;
     color: var(--neon-blue);
@@ -609,7 +633,7 @@ footer {
 
 .completed-workouts {
     display: inline-block;
-    margin-left: 70px;
+    margin-left: 90px;
     height: 400px;
     color: var(--neon-blue);
     border: 5px inset var(--neon-green);
@@ -815,7 +839,8 @@ footer {
 
 #remove-buddy:hover,
 .cancel-btn:hover,
-.delete-exercise-btn:hover {
+.delete-exercise-btn:hover,
+.remove-weight-btn:hover {
     color: var(--neon-red);
     border: 2px solid var(--neon-red);
     text-decoration: none;
@@ -831,13 +856,37 @@ footer {
 
 /*Generate workout styling*/
 .generate-workout-form {
-    margin: 0 auto;
+    margin: 0 29%;
     width: fit-content;
     padding: 40px;
     border-radius: 15px;
     border: 5px inset var(--neon-blue);
     background: rgba(0, 0, 0, .4);
     box-shadow: 10px 10px 40px var(--neon-blue);
+    font-size: 2vw;
+}
+
+.generate-workout-jumbotron {
+    padding-top: 102px;
+    padding-bottom: 102px;
+}
+
+#level-list {
+    padding-bottom: 0;
+}
+
+.generate-workout-btn {
+    font-size: 1.9vw;
+    margin-top: 21px;
+}
+
+.dropdown-check-list {
+    padding: 10px;
+    font-size: 1.6vw;
+}
+
+.dropbtn {
+    color: var(--neon-blue);
     color: var(--neon-blue);
     font-size: 18px;
     margin-bottom: 80px;
@@ -887,7 +936,7 @@ select {
 }
 
 .workout-btns {
-    margin: 60px 0 40px 550px;
+    margin: 60px 0 40px 30%;
 }
 
 .complete-workout-btn,
@@ -897,7 +946,8 @@ select {
     padding: 1%;
     color: var(--black);
     font-weight: bold;
-    font-size: 20px;
+    font-size: 1.3vw;
+    margin-left: 4%;
     transition: background-color .1s;
     cursor: pointer;
     border-radius: 5px;
@@ -913,7 +963,7 @@ select {
 
 .create-exercise-link {
     font-size: 30px;
-    margin-left:700px;
+    margin-left: 40%;
 }
 
 .editLink-container {
@@ -921,7 +971,7 @@ select {
 }
 
 .personal-exercises-list {
-    margin-left: 20%;
+    margin-left: 30%;
     margin-top: 50px;
     height: 500px;
     /* border: 3px black solid; */
@@ -930,7 +980,7 @@ select {
     padding: 30px;
     overflow: hidden;
     overflow-y: scroll;
-    display: flex;
+    display: block;
     flex-wrap: wrap;
     
 }
@@ -1000,6 +1050,11 @@ textarea {
     margin-top: 30px;
 }
 
+.dropdown-content,
+.items {
+    color: var(--neon-blue);
+}
+
 
 
 /* Media Queries */
@@ -1053,12 +1108,14 @@ textarea {
     }
     /* Homepage Styling End */
 
+
     /* Login Styling Start */
     .login-btn {
-        width: 11vw;
-        margin-left: 87px;
+        width: 9vw;
+        margin-left: 34%;
     }
     /* Login Styling End */
+
 
     /* Signup Styling Start */
     .signup-innerWrapper {
@@ -1081,8 +1138,8 @@ textarea {
         margin-left: 100px;
     }
 
-    .buddies {
-        margin-left: 100px;
+   .buddies {
+        margin-left: 30vh;
         height: auto;
     }
 
@@ -1185,7 +1242,7 @@ textarea {
     /* Create User Profile Styling End */
 
 
-     /* Create User Profile Styling End */
+    /* Edit Profile Styling Start */
      .edit-profile-wrapper {
         padding: 100px 50px;
     }
@@ -1195,7 +1252,43 @@ textarea {
         width: 42%;
         margin: auto auto 15px auto;
     }
-    /* Edit Profile Styling Start */
+    /* Edit Profile Styling End */
+
+
+    /* Generate Workout Styling Start */
+    .generate-workout-form {
+        margin: 0 16%;
+    }
+
+    .generate-workout-jumbotron {
+        padding-top: 102px;
+        padding-bottom: 102px;
+    }
+
+    #level-list {
+        padding-bottom: 0;
+    }
+
+    .generate-workout-btn {
+        font-size: 3vw;
+        margin-top: 21px;
+    }
+
+    .dropdown-check-list {
+        padding: 10px;
+        font-size: 2.2vw;
+    }
+
+    .workout-btns {
+        margin: 60px 0 40px 19%;
+    }
+
+    .complete-workout-btn,
+    .refresh-search-btn {
+        font-size: 1.6vw;
+        margin-left: 10%
+    }
+    /* Generate Workout Styling End */
 }
 
 
@@ -1203,6 +1296,10 @@ textarea {
 @media only screen and (max-width: 992px) {
 
     /* Homepage Styling Start */
+    .head-title {
+        font-size: 4.6vw;
+    }
+    
     .options {
         float: none;
         width: 56%;
@@ -1252,8 +1349,8 @@ textarea {
 
     /* Login Styling Start */
     .login-btn {
-        width: 13vw;
-        margin-left: 87px;
+        width: 11vw;
+        margin-left: 34%;
     }
     /* Login Styling End */
 
@@ -1276,6 +1373,7 @@ textarea {
     /* Dashboard Styling Start */
     .user-info {
         padding: 3px 142px 32px;
+        margin-left: 30vh;
     }
 
     .buddies {
@@ -1288,7 +1386,7 @@ textarea {
     }
 
     .suggested-exercise {
-        margin-right: 36px;
+        margin-right: 24%;
         padding-bottom: 38px;
     }
 
@@ -1300,7 +1398,7 @@ textarea {
 
     .completed-workouts {
         width: 67vw;
-        margin-left: 161px;
+        margin-left: 17%;
     }
     /* Dashboard Styling End */
 
@@ -1393,6 +1491,42 @@ textarea {
         margin: auto auto 15px auto;
     }
     /* Edit Profile Styling Start */
+
+
+    /* Generate Workout Styling Start */
+    .generate-workout-form {
+        margin: 0 10%;
+    }
+
+    .generate-workout-jumbotron {
+        padding-top: 102px;
+        padding-bottom: 102px;
+    }
+
+    #level-list {
+        padding-bottom: 0;
+    }
+
+    .generate-workout-btn {
+        font-size: 2.7vw;
+        margin-top: 21px;
+    }
+
+    .dropdown-check-list {
+        padding: 10px;
+        font-size: 2.2vw;
+    }
+
+    .complete-workout-btn,
+    .refresh-search-btn {
+        font-size: 2vw;
+        margin-left: 6%
+    }
+
+    .generatedExercise {
+        width: auto;
+    }
+    /* Generate Workout Styling End */
 }
 
 
@@ -1400,6 +1534,10 @@ textarea {
 @media only screen and (max-width: 768px) {
 
     /* Homepage Styling Start */
+    .head-title {
+        font-size: 4.6vw;
+    }
+
     .options {
         float: none;
         width: 56%;
@@ -1456,8 +1594,8 @@ textarea {
 
     /* Login Styling Start */
     .login-btn {
-        width: 17vw;
-        margin-left: 83px;
+        width: 15vw;
+        margin-left: 33%;
     }
     /* Login Styling End */
 
@@ -1536,7 +1674,7 @@ textarea {
 
     /* Personal Exercise Styling Start */
     .create-exercise-link {
-        margin-left: 29%;
+        margin-left: 25%;
     }
 
     .personal-exercises-list {
@@ -1600,11 +1738,118 @@ textarea {
         margin: auto auto 15px auto;
     }
     /* Edit Profile Styling Start */
+
+
+    /* Generate Workout Styling Start */
+    .generate-workout-form {
+        margin: 0 10%;
+    }
+
+    .generate-workout-jumbotron {
+        padding-top: 102px;
+        padding-bottom: 102px;
+    }
+
+    #level-list {
+        padding-bottom: 0;
+    }
+
+    .generate-workout-btn {
+        font-size: 3vw;
+        margin-top: 21px;
+    }
+
+    .dropdown-check-list {
+        padding: 10px;
+        font-size: 2.2vw;
+    }
+
+    .generated-workout {
+        width: 90%;
+    }
+    /* Generate Workout Styling End */
 }
 
 
     /* small devices */
 @media only screen and (max-width: 600px) {
+
+    /* Hover Styling Start*/
+    .nav-link:hover,
+    .head-title:hover {
+        box-shadow: none;
+        transition: none;
+        text-decoration: none;
+        color: var(--neon-blue);
+        box-shadow: 2px 2px 10px var(--neon-blue)
+    }
+
+    .signup-btn:hover,
+    .login-btn:hover {
+        transition: none;
+        background-color: var(--neon-blue);
+    }
+
+    .login-link:hover,
+    .signup-link:hover {
+        border: 1px solid var(--neon-blue);
+        background-color: var(--black);
+        color: var(--neon-blue);
+    }
+
+    .signup-btn:active,
+    .login-btn:active {
+        outline: none;
+    }
+
+    .edit-profile-link a {
+        transition: none;
+    }
+    
+    .edit-profile-link a:hover {
+        background-color: var(--neon-blue);
+        -webkit-text-stroke-color: none;
+    }
+
+    .add-buddy-btn:hover,
+    .add-weight:hover,
+    .create-exercise-link:hover,
+    .edit-exercise-link:hover {
+        border: 2px solid var(--neon-blue);;
+        -webkit-text-stroke-color: none;
+        color: var(--neon-blue);
+        background-color: black;
+    }
+
+    .update-btn:hover,
+    .cancel-btn:hover,
+    .create-profile-btn:hover,
+    .create-exercise-btn:hover {
+        border: 2px var(--neon-blue) solid;
+        border-radius: 15px;
+        color: var(--neon-blue);
+    }
+
+    .search-exercises-btn,
+    .update-btn,
+    .cancel-btn,
+    .create-profile-btn,
+    .create-exercise-btn,
+    .generate-workout-btn {
+        cursor: pointer;
+        font-size: 34px;
+        font-family: 'Russo One',sans-serif, cursive;
+        transition: .4s;
+
+        background-color: black;
+        width: fit-content;
+        margin-bottom: 20px;
+        text-decoration: none;
+        padding: 5px;
+    }
+
+    /* Hover Styling End */
+
 
     /* Homepage Styling Start */
     header {
@@ -1614,6 +1859,14 @@ textarea {
     .head-title {
         float: none;
         font-size: 7vw;
+    }
+
+    .nav-link {
+        margin: 6px;
+    }
+
+    #logout {
+        margin-left: 37%;
     }
 
     .options {
@@ -1679,6 +1932,7 @@ textarea {
     /* Login Styling Start */
     .login-btn {
         width: 17vw;
+        margin-left: 34%;
     }
     /* Login Styling End */
 
@@ -1806,10 +2060,10 @@ textarea {
         width: 43%;
         margin: auto auto 15px auto;
     }
-
-
-
     /* Create User Profile Styling End */
+  
+  
+    /* Edit Profile Styling Start */
     .edit-profile-wrapper {
         padding: 100px 50px;
     }
@@ -1819,4 +2073,49 @@ textarea {
         width: 51%;
         margin: auto auto 15px auto;
     }
+    /* Edit Profile Styling End */
+
+  
+    /* Generate Workout Styling Start */
+    .generate-workout-form {
+        margin: 0 10%;
+    }
+
+    .generate-workout-jumbotron {
+        padding-top: 102px;
+        padding-bottom: 102px;
+    }
+
+    #level-list {
+        padding-bottom: 0;
+    }
+
+    .generate-workout-btn {
+        font-size: 4vw;
+        margin-top: 10px;
+    }
+
+    .dropdown-check-list {
+        font-size: 3vw;
+    }
+
+    .complete-workout-btn,
+    .refresh-search-btn {
+        font-size: 3vw;
+        margin-left: 0%
+    }
+
+    .workout-btns {
+        margin: 60px 0 40px 15%
+    }
+
+    .generatedExercise {
+        width: auto;
+    }
+
+    .generated-workout {
+        width: 99%
+    }
+    /* Generate Workout Styling End */
 }
+
