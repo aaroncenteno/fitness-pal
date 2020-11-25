@@ -13,10 +13,10 @@ async function createProfileFormHandler(event) {
 
 
     if (height_ft && height_in && weight && fitness_level && goal) {
-    // if (height_ft && height_in && weight && fitness_level) {
+        // if (height_ft && height_in && weight && fitness_level) {
         console.log(goal);
         console.log(fitness_level);
-            const response = await fetch('/api/users/profile', {
+        const response = await fetch('/api/users/profile', {
             method: 'POST',
             body: JSON.stringify({
                 height_ft,
@@ -40,15 +40,13 @@ async function createProfileFormHandler(event) {
 
 jQuery(function ($) {
     var checkList = $('.dropdown-check-list');
-    checkList.on('click', 'span.anchor', function(event){
+    checkList.on('click', 'span.anchor', function (event) {
         var element = $(this).parent();
 
-        if ( element.hasClass('visible') )
-        {
+        if (element.hasClass('visible')) {
             element.removeClass('visible');
         }
-        else
-        {
+        else {
             element.addClass('visible');
         }
     });

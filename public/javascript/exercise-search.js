@@ -1,10 +1,11 @@
+const refreshBtn = document.querySelector('.refresh-exerciseSearch-btn')
+const exerciseSearchForm = document.querySelector('.exercise-search-form')
 async function searchResultsHandler(event) {
     event.preventDefault();
 
     const gym_no_gym = document.querySelector('input[name="gym-no-gym-option"]:checked').value;
     const upper_lower = document.querySelector('input[name="body-option"]:checked').value;
     const fitness_level = document.querySelector('input[name="level-option"]:checked').value;
-    const date_time = new Date();
 
     const response = await fetch('api/exercises/search/', {
         method: 'POST',
@@ -21,6 +22,8 @@ async function searchResultsHandler(event) {
     .then(response => response.json())
     .then(result => {
         console.log(result);
+        refreshBtn.classList.remove('hide')
+        exerciseSearchForm.classList.add('hide')
 
         // section container for all results
         const result_section = document.createElement('section');
@@ -54,50 +57,54 @@ async function searchResultsHandler(event) {
             result_section.appendChild(result_div);
         }
 
-        section_html = document.querySelector('.results');
-        section_html.appendChild(result_section);
+        section_container = document.querySelector('#section-results');
+        section_container.setAttribute("class", "exercise-search-results");
 
+        title_container = document.querySelector('.search-result-title');
+        title_container.innerHTML = "Exercise Search Results";
+
+        div_html = document.querySelector('.results');
+        div_html.appendChild(result_section);
+    
     })
 }
 
-async function saveWorkoutHandler(event) {
-    event.preventDefault();
+// async function saveWorkoutHandler(event) {
+//     event.preventDefault();
 
-    console.log("save was clicked");
+//     const nodesArray = Array.prototype.slice.call(document.querySelectorAll('.result-div'));
+    
+//     // const exercise_list = null;
+//     const personal_list = null;
+//     const exerciseListArray = [];
 
-    // const nodesArray = Array.prototype.slice.call(document.querySelectorAll('.result-section'));
+//     for (i = 0; i < nodesArray.length; i++) {
+//         const exerciseResult = nodesArray[i].getAttribute("id");
+//         exerciseListArray.push(exerciseResult);
+//     }
 
-    // const date_time = new Date();
-    // console.log(date_time);
+//     const exercise_list = exerciseListArray.join(', ');
 
-    const exercise_list = null;
-    const personal_list = null;
-    // const exercise_list = [];
+//     const response = await fetch('/api/exercises/workout', {
+//         method: 'POST',
+//         body: JSON.stringify({
+//             exercise_list,
+//             personal_list
+//         }),
+//         headers: {
+//             'Content-Type': 'application/json'
+//         }
+//     })
+//     if(response.ok) {
+//         console.log('data was saved');
+//         document.location.replace('/dashboard/workout');
+//     }
 
-    // console.log(nodesArray);
-    // saved_results.forEach(function(each_exercise) {
-    //     const each = JSON.stringify(each_exercise);
-    //     exercise_list.push(each_exercise);
-    // })
+// }    
 
-    // console.log(exercise_list);
-
-    const workoutResponse = await fetch('/api/exercises/workout', {
-        method: 'POST',
-        body: JSON.stringify({
-            exercise_list,
-            personal_list
-        }),
-        headers: {
-            'Content-Type': 'application/json'
-        }
-    })
-    if(workoutResponse.ok) {
-        console.log('data was saved');
-        document.location.replace('/dashboard');
-    }
-
-}    
+refreshExerciseSearch = function(event) {
+    document.location.reload()
+}
 
 jQuery(function ($) {
     var checkList = $('.dropdown-check-list');
@@ -114,4 +121,7 @@ jQuery(function ($) {
 });
 
 document.querySelector('.exercise-search-form').addEventListener('submit', searchResultsHandler);
-document.querySelector('.exercise-save-btn').addEventListener('click', saveWorkoutHandler);
+if(refreshBtn) {
+    document.querySelector('.refresh-exerciseSearch-btn').addEventListener('click', refreshExerciseSearch);
+}
+// document.querySelector('.exercise-save-btn').addEventListener('click', saveWorkoutHandler);

@@ -23,7 +23,7 @@ async function editExerciseFormHandler(event) {
                 'Content-Type': 'application/json'
             }
         });
-        if(response.ok) {
+        if (response.ok) {
             window.location.replace('/dashboard/personal-exercise')
         }
     }
@@ -39,18 +39,17 @@ async function deleteExerciseHandler(event) {
             'Content-Type': 'application/json'
         }
     })
-    if(response.ok) {
+    if (response.ok) {
         window.location.replace('/dashboard/personal-exercise')
     }
 }
 
 jQuery(function ($) {
     var checkList = $('.dropdown-check-list');
-    checkList.on('click', 'span.anchor', function(event){
+    checkList.on('click', 'span.anchor', function (event) {
         var element = $(this).parent();
 
-        if (element.hasClass('visible'))
-        {
+        if (element.hasClass('visible')) {
             element.removeClass('visible');
         } else {
             element.addClass('visible');
